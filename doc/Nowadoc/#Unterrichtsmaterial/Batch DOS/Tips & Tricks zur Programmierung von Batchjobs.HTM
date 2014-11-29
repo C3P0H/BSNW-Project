@@ -1,0 +1,1294 @@
+<html><head><title>http://www.antonis.de</title></head>
+<body bgcolor="#ffffcc">
+
+
+<center>
+<table border=8 WIDTH="90%" BGCOLOR="#A8CAFE">
+<tr><td>
+<br>
+<center>
+<font face="Comic Sans MS,Verdana" color=red>
+<h1>Tips & Tricks zur Programmierung von Batchjobs</h1>
+<h2>von Matthias Paul</h2></font>
+</center>
+&nbsp;<br>
+</td></tr>
+</table>
+</center>
+
+
+<pre><font face="Courier New,Courier">
+<font size=+1><b>
+      Inhalt:
+      =======
+      0. <a href="#0">Vorwort und weitere Resourcen</a> 
+      1. <a href="#1">Allgemeine Tips für Batchjobs</a> 
+      2. <a href="#2">Unerwünschter Zeilenvorschub nach Batchjobs</a> 
+      3. <a href="#3">Debuggen von Batchjobs</a> 
+      4. <a href="#4">Lange Umgebungsvariablen und lange Kommandozeilen</a> 
+      5. <a href="#5">UpCase in Batchjobs</a> 
+      6. <a href="#6">Batchprozessor-Bug umgehen</a> 
+      7. <a href="#7">ERRORLEVEL abfragen</a> 
+      8. <a href="#8">Probleme mit Verzeichnisabfragen in Netzwerken</a> 
+      9. <a href="#9">FOR und die %%x Variablen</a> 
+     10. <a href="#10">SET und Umleitung</a> 
+</font></b>
+<br><hr><br>
+<a name="0"></a>
+   0. Vorwort und weitere Resourcen 
+   ============================================
+
+   BATTIPS.TXT  
+
+   Copyright (C) 10/1993-05/1997 bei Matthias Paul
+                                     Ubierstr. 28
+                                     D-50321 BRÜHL
+                                     DEUTSCHLAND
+
+   EMail          :&lt;Matthias.Paul@post.rwth-aachen.de&gt;
+
+   Letzte Änderung: 1997-05-01 -mp
+  
+  -----------------------------------------------------------
+
+
+   Ich übernehme keine Gewähr für die Richtigkeit der Informationen.
+   Jegliche Haftung für Schäden etc. ist ausgeschlossen. Hinweise auf
+   Fehler sowie auf weitere Tips und Tricks sind immer willkommen.
+
+   Hinweis: Die im Folgenden angesprochenen Dateien sind auf der Webseite
+      URL: http://www.8ung.at/dos/mpdostip/
+   verfügbar.
+   
+   Bitte beachten Sie <a href="readme.txt">README.TXT</a> für weitere Bestimmungen.
+
+   Für weitere Hinweise siehe auch meine Dokumente NWDOS7UN.TXT,
+   NWDOSTIP.TXT, DRDOS6UN.TXT, DRDOSTIP.TXT, <a href="msdostip.txt">MSDOSTIP.TXT</a> u.a.
+
+   Bezüglich Updates meiner Tips & Tricks Dokumente sei auf die
+   beiliegende Datei MPDOSTIP.TXT verwiesen, z.B.:
+   
+    URL: http://www.8ung.at/dos/mpdostip/
+    URL: http://www.rhrz.uni-bonn.de/~uzs180/mpdokger.html
+    URL: ftp://ftp.uni-stuttgart.de/...
+                              ...pub/systems/msdos/utils/system/mpdostip.zip
+              
+   Eine andere umfangreiche Sammlung von Tips & Tricks zu Batchjobs
+   (in englischer Sprache) hat Timo Salmi &lt;ts@uwasa.fi&gt; zusammengestellt:
+   TSBATxx.ZIP und TSPOSTxx.ZIP. Obwohl völlig unabhängig voneinander
+   entstanden, spiegeln sich in seiner Sammlung viele Problemlösungen
+   wieder, die hier sehr ähnlich beschrieben sind. Daher passen beide
+   Editionen sehr gut zueinander, wobei ich meine Batchtricks als Ver-
+   allgemeinerung seiner Tricks ansehen würde, da *hier* auch auf andere
+   Kommandoprozessoren als (nur) MS-DOS COMMAND.COM sowie auf Versions-
+   unterschiede und Probleme bei der Internationalisierung ausführlich
+   eingegangen wird. Abgesehen von dieser Schwäche ist seine Sammlung
+   sehr zu empfehlen!
+   Viele Beispiele aus Timo Salmis Sammlung lassen sich mit den hier
+   dargebotenen Informationen noch weiter verbessern und generalisieren.
+   Timo Salmis Sammlung ist weltweit an vielen unterschiedlichen Stellen
+   zu finden, u.a. auf:
+
+    URL: http://garbo.uwasa.fi/pc/ts.html
+    URL: ftp://garbo.uwase.fi/pc/pd2/
+
+   Weitere Tipps, die sie auf den obigen Webseiten finden können:
+
+   - Sicheres Erkennung eines Novell DOS Kernels mit Batchsprache:
+     siehe NWDOSTIP.TXT (MEM.BAT) und <a href="msdostip.txt">MPDOSTIP.TXT</a>
+
+   - Probleme mit Sharing-Violations in Verbindung mit CALL und Umleitungen:
+     siehe <a href="msdostip.txt">MSDOSTIP.TXT</a> und NWDOSTIP.TXT (MEM.BAT).
+
+   - Ermittlung des aktuellen SwitChars:
+     siehe NWDOSTIP.TXT (SWC.BAT und MEM.BAT)
+
+<a name="1"></a>                                                                             
+  ---------------------------------------------------------------------------
+
+   1. Allgemeine Tips für Batchjobs: [96-11-29]
+   ============================================
+
+    In diesem ersten Abschnitt möchte ich ein paar generelle Tips für das
+    Programmieren von Batchjobs geben. Die Tips sollen helfen, versions-
+    und herstellerabhängige Unterschiede zwischen den Kommandoprozessoren
+    auszubügeln, weil ich festgestellt habe, daß die meisten Programmierer
+    ihre Batchjobs nur mit ihrem eigenen Kommandoprozessor testen. Da die
+    Batchsprache (gegenüber üblichen Programmiersprachen) enorm viele un-
+    ausgesprochene Implikationen besitzt, die spartanischen Möglichkeiten
+    auf der anderen Seite aber permanent zu tiefen Griffen in die Trickkiste
+    zwingen, kommt es häufig vor, daß ein Programmierer bestimmte Details
+    übersehen hat, die z.B. nur bei relativen Pfadangaben, nur mit Netz-
+    laufwerken, nur bei Umleitungen, nur bei verschachtelten Batchjobs,
+    nur mit sehr langen Zeilen, nur in anderssprachlichen Regionen oder
+    bestimmten Ländern, nur unter bestimmten Kommandoprozessorversionen,
+    nur unter Multitaskern, nur in temporären oder sekundären Shells etc.
+    auftreten (diese Liste ließe sich beliebig fortsetzen), sonst aber
+    normal arbeiten.
+
+    Trotzdem ist die Batchsprache für viele Verwaltungs-, Organisations-
+    und Konfigurationsaufgaben (auch im Netzwerk) eine ideale Basis, denn
+    als gemeinsamer Nenner existiert ein implementationsunabhängiger
+    Sprachstandard über alle DOS-Kommandoprozessoren, der im Vergleich
+    zu anderen 'höheren' Programmiersprachen bezüglich des Datei- und
+    Applikations-Handlings und der Systemkonfiguration eine sehr viel
+    höhere Abstraktionsebene bietet.
+    Außerdem bieten (fast) nur Batchjobs die Möglichkeit, sich selbst zur
+    Laufzeit 'umzuprogrammieren' (natürlich bringt das Interpreter-Prinzip
+    auch eine ganze Reihe Probleme mit sich).
+    Problematisch ist lediglich, daß die eingeschränkten Möglichkeiten zur
+    Fallunterscheidung einen zu aberwitzigen Konstruktionen zwingen, die
+    eben wiederum viele Seiteneffekte auslösen können.
+
+    Es ist unmöglich, an dieser Stelle auch nur ansatzweise *alles* zu be-
+    schreiben, was dazu notwendig ist, *alle* möglichen Fehlerzustände bei
+    der Programmierung von Batchjobs zu umgehen. Obwohl die Programmierung
+    von trickreichen Batchjobs seit vielen Jahren eines meiner Steckenpferde
+    ist (eine moderne Form des 'Schachspiels', bei dem man immer um drei
+    Ecken denken muß...;-) ), unterlaufen auch mir immer wieder Fehler...
+    Für Begründungen, warum dies oder das so, wie hier beschrieben pro-
+    grammiert werden sollte, sei auf die anderen Dokumente (besonders
+    NWDOSTIP.TXT, MSDOSTIP.TXT und 4DOS5TIP.TXT) verwiesen. Am besten,
+    Sie behalten immer eine Reihe Bootdisketten mit alten DOS-Versionen
+    und alternativen Kommandoprozessoren in Reichweite, um Ihren Batchjob
+    vor einer Veröffentlichung unter anderen Randbedingungen durchzuchecken.
+
+     Halten Sie bestimmte Konventionen ein, z.B. meine Empfehlung:
+
+      - Alle internen Befehle und externe DOS-Kommandos in Großschrift
+        (GOTO x)
+      - Alle Pfadangaben und Dateispezifikationen in Kleinschrift (c:\dos)
+      - Eigene Umgebungsvariablen in Kleinschrift (%dummy%)
+      - System-Umgebungsvariablen, Pseudo-Variablen und -Funktionen und
+        System-Konstanten in Groß-/Kleinschrift (%CmdLine%, %_Date%)
+      - Label in Kleinschrift mit '_' als Trenner. Alle Labels maximal acht
+        Zeichen. ( :label_1 )
+      - Token (als Parameter) beginnen und enden jeweils mit "_" als Sonder-
+        zeichen, um sie von üblichen Eingaben zu unterscheiden (_mode1_).
+      - Benutzen Sie bestimmte Konventionen für Dateinamen, z.B. Temporär-
+        dateien in %tmp% und namentlich möglichst dem Batchjob ähnlich (z.B.
+        nur andere Dateiendung als der Batchjob, der sie verwendet). Für
+        Zwischendaten möglichst die .$$$-Endung und für Semaphor-Dateien
+        .SEM verwenden.
+      - Gleiches gilt für Umgebungsvariablen. 'Lokale' Variablen sollten
+        dem Batchjob ähnlich heißen, damit es keine Wechselwirkung mit
+        anderen Variablen anderer Batchjobs gibt.
+      - Überlegen Sie sich genau, ob es sinnvoll ist, bestimmte systemweit
+        benutzte Variablen am Ende jedes Batchjobs zu löschen, auf die alten
+        Werte zurückzusetzen oder bestehen zu lassen. Je nach Verwendung der
+        Variable ist das eine oder andere sinnvoll, muß dann aber über das
+        ganze System durchgezogen werden. Üblicherweise werden 'lokale'
+        Variablen gelöscht, globale jedoch nicht angetastet.
+
+     Pfadwerte in Umgebungsvariablen sollten niemals mit "\" aufhören,
+      es sei denn, dies wird ausdrücklich für eine Zweck benötigt (z.B.
+      Root eines Laufwerks). Viele Programme (und vor allem ältere DOS-
+      Versionen), die Variablen auswerten wollen, kommen nicht mit dem
+      Backslash am Schluß zurecht. Bsp.:
+
+       SET tmp=c:\tmp
+       IF NOT EXIST %tmp%\nul MD %tmp%
+
+      Außerdem behalten Sie auf diese Weise bei Referenzen auf diese
+      Variablen die Auswahl zwischen "%tmp%" oder "%tmp%\" etc.
+
+     Wenn Sie relative Pfade verwenden, referenzieren Sie möglichst über
+      Variablen, Substitut-Laufwerke oder kombinieren Sie beide Möglich-
+      keiten. Auf diese Weise bleibt Ihr Batchjob (und auch Ihre Programm-
+      konfiguration) leicht wartbar.
+
+      Manchmal meinen Installationsprogramme besonders 'schlau' zu sein,
+      und lassen keine relativen Pfadangaben oder die Installation in ein
+      Wurzelverzeichnis zu (z.B. manche Utilities der PC Tools); in diesem
+      Fall hilft meist ein Trick, indem man vom aktuellen Verzeichnis aus
+      erst eine Verzeichnisebene zurück geht, um dann wieder in das aktuelle
+      Verzeichnis zu wechseln:
+
+       Aktuelles Verzeichnis sei: c:\dummy\inst_dir\
+       Schreiben Sie trotzdem   : ..\inst_dir\
+
+      oder auch
+
+       Aktuelles Verzeichnis sei: c:\
+       Schreiben Sie            : c:\dummy\..\  (Verzeichnis muß existieren)
+
+     Die meines Erachtens nach sicherste Methode, ein Temporärlaufwerk ein-
+      zurichten, bietet sich mit der Verwendung der Variablen %Temp% und
+      %tmp% an, die auf ein Substitut-Laufwerk zeigen. Bsp.:
+
+       IF ""=="%tmp%" SET tmp=%Temp%
+       IF ""=="%tmp%" SET tmp=c:\tmp
+       c:
+       SUBST z: /d
+       SUBST z: %tmp%
+       SET Temp=z:\.
+       SET tmp=%Temp%
+
+      Sie können nun über %tmp%\, %Temp%\ oder "z:", "z:.", "z:\", "z:.\"
+      oder "z:\.\" auf dieses Laufwerk zugreifen, wobei die Unterschiede
+      dadurch im Fall eines Temporärlaufwerkes fast unerheblich werden.
+      Sollte %tmp% einmal nicht definiert sein, ist das auch nicht weiter
+      tragisch, die Datei wird dann einfach im aktuellen Verzeichnis an-
+      gelegt:
+
+      %tmp%\tempfile.$$$
+
+     Vermeiden Sie Zeilen, die in irgendeiner Phase ihrer Bearbeitung
+      (vor, während oder nach der Expandierung) länger als 120 Zeichen
+      werden (außer in Abschnitten, die *sicher* nur von 4DOS/NDOS durch-
+      laufen werden).
+
+     Benutzen Sie die Zeichen "&gt;", "&lt;" und "|" nur für Umleitungszwecke,
+      auch wenn manche Kommandoprozessoren (etwa DR DOS 6.0, Novell DOS 7,
+      Caldera OpenDOS COMMAND.COM) sie auch in anderen Fällen akzeptieren.
+      Gleiches gilt für andere Erweiterungen, wie z.B. Novells
+      "IF ... AND ..." oder 4DOS' "IF ... .AND. ...".
+      Schreiben Sie solche Formulierungen möglichst um:
+      "IF ... IF ...".
+      Wenn Sie unbedingt die obigen Zeichen verwenden *müssen*, setzen Sie
+      sie in doppelte Anführungszeichen (falls das möglich ist), etwa bei
+      Formulierungen wie:
+
+       DIR *.* | FIND "&lt;DIR&gt;"
+       ECHO "Bitte drücken Sie die &lt;ESC&gt;-Taste!"
+
+      Dies ist (zumindest unter Novell DOS und Caldera OpenDOS COMMAND.COM
+      getestet) auch an anderen Stellen möglich, allerdings werden die '"'-
+      Zeichen nicht verschluckt, was die Auswertung etwas erschwert.
+
+     Verwenden Sie in IF-Vergleichen (von Ausnahmen abgesehen, wo Sie
+      numerische Werte in Relation setzen müssen) auf beiden Seiten des
+      Vergleichs doppelte Anführungszeichen. Damit können direkt mehrere
+      mögliche implizite Probleme ausgeräumt werden, die manchmal auftreten.
+
+      Manchmal, insbesondere unter 4DOS, muß man die Anführungszeichen
+      weglassen, hier sollte man gegebenenfalls vorher auf 4DOS abtesten.
+      Problematisch an numerischen Werten ist der Dezimaltrenner, der sich
+      je nach Landeseinstellungen unterscheidet und z.B. ab 4DOS 5.5/5.51?
+      große Probleme bei internationalen Batchjobs aufwirft, wenn Sie eine
+      Variable mit einer Konstanten vergleichen wollen.
+
+     Schreiben Sie in IF-Vergleichen "wert"=="%variable%" statt
+      "%variable%"=="wert", auch wenn "wert" leer ist, d.h "".
+      Überlegen Sie, ob es sinnvoll ist, die Bedingung zu invertieren, um
+      die Konsistenz der Logik aufrechtzuerhalten, wenn die Zeile bei der
+      Variablenexpansion zu lang werden sollte (Hintergrund siehe an anderer
+      Stelle in dieser Datei).
+
+      Achtung: Die saubere Invertierung ist ein vorangestelltes NOT, nicht
+      eine geänderte Logik, die auf anderem Weg die gegenteilige Bedingung
+      auswertet.
+      Einige Leser werden mich jetzt für verrückt erklären, aber die Praxis
+      zeigt, daß tatsächlich ein impliziter Unterschied (kein Bug, sondern
+      eine Designschwäche) besteht! ;-)
+      Ich sage nur: Vergleiche/Relationen von Fließkommazahlen unter alten
+      und neuen 4DOS-Versionen (vor/nach 5.5) in anderen Ländern als den
+      USA (ein exaktes Beispiel würde einige Seiten Erklärungen benötigen,
+      die ich mir hier sparen möchte...).
+
+     Falls auf beiden Seiten eines Vergleichs Variablen stehen, sollten
+      Sie die Variable mit den voraussichtlich längeren Werten nach hinten
+      setzen.
+
+     Vermeiden Sie "ECHO." und "@"-Zeichen vor einem Befehl, wenn der
+      Batchjob mit DOS COMMAND.COM vor 3.3 laufen soll. Falls Sie "@"
+      verwenden, muß es in der ersten Spalte stehen, auch wenn danach
+      evtl. noch weitere Leerfelder folgen.
+
+     Für "ECHO." können Sie auch "ECHO _" schreiben, wobei _ *hier* ein
+      Platzhalter für das unsichtbare Sperr-Leerfeld ASCII-255 ist
+      (Eingabe per &lt;Alt&gt;-NumPad oder - bei K3, K3PLUS oder FreeKEYB - auch
+      mit &lt;Alt&gt;+&lt;Ctrl&gt;+&lt;Space&gt;). Achtung:
+      Manche schlechteren Editore (etwa der interne Editor des NC)
+      ersetzen ein in einer Datei vorhandenes ASCII-255 stillschweigend
+      durch ein normales Leerfeld, und Sie wundern sich später über
+      seltsame Resultate.
+      Und noch etwas: Wenn Sie unter MS-DOS/PC-DOS COMMAND.COM einen Text
+      mit ECHO ausgeben wollen, achten Sie darauf, daß die reservierten
+      Worte "on" und "off" nicht das erste Wort in diesem Text sind, sonst
+      interpretiert COMMAND.COM dies nicht als Text...
+      (Novell DOS und Caldera OpenDOS COMMAND.COM sowie 4DOS kennen dieses
+      Problem nicht.)
+
+     Lassen Sie - von Ausnahmen abgesehen - die Dateiendung von ausführ-
+      baren Dateien (.EXE, .COM, .BAT, .BTM) weg. Eine solche Ausnahme ist
+      z.B. die Verwendung von Batchjobs als 'Dispatcher' (Programmver-
+      zweiger), um die %Path% Anweisung kurz zu halten. In solchen Wrappern
+      müssen Sie meistens die Dateiendung und/oder den kompletten Pfad mit
+      angeben, um eine Rekursion zu vermeiden. Wenn auch noch MS-DOS vor 4.0
+      unterstützt werden soll, *dürfen* Sie - zumindest bei üblichen Pro-
+      grammaufrufen in Batchjobs - keine Dateispezifikation angeben.
+
+     Lassen Sie aus den gleichen Gründen möglichst auch die Pfadspezifi-
+      kation zu solchen ausführbaren Dateien weg und verwenden Sie statt-
+      dessen indirekte Referenzen über %Path% oder aufrufende Batchjobs,
+      die z.B. im C:\BAT Verzeichnis liegen (welches natürlich in %Path%
+      aufgenommen wurde).
+
+     Wenn Ihr Batchjob nicht mit DOS vor 3.3 arbeiten muß, stellen Sie
+      allen externen Befehlen ein @CALL voran. Damit ermöglichen Sie es,
+      daß diese externen Befehle auch (indirekt) über Batchjobs aufrufbar
+      werden, ohne daß in diesem Fall später die Logik Ihres Batchjobs
+      durcheinander kommt. Mit anderen Worten: Nach der Bearbeitung kommen
+      Sie wieder in den aktuellen Batchjob zurück - wenn Sie nicht irgendwo
+      anders ein CALL vergessen haben. Solange Sie nur .EXE oder .COM
+      Programme aufrufen, fällt der Unterschied nicht auf, daher wird
+      dieser Fallstrick häufig übersehen. Vorbeugung ist hier die beste
+      Devise. Denn Sie werden später nicht so leicht darauf kommen, warum
+      auf einmal ein Batchjob nicht mehr richtig arbeitet, obwohl Sie ihn
+      gar nicht geändert haben.
+
+     "@CALL" ist aber auch nicht unproblematisch:
+      Der seit DOS 3.3 vorhandene Befehl CALL besitzt eine ganze Reihe ver-
+      steckter Fallstricke. In Problemfällen (mit Umleitung, mit SHARE oder
+      bei älterem DOS) schreiben Sie stattdessen %ComSpec% /C. Dabei muß
+      man aber beachten, daß dies keine 1:1-Umsetzung ist, sondern ein
+      Workaround mit einer Reihe Seiteneffekten: Beim Aufruf eines neuen
+      temporären Kommandoprozessors bleiben die Umgebungsvariablen,
+      die innerhalb dieser Kopie definiert oder verändert wurden, auch
+      nur für die Laufzeit dieser Shell gültig, danach gelten wieder die
+      alten Werte. 'Globale' Einstellungen müssen also vorher auf 'unterer'
+      Ebene vorgenommen werden.
+      Häufig benutzt man CALL, um wieder an die alte Stelle zurückzukommen,
+      und läßt das CALL weg, wenn man diese Kette der Rekursionen beenden
+      möchte. Verwendet man stattdessen %ComSpec%, so ist die Möglichkeit,
+      die Rekursion mit einem Sprung in eine andere Datei ohne CALL bzw.
+      %ComSpec% zu durchbrechen, nicht gegeben. Nach der Beendigung des
+      Jobs wird in jedem Fall wieder in den alten Job zurückverzweigt, auch
+      wenn man auf höherer Ebene die Kette durch weggelassene CALLs unter-
+      brochen hat. Die einzige Lösung, dieses Problem (wenn es denn eines
+      ist, manchmal ist dies auch genau das Verhalten, was sich viele von
+      CALL wünschen) zu lösen, besteht darin, daß der aufgerufene Job eine
+      spezielle Datei erzeugt, und der Aufrufer nach der Rückkehr anhand
+      der Existenz dieser Datei über die weitere Bearbeitung entscheidet
+      (ein ausgetüfteltes Beispiel für diese Technik war mein Batchjob
+      COMBINE.BAT aus Ralf Browns Interruptliste INTER50-INTER51, in-
+      zwischen durch eine .COM-Version ersetzt. Die Batchfassung ist aber
+      nach wie vor über meine Web-Seite zu beziehen.).
+
+     Wenn Sie COMMAND.COM aufrufen, spezifizieren Sie diesen über die
+      Variable %ComSpec%. Ausnahme: Sie wollen einen ganz bestimmten
+      Kommandoprozessor aufrufen, der nicht unbedingt mit dem Kommando-
+      prozessor übereinstimmt, der gerade geladen ist.
+
+     Und was ist mit CALL und LOADHIGH respektive seiner Aliase? Muß man
+      CALL LH oder LH CALL schreiben? Beides funktioniert (bei Novell DOS,
+      Caldera OpenDOS und 4DOS), ich empfehle CALL LH, weil das sinnfälliger
+      scheint.
+
+     Wenn Sie einen Batchjob schreiben, der sich rekursiv selbst aufruft,
+      schreiben Sie statt dem 'eigenen' Dateinamen das Token %0. Damit
+      funktioniert der Batchjob auch noch, wenn Sie die Datei umbenennen.
+      Der Token %0 enthält den Anfang der Aufrufzeile (abzüglich der
+      Parameter) in der Form, wie er geschrieben wurde. D.h., daß %0 auch
+      relative oder absolute Pfadspezifikationen enthalten kann und daß die
+      Dateiendung optional ist. Achtung: %0 enthält leider nicht einheit-
+      lich, sondern abhängig vom jeweiligen Kommandoprozessor, den Datei-
+      namen in Groß- oder Kleinbuchstaben. Damit fällt also die Möglichkeit
+      weg, unter Zuhilfenahme von %0 den eigenen Dateinamen auf Korrektheit
+      zu überprüfen, oder %0 in COPY oder REN Befehlen, die die Batchdatei
+      selbst referenzieren, zu verwenden.
+
+     Eine weitere Besonderheit in der Behandlung der Variablen %0..%9
+      offenbart sich, wenn man den ersten (mit SwitChar abgetrennten)
+      Parameter ohne Leerfeld direkt hinter den Namen des Batchjobs setzt.
+      In diesem Fall wird %0 direkt vor dem SwitChar abgetrennt und %1
+      enthält den ersten Parameter inklusive des SwitChars. Bei den anderen
+      Parametern %1..%9 tritt diese automatische Trennung nicht in Kraft,
+      d.h. die Parameter werden als eine Zeichenkette behandelt. Daran ändert
+      sich auch nichts, wenn man SHIFT einsetzt.
+      (Getestet mit Novell DOS 7 COMMAND.COM und 4DOS 5.52.)
+
+     Schreiben Sie alle Befehle, die auf keinen Fall via DOSKEY rede-
+      finiert werden dürfen, nicht in die erste Zeile, sondern platzieren
+      z.B. ein Leerfeld davor. Ein einem Befehl vorangestelltes '@'-Zeichen
+      muß trotzdem in der ersten Spalte stehen bleiben, sonst wird es z.B.
+      von Novells COMMAND.COM nicht akzeptiert. Nach dem '@' können
+      Leerzeichen folgen.
+
+     FOR-Schleifen können nur bei 4DOS/NDOS ineinander verschachtelt
+      werden, nicht bei MS-DOS, PC-DOS, DR DOS oder Novell DOS COMMAND.COM.
+      Innerhalb der Parameterliste von "IN (liste)" müssen Sie darauf
+      achten, daß zwar prinzipiell beliebige Zeichenketten (nicht nur
+      Dateinamen) erlaubt sind, aber daß die Zeichen '?' und '*' immer als
+      Wildcards interpretiert werden und daß die Ersetzung von Umgebungs-
+      variablen, etwa wie
+
+       FOR %%x IN (%switch%h %switch%H) DO ECHO Hilfeschirm: %%x
+
+      innerhalb dieser Liste nicht bei jedem Kommandoprozessor sauber
+      funktioniert (z.B. nicht bei 4DOS). Abhilfe besteht nur durch
+      'Herausziehen' der Umgebungsvariablen aus der "IN ()"-Aufzählung
+      und 'Abfangen' der Wildcards *vor* solchen FOR-Anweisungen, die
+      eigentlich nur Parameter auswerten sollen.
+
+     Bei Umleitungen auf Geräte sollten Sie vorsichtshalber immer \DEV\
+      mit angeben, damit der Job auch noch mit MS-DOS 2.xx zusammenarbeitet.
+      Ein Verzeichnis \DEV\ muß dafür nicht existieren! Z.B. "\dev\nul".
+      Wenn Sie Fehlermeldungen, die bei SET-Befehlen entstehen können,
+      unterdrücken wollen, können Sie diese auf \dev\nul umleiten. Beachten
+      Sie aber, daß das '&gt;' unmittelbar nach der Wertangabe folgt (ohne
+      Leerfelder), sonst interpretieren einige COMMAND.COM Prozessoren
+      (z.B. MS-DOS 6.xx+) diese Leerfelder als gewünschten Inhalt der SET-
+      Variablen (wodurch andererseits natürlich auch eine Möglichkeit
+      besteht, abschließende Leerfelder in eine Umgebungsvariable zu
+      bekommen). Namen von Blockgerätetreibern können übrigens optional
+      mit einem Doppelpunkt abschließen.
+
+     Vermeiden Sie möglichst landessprachliche Extras, wie spezielle
+      Tasten oder bestimmte Schlüsselworte. Wenn keine spezielle Behandlung
+      für alle möglichen Sprachen eingebaut wird, kann es vorkommen, daß der
+      Batchjob in einem fremden Land plötzlich nicht mehr arbeitet, obwohl
+      nichts geändert wurde.
+
+     Vermeiden Sie es - solange wie möglich -, daß ein Batchjob in andere
+      Jobs verzweigen muß. Neben den oben schon angesprochenen Problemen mit
+      CALL etc. und der Möglichkeit, daß der Job seine Hilfsdateien nicht
+      findet, gibt es noch ein weiteres Problem unter Multitaskern: Häufig
+      erzeugen Batchjobs temporäre Batchjobs, in die sie dann verzweigen.
+      Angenommen, unter einem Multitasker (wie MS Windows oder Novell DOS
+      TASKMGR) wird der gleiche temporäre Batchjob von mehreren Tasks
+      gleichzeitig erzeugt, modifiziert, oder wieder gelöscht, kommt es zur
+      gegenseitigen Beeinflussung zwischen den Tasks. In den meisten Fällen
+      wird wenigstens einer der Batchjobs abgebrochen. Ausnahme von dieser
+      Regel sind lediglich Unterprogramm-Jobs, die speziell diese Proble-
+      matik auf Ihrem System mit einbeziehen. Nachteilig an solchen
+      'externen' Bibliotheken ist, daß es viel schwieriger ist, den
+      Batchjob weiterzugeben.
+      Eine generelle 100%ige Abhilfe ist - soweit ich mir das bisher über-
+      legt habe - nicht möglich, da die Batchsprache keine sog. atomaren
+      Operationen (mutual exclusion) dafür bietet.
+      Aber es gibt ein paar Tips, die diese Deadlock-Situationen wenigstens
+      sehr unwahrscheinlich und die kritischen Phasen zeitlich sehr kurz
+      machen (wahrscheinlich werden die folgenden Tips den meisten Lesern
+      etwas seltsam vorkommen, wer sich aber mit der Problematik schon mal
+      auseinandergesetzt hat, wird hoffentlich den Sinn dahinter entdecken):
+
+      - Verzweigen Sie nach Möglichkeit rekursiv auf sich selbst (über
+        Token), statt in andere Hilfsjobs.
+
+      - Benutzen Sie für Manipulationen - wo möglich - Umgebungsvariablen
+        statt externer Dateien, denn die sind üblicherweise lokal für jeden
+        Task.
+
+      - Benutzen Sie Umleitungen auf Dateien nur, wenn es nicht anders geht.
+
+      - Wenn Sie Umleitungen benutzen, arbeiten Sie möglichst mit implizit
+        benannten temporären Dateien, nicht mit expliziter Namensnennung.
+        D.h. benutzen Sie nach Möglichkeit Pipes (auch mehrfach ver-
+        schachtelt), statt einen Dateinamen für eine Umleitung zu
+        spezifizieren. Solche implizit benannten Dateien zu verwalten,
+        ist Sache des Betriebssystems und nicht des Programmierers, daher
+        wird ein Multitasker auch Vorkehrungen getroffen haben, diese
+        Dateien voneinander zu unterscheiden. (Wenn nicht, dann ist Ihr
+        Multitasker nicht sehr fortschrittlich.)
+
+      - Arbeiten Sie mit speziellen Semaphoren zur 'möglichen Prozeß-
+        kommunikation' zwischen mehreren Instanzen des gleichen Batchjobs.
+        Dazu sind auf Batch-Ebene normalerweise nur Existenzabfragen von
+        Dateien möglich. Semaphoren zwischen unterschiedlichen Batchjobs
+        sind nur dann noch durchschaubar, wenn man das gesamte System
+        einem festen Standard unterworfen hat.
+
+<a name="2"></a>                                                                             
+  ---------------------------------------------------------------------------
+
+   2. Unerwünschter Zeilenvorschub nach Batchjobs: [96-10-16]
+   ==========================================================
+
+    In der Bearbeitung von Batchjobs gibt es einen kleinen, aber ärgerlichen
+    Schönheitsfehler (aufgefallen bei MS-DOS 5.0 und 6.xx):
+
+    Am Ende der Bearbeitung wird der Prompt mehrfach hintereinander dar-
+    gestellt (besonders bei AUTOEXEC.BAT zu beobachten).
+
+    Der Rechner verhält sich so, als ob man während der Abarbeitung des Jobs
+    ein paar Mal &lt;Return&gt; gedrückt hätte. Wieso dieser Fehler auftritt, ist
+    letztendlich nicht immer ganz klar, denn ein sauber arbeitender Batch-
+    prozessor dürfte sich davon eigentlich nicht irritieren lassen. Soweit
+    ich mich erinnern kann, trat dieser Effekt bei den alten MS-DOS 3.x
+    Versionen auch noch nicht auf.
+
+    Batchjobs stellen ja im Prinzip so etwas wie 'Eingaben für die Konsole'
+    dar, die stattdessen zeilenweise aus einer Datei kommen. Wenn man nun
+    in der Batchdatei eine leere Zeile einfügt, so sollte sie trotzdem
+    einfach überlesen werden. Stattdessen wird auch diese Zeile ausgeführt
+    und bewirkt eine Leerzeile. Offiziell und dennoch nahezu undokumentiert
+    erzeugt man Leerzeilen in Batchjob mit dem ECHO-Befehl:
+    ECHO. (ohne Leerfeld).
+
+    Sehr häufig sind in Batchjobs nach dem letzten Batch-Befehl eine Reihe
+    Leerzeilen angehängt, über die man sich normalerweise keine Gedanken
+    macht. Diese Leerzeilen führen zu dem oben beschriebenen Schönheits-
+    fehler. Abhilfe besteht nun darin, diese Leerzeilen zu löschen (mit
+    Backspace von der letzten erreichbaren Zeile aus). Wichtig dabei ist,
+    daß man den Zeilenvorschub des letzten Befehls auch noch löscht, so
+    daß man den Cursor im Editor nicht unter die letzte Batchzeile bewegen
+    kann.
+    In fast allen Fällen werden danach die Probleme beseitigt sein. Bei
+    MS-DOS gibt es (im Gegensatz zu DR DOS) jedoch noch weitere Verursacher
+    für dieses Phänomen, die nicht mehr so einleuchtend sind:
+    Bei ECHO=off (nahezu immer in Batchjobs) verhält sich der REM-Befehl
+    recht merkwürdig (er schickt anscheinend manchmal &lt;Return&gt;-Sequenzen
+    in den Tastaturpuffer, die dann am Ende der Bearbeitung des Batchjobs
+    abgespult werden. Abhilfe schafft man dadurch, daß man vor das REM den
+    Klammeraffen stellt: @REM.
+
+    Manchmal hilft es, wie zu alten DOS- und CP/M-Zeiten an das Ende des
+    Batchjobs ein EOF (Dateiende-Zeichen, ASCII-26) anzuhängen. Die meisten
+    modernen Editore fügen dieses Zeichen allerdings nur noch optional oder
+    auf besondere Aufforderung an (je nach Editor z.B. mit &lt;Ctrl&gt;+&lt;z&gt;).
+
+    Wenn man auf solche Kleinigkeiten (auf der letzten ausgegebenen Bild-
+    schirmseite) achtet, kann man den Schönheitsfehler vermeiden.
+
+<a name="3"></a>                                                                             
+  ---------------------------------------------------------------------------
+
+   3. Debuggen von Batchjobs:
+   ==========================
+
+    Die erste Zeile eines Batchjobs heißt fast immer "@ECHO off".
+    Stattdessen schlage ich die folgenden Zeilen als generellen Ersatz vor,
+    die manchmal die Arbeit und Fehlersuche stark erleichtern können, wenn
+    erst einmal alle Jobs diese Einleitung haben:
+
+     @ECHO off &gt; \dev\nul
+     ECHO off &gt; \dev\nul
+     IF ""=="%batdbg%" SET batdbg=off
+     ECHO %batdbg%
+
+    Dann kann man später global mit "SET batdbg=on/off" zwischen dem Normal-
+    und einem Debug-Modus umschalten. Enthält %batdbg% einen anderen Wert
+    als "on" oder "off", so wird dies als Statuszeile ausgegeben. Diese
+    Möglichkeit kann man zur Ausgabe von Debug-Infos benutzen.
+
+<a name="4"></a>                                                                             
+  ---------------------------------------------------------------------------
+
+   4. Lange Umgebungsvariablen und lange Kommandozeilen: [96-10-16]
+   ================================================================
+
+    COMMAND.COM bearbeitet eine maximale Zeilenlänge von ca. 120 Zeichen
+    (je nach DOS-Version). Das führt besonders in Batchjobs zu großen
+    Problemen, weil man häufig in die Nähe dieser maximalen Länge kommt.
+    Wenn der Befehl dann bei der Bearbeitung hinten abgeschnitten wird,
+    führt das i. allg. zu einer Fehlfunktion und unschönen Bildschirm-
+    meldungen.
+
+    Häufig will man z.B. abtesten, ob eine Umgebungsvariable belegt ist.
+
+    Ein sicherlich nicht sinnvolles, aber einsichtiges Beispiel:
+
+     IF NOT "%Path%"=="" ECHO Path ist bereits belegt, wird nun neu belegt!
+     PATH c:\bat;c:\dos;c:\utl\batchutl;c:\utl\div
+
+    Wenn PATH nun bereits vorher einen sehr langen Inhalt hatte, wird nun
+    die Zeile hinten abgeschnitten, und im günstigsten Fall wird nur ein
+    Teil des ECHOs ausgegeben.
+    Es kann aber auch vorkommen, daß der Befehl (hier einfach ECHO) selbst
+    durchschnitten wird, dann kommt es zu einem Syntaxfehler.
+    U.U. ist es nun möglich, die Zeilenlänge zu verkürzen, evtl. muß man
+    dabei allerdings in umgekehrter Logik und mit Sprunglabeln arbeiten:
+
+     IF "%Path%"=="" GOTO pfad_leer
+     ECHO Path ist bereits belegt, wird nun neu belegt!
+     :pfad_leer
+     PATH c:\bat;c:\dos;c:\utl\batchutl;c:\utl\div
+
+    Nun ist es schon wahrscheinlicher, daß die richtige Funktion ausgeführt
+    wird. Prinzipiell kann man aber über dieses GOTO-Prinzip dafür sorgen,
+    daß evtl. aufgrund eines Überlänge-Syntaxfehlers trotz positiv erfüllter
+    Bedingung nicht erfolgende GOTOs, trotzdem der richtige Fall abgear-
+    beitet wird. Allerdings kann immer noch ein Syntaxfehler auftreten und
+    damit zusammenhängend eine irritierende Meldung erscheinen.
+    Es gibt aber auch dafür eine Lösung (Bedingung texuell drehen!!!),
+    die das Risiko eines Syntaxfehlers zu Null werden läßt:
+
+     IF ""=="%Path%" GOTO pfad_leer
+     ECHO Path ist bereits belegt, wird nun neu belegt!
+     :pfad_leer
+     PATH c:\bat;c:\dos;c:\utl\batchutl;c:\utl\div
+
+    Wenn die Zeile zu lang wird, so wird sie irgendwo abgeschnitten,
+    dies hatte bisher eine Fehlermeldung zur Folge gehabt.
+    Hier kann nun keine Fehlermeldung mehr auftreten, denn die Bedingung
+    wird von COMMAND.COM rein textuell und nicht logisch ausgewertet und
+    z.B. "" == "C:\BAT;C:\DOS;C:\UT[Schnitt]
+    ist dann einfach eine nicht erfüllte Bedingung, beide Seiten des ==
+    sind nicht gleich, d.h. der ebenfalls abgeschnittene THEN-Fall kann
+    auch keinen Syntaxfehler mehr auslösen.
+    Die Wirkung ist, daß die Zeile einfach überlesen wird und damit die
+    gleiche Wirkung hat, als wenn die ausgewertete Bedingung
+    'PATH ist belegt' zum Nicht-Springen veranlaßt.
+    Selbst wenn die Zeile innerhalb des Befehls GOTO oder des Labels ab-
+    geschnitten würde, würde die vorher noch komplett enthaltene Bedingung
+    aussagen: Bedingung nicht erfüllt, also 'GOTO *nicht* anspringen!'
+    und damit ebenfalls keine Fehlermeldung erzeugen. Nur wenn die
+    Bedingung erfüllt ist, also PATH leer ist, wird das GOTO angesprungen.
+    In diesem Fall ist jedoch auch die Zeile kurz genug und niemals
+    abgeschnitten!
+
+    Man muß sich also beim Schreiben von Batchjobs zusätzlich noch Gedanken
+    darüber machen, wie der Batchprozessor die Befehle verarbeiten wird und
+    kann dann in sehr vielen Fällen scheinbar unvermeidbare Fehlermeldungen
+    in Batchjobs trotzdem umgehen.
+
+    Es bleibt zu wünschen, daß COMMAND.COM irgendwann einmal längere
+    Eingabezeilen verarbeiten können wird. Dann könnte man auch auf
+    solche lästige Überlegungen verzichten.
+
+<a name="5"></a>                                                                             
+  ---------------------------------------------------------------------------
+
+   5. UpCase in Batchjobs: [96-10-16]
+   ==================================
+
+    Häufig benötigt man in Batchjobs die Möglichkeit, alle Zeichen einer
+    Eingabe in Großbuchstaben umzuwandeln. Der folgende Trick beschreibt,
+    wie dies ohne zusätzliche Hilfe durch externe Utilities (oder 4DOS/NDOS)
+    mit dem normalen Kommandoprozessor möglich ist.
+
+     UPCASE.BAT:
+
+      @ECHO off
+      REM Diese Routine erwartet einen Parameter %1 als Eingabe und
+      REM liefert als Ausgabe in %upstr% die zu Großbuchstaben
+      REM konvertierte Zeichenkette.
+      CTTY nul
+      SET oldpath=%Path%
+      PATH %1
+      SET upstr=%Path%
+      PATH %oldpath%
+      SET oldpath=
+      CTTY con
+
+     DEMO.BAT:
+
+      @ECHO off
+      REM Geben Sie 'SHOW' in beliebiger Groß-/Kleinschrift an...
+      CALL upcase.bat %1
+      IF NOT "%upstr%"=="SHOW" GOTO end
+      ECHO Dieser Text soll bei Angabe des Parameters SHOW erscheinen!!!
+      :end
+      SET upstr=
+
+<a name="6"></a>
+  ---------------------------------------------------------------------------
+
+   6. Batchprozessor-Bug umgehen:
+   ==============================
+
+    Um einen Bug in der Zeilenbehandlung von Batchjobs mancher älterer
+    MS-DOS COMMAND.COM Ausgaben (nicht DR DOS oder Novell DOS) zu umgehen,
+    sollte man in die vorletzte Zeile eines Batchjobs nach Möglichkeit einen
+    Kommentar schreiben.
+
+     ...
+     REM Avoiding a parsing bug in an older MS-DOS COMMAND.COM...
+     :end
+
+<a name="7"></a>                                                                             
+  ---------------------------------------------------------------------------
+
+   7. ERRORLEVEL abfragen: [97-03-23]
+   ==================================
+
+    Viele Programme (auch viele externe DOS-Programme) liefern einen
+    Errorlevel 0..255 an DOS zurück, aus dem erkennbar sein sollte, ob
+    das Kommando normal beendet wurde (meist Errorlevel=0), oder ob Fehler
+    aufgetreten sind.
+
+    Leider ist die Auswertung in Batchjobs alles andere als einfach, da
+    es unter COMMAND.COM keine Möglichkeit gibt, etwa eine Umgebungs-
+    variable abzufragen (dies ist unter 4DOS und NDOS möglich).
+
+    Die normale Syntax ist
+
+     ...
+     IF ERRORLEVEL 1 GOTO err1up
+     GOTO end
+     :err1up
+     ECHO Es ist ein Fehler aufgetreten.
+     :end
+
+    Dabei hat 'ERRORLEVEL argument' die Funktion
+
+    'ist Errorlevel größer-gleich argument?'
+
+    D.h. man muß die ERRORLEVEL von oben nach unten abfragen, um eine Fall-
+    unterscheidung zu bekommen. (Häufig wird in der Literatur ein optionales
+    doppeltes Gleichheitszeichen "IF ERRORLEVEL == 1" angegeben; um das
+    Risko einer Fehlinterpretation auszuschließen, sollte man darauf ver-
+    zichten, denn in diesem Fall wertet COMMAND.COM trotzdem nur ein
+    'größer-gleich', 4DOS/NDOS jedoch ein 'gleich' aus.)
+
+    Einen einzelnen Code kann man auch mit der folgenden Anweisung
+    auskodieren:
+
+     IF ERRORLEVEL 1 IF NOT ERRORLEVEL 2 GOTO err1
+
+    Häufig kann man sinnvoller mit einer Abfrage in umgekehrten Logik
+    'IF NOT ERRORLEVEL' arbeiten.
+
+    Wie bekommt man die Errorlevel heraus?
+
+    Da häufig keine Dokumentation zu den Errorleveln vorhanden ist,
+    liegt meinem Tips & Tricks Paket ein Batchjob namens ERRORLVL.BAT
+    bei: Er fungiert als 'Wrapper' und erlaubt die Angabe eines beliebigen
+    Programms oder Batchjobs als Parameter und liefert nach seiner Be-
+    endigung die zurückgelieferten Errorlevel als Text aus. Mit diesen
+    Informationen kann man dann seine "IF ERRORLEVEL"-Abfrage in Batchjobs
+    programmieren.
+    Mehr Hilfe zu ERRORLVL gibt ERRORLVL selbst aus, wenn es ohne Parameter
+    gestartet wird.
+
+    Bemerkung zu CCI Multiuser DOS 7.xx Gold: Dieses System unterstützt
+    neben der oben beschriebenen Methode auch noch eine Umgebungsvariable
+    %ErrorLvl%, die jeweils den letzten Fehlercode als dreistellige
+    Dezimalzahl (ggfs. mit führenden Nullen) zugewiesen bekommt. Dieses
+    bildet mein Batchjob ERRORLVL.BAT (ab Version 1.12) standardmäßig nach,
+    mit dem Spezialparameter [-] kann man dies jedoch unterdrücken. Neben
+    dem IF ERRORLEVEL Kommando unterstützt Multiuser DOS als eine von vielen
+    anderen Erweiterungen auch noch eine gleichwertige, in der abgekürzten
+    Form aber übersichtlichere Schreibweise als
+
+     ON [ERRORLEVEL] code [GOTO] label
+
+    die zu "ON code label" abgekürzt werden kann. Leider wird diese Form
+    von keinem anderen Kommandoprozessor unterstützt, auch nicht von DR DOS,
+    Novell DOS oder Caldera OpenDOS 7.01.
+
+
+    Unvollständige Übersicht über Errorlevel einiger externer DOS-Kommandos:
+
+    (Die Bemerkungen für MS-DOS gelten zumindest bis einschließlich MS-DOS
+     5.0 auch für PC-DOS bis 5.0. Dort, wo explizit bekannt, wurde PC-DOS
+     ab 5.0 gesondert aufgeführt. Die angegebenen Errorlevel gelten für alle
+     aufgelisteten DOS-Versionen, abgesehen von extra markierten Ausnahmen,
+     d.h. eine nicht aufgelistete DOS-Version kann durchaus die gleichen
+     Werte liefern, dies wurde aber nicht überprüft. Unterschiede zwischen
+     MS-DOS/PC-DOS und DR DOS/Novell DOS sind - abgesehen von traditionellen
+     Kommandos - sehr wahrscheinlich, soweit nicht explizit angegeben. Sind
+     innerhalb eines Kommandos die Errorlevel für einzelne DOS-Versionen
+     getrennt aufgelistet (fangen jeweils wieder mit 0 an), so unterscheiden
+     sich die Errorlevel nahezu vollständig. OS/2 Errorlevel sind nur für
+     OS/2 2.x und Warp 3 gesichert, sollten aber auch für andere Versionen
+     gelten.)
+
+     Weitere Auflistungen von Errorleveln sind hochwillkommen...
+
+                verifiziert ab    Errorlevel:
+                DOS-Version:
+
+    ASSIGN      Novell DOS 7,         0  ok, Hilfe
+                Caldera OpenDOS 7.01  3  Benutzerabbruch (&lt;Ctrl&gt;+&lt;c&gt; etc.)
+                                      4  Syntaxfehler
+    ATTRIB      MS-DOS 5.0+,          0  alles ok (angeblich auch DR DOS
+                Novell DOS 7,            6.0) bei Novell DOS 7 auch: Datei
+                Caldera OpenDOS 7.01     nicht gefunden
+                                      1  MS-DOS: Parameter falsch oder Datei
+                                         nicht gefunden
+                                      3  MS-DOS: Abbruch (angeblich auch bei
+                                         DR DOS 6.0)
+                                     31  Novell DOS 7+: unzulässige Option
+                                         oder Benutzerabbruch (&lt;Ctrl&gt;+&lt;c&gt;
+                                         etc.)
+    APPEND      Novell DOS 7,         0  ok
+                Caldera OpenDOS 7.01  3  Benutzerabbruch (&lt;Ctrl&gt;+&lt;c&gt; etc.)
+    BACKUP      MS-DOS 2.1+,          0  Normal durchgeführt
+                DR DOS 6.0,           1  Keine Dateien für Backup gefunden
+                CCI Multiuser DOS 7.x 2  Manche Dateien aufgrund Zugriffs-
+                Novell DOS 7,            konflikts nicht gesichert
+                Caldera OpenDOS 7.01, 3  Benutzerabbruch (&lt;Ctrl&gt;+&lt;c&gt; etc.)
+                PC-DOS 7,             4  Abbruch durch Fehler
+                OS/2 2.0+             5  OS/2 2.0+: reserviert
+                                      6  OS/2 2.0+: BACKUP konnte kein
+                                         FORMAT durchführen
+    COMP        Novell DOS 7,         0  normaler Ablauf, auch falls Ziel-
+                Caldera OpenDOS 7.01     datei nicht gefunden oder bei
+                                         unterschiedlich großen Dateien
+                                      3  Benutzerabbruch (&lt;Ctrl&gt;+&lt;c&gt; etc.)
+                                      4  keine Dateien oder Quelldatei nicht
+                                         gefunden, oder bei falscher Aufruf-
+                                         syntax
+                OS/2 2.0+             0  alles ok
+                                      1  Keine Dateien zum Vergleich ge-
+                                         funden
+                                      2  Einige Dateien oder Verzeichnisse
+                                         konnten wegen eines Dateifehlers
+                                         nicht bearbeitet werden
+                                      3  Benutzerabbruch
+                                      4  Abbruch durch Fehler
+                                      5  Dateien waren ungleich
+    CHOICE      MS-DOS 6.?+,          x  je nach Benutzerinteraktion, siehe
+                PC-DOS 7,                Dokumentation
+                Novell DOS 7,
+                Caldera OpenDOS 7.01
+    CHKDSK      MS-DOS 6.2+,          0  keine Fehler auf Laufwerk
+                CCI Multiuser DOS 7.x 1  nur MDOS: Es gibt offene Dateien im
+                                         System, CHKDSK kann nicht arbeiten
+                                    255  Fehler auf Laufwerk
+                OS/2 2.0+             0  alles ok
+                                      1  reserviert
+                                      2  reserviert
+                                      3  Benutzerabbruch
+                                      4  Abbruch wegen Fehler
+                                      5  reserviert
+                                      6  CHKDSK konnte das Dateisystem-
+                                         spezifische CHKDSK-Overlay nicht
+                                         ausführen
+    DEFRAG      MS-DOS 6.2+,          0  Defragmentierung erfolgreich
+                PC-DOS 7              1  interner Fehler
+                                      2  keine freie Zuordnungseinheit
+                                         (mindestens eine wird benötigt)
+                                      3  Benutzerabbruch (&lt;Ctrl&gt;+&lt;c&gt;)
+                                      4  allgemeiner Fehler
+                                      5  Fehler beim Lesen einer Zuordnungs-
+                                         einheit
+                                      6  Fehler beim Schreiben einer
+                                         Zuordnungseinheit
+                                      7  Allokationsfehler aufgetreten,
+                                         bitte mit SCANDISK etc. korrigieren
+                                      8  Speicherfehler
+                                      9  Zu wenig Speicher
+    DELTREE     MS-DOS 6.2+           0  fehlerfrei
+                                      ?  sonst
+    DELWATCH    Novell DOS 7,         0  normal
+                Caldera OpenDOS 7.01 &gt;27 nur in Verbindung mit Option /MBL:
+                (DELWATCH 2.1)           Entspricht, nach Subtraktion von
+                                         27 dem Wert der explizit mit /F:n
+                                         angegebenen oder implizit angenom-
+                                         menen Anzahl der maximal in der
+                                         Löschverfolgung hängenden Dateien
+                                         für das/die aktivierte(n) Lauf-
+                                         werk(e), d.h. ohne Angabe von /F:n
+                                         für Diskettenlaufwerke 47 (20
+                                         Dateien) oder für Festplatten-
+                                         laufwerke 227 (200 Dateien).
+    DISKCOMP    MS-DOS 4.0+,          0  Disketten identisch
+                DR DOS 6.0,           1  Disketten verschieden oder
+                Novell DOS 7,            bei MS-DOS 5.0, PC-DOS 7, DR DOS
+                Caldera OpenDOS 7.01,    6.0, Novell DOS 7 und Caldera
+                PC-DOS 7,                OpenDOS auch: Vergleich nicht
+                OS/2 Warp 3              ausgeführt, ungültiges Laufwerk,
+                                         falsche Syntax
+                                      2  Benutzerabbruch (&lt;Ctrl&gt;+&lt;c&gt; etc.)
+                                      3  Hardware-Fehler, kein Vergleich
+                                         durchgeführt
+                                      4  Initialisierungsfehler, zu wenig
+                                         Speicher, Laufwerk oder Syntax
+                                         falsch
+    DISKCOPY    MS-DOS 4.0+,          0  Kopieren erfolgreich beendet
+                Novell DOS 7,         1  Behebbarer Lese-/Schreibfehler,
+                Caldera OpenDOS 7.01,    bei MS-DOS 5.0 auch: ungültiges
+                PC-DOS 7,                Laufwerk, falsche Syntax
+                OS/2 Warp 3           2  Benutzerabbruch (&lt;Ctrl&gt;+&lt;c&gt; etc.)
+                                      3  Fataler Hardware-Fehler, kann
+                                         Quelle nicht lesen, Ziel nicht
+                                         formatieren
+                                      4  Initialisierungsfehler, zu wenig
+                                         Speicher, Laufwerk oder Syntax
+                                         falsch
+    DOSBOOK     Novell DOS 7,         0  ok
+                Caldera OpenDOS 7.01 31  Syntaxfehler
+    DPMI        Novell DOS 7,         0  geänderter Zustand
+                Caldera OpenDOS 7.01  1  Aufruf ohne Parameter bei de-
+                                         aktiviertem DPMI, sonst wird
+                                         auch 0 zurückgeliefert
+    EAUTIL      OS/2 2.0+             0  ok
+                                      1  keine Dateien zur Sicherung
+                                         gefunden
+                                      4  Abbruch wegen Fehler
+    EDIT        Novell DOS 7,         0  ok
+                Caldera OpenDOS 7.01  3  Benutzerabbruch (&lt;Ctrl&gt;+&lt;c&gt; etc.)
+                                      4  Syntaxfehler
+    FASTOPEN    MS-DOS 5.0+           0  alles ok (immer bei Novel DOS 7 und
+                DR DOS 6.0,              DR DOS 6.0 )
+                Novell DOS 7,         1  falscher Parameter (nicht bei
+                Caldera OpenDOS 7.01     DR DOS 6.0 und Novell DOS 7, da
+                                         dort FASTOPEN.COM/.EXE nur ein
+                                         Dummy ist)
+    FC          Novell DOS 7,         0  normaler Ablauf, egal ob Dateien
+                Caldera OpenDOS 7.01     gleich oder ungleich sind, oder
+                                         Hilfeschirm
+                                      1  Datei(en) nicht gefunden oder
+                                         falsche Aufrufsyntax
+                                      3  Benutzerabbruch (&lt;Ctrl&gt;+&lt;c&gt; etc.)
+    FDISK       Novell DOS 7,         0  normale Bearbeitung
+                Caldera OpenDOS 7.01  3  Benutzerabbruch (&lt;Ctrl&gt;+&lt;c&gt; etc.)
+    FIND        MS-DOS 5.0+           0  alles ok,
+                                         bei MS-DOS 6.2 auch: mindestens
+                                         einmal gefunden
+                                         bei Novell DOS 7 und Caldera
+                                         OpenDOS 7.01 auch: keine Dateien zu
+                                         durchsuchen
+                                      1  MS-DOS: alles ok, aber nicht
+                                         gefunden
+                                      2  MS-DOS: falscher Parameter
+                                     31  Novell DOS 7: Benutzerabbruch
+                                         (&lt;Ctrl&gt;+&lt;c&gt; etc.), falsche Para-
+                                         meter oder kein Suchtext
+    FORMAT      MS-DOS 4.0+,          0  Formatieren erfolgreich beendet
+                Novell DOS 7,         3  Benutzerabbruch (&lt;Ctrl&gt;+&lt;c&gt; etc.)
+                Caldera OpenDOS 7.01, 4  Fataler Fehler, Datenträger,
+                PC-DOS 7,                falscher Name
+                OS/2 2.0+             5  Antwort &lt;N&gt;ein auf die Frage, ob
+                                         Festplatte formatiert werden soll
+                                      6  OS/2 2.0+: FORMAT konnte das
+                                         Formatierprogramm für ein anderes
+                                         Dateisystem nicht finden
+                                      7  OS/2 2.0+: Laufwerk wird vom
+                                         Formatierprogramm für ein anderes
+                                         Dateisystem nicht unterstützt
+    GRAFTABL    MS-DOS 4.0+,          0  erfolgreich geladen mit neuer Code-
+                OS/2 2.0+,               seite, vorher war keine Codeseite
+                Novell DOS 7,            geladen
+                Caldera OpenDOS 7.01  1  zuvor geladene Tabelle durch neue
+                                         ersetzt
+                                      2  MS-DOS 4.0+, Novell DOS: Datei-
+                                         fehler
+                                         OS/2 2.0+: Es lag keine geladene
+                                         Codeseite vor und es wurde auch
+                                         keine geladen
+                                      3  Parameter falsch, keine Aktion
+                                      4  DOS-Version falsch, keine Aktion
+    ISWINDOW    OS/2 Warp 3           0  DOS-Session läuft im Vollbildmodus
+                                      1  DOS-Session läuft im Fenster
+    JOIN        MS-DOS 5.0+           0  alles ok
+                                      1  ungültiger Parameter
+                Novell DOS 7,         0  nie???
+                Caldera OpenDOS 7.01  1  Verzeichnis für JOIN nicht anlegbar
+                                      3  Benutzerabbruch (&lt;Ctrl&gt;+&lt;c&gt; etc.)
+                                     32  Ausgabe der JOIN-Zuordnungsliste
+                                     43  Fehler
+                                    255  erfolgreich Zuordnung hergestellt
+    KEYB        MS-DOS 4.0+,          0  erfolgreich beendet
+                PC-DOS 7              1  Syntax ungültig, Zeichensatz
+                                         falsch, Tastencode falsch
+                                      2  falsche oder fehlende Tastatur-
+                                         definitionsdatei
+                                      3  Konnte Tastaturtabelle im resi-
+                                         denten Speicher nicht erzeugen
+                                         (angeblich nicht bei MS-DOS 5.0
+                                         und PC-DOS 7)
+                                      4  Fehler beim Ansprechen von CON:
+                                      5  Nötige Codeseite nicht bereit
+                                      6  Tabelle für Codeseite nicht in
+                                         residenter Tastaturtabelle gefunden
+                                         (angeblich nicht bei MS-DOS 5.0 und
+                                         PC-DOS 7)
+                                      7  DOS-Version falsch, keine Aktion
+                                         (angeblich nicht bei PC-DOS 7)
+    LABEL       MS-DOS 5.0+           0  erfolgreich
+                                      1  Laufwerk nicht vorhanden/ungültig
+                Novell DOS 7,         0  erfolgreich
+                Caldera OpenDOS 7.01  2  Benutzerabbruch (&lt;Ctrl&gt;+&lt;c&gt; etc.)
+                                      4  falscher Parameter, Laufwerk nicht
+                                         vorhanden/ungültig
+    MEMMAX      Novell DOS 7,         0  ok
+                Caldera OpenDOS 7.01  3  Benutzerabbruch (&lt;Ctrl&gt;+&lt;c&gt; etc.)
+    MODE        MS-DOS 5.0+           0  ok
+                                      1  falscher Parameter
+    MORE        Novell DOS 7,         0  Hilfeschirm angezeigt
+                Caldera OpenDOS 7.01  3  Benutzerabbruch (&lt;Ctrl&gt;+&lt;c&gt; etc.)
+                                         während der Eingabe (auch Eingabe-
+                                         umleitung).
+                                    255  Nach ordnungsgemäßem Ablauf, auch
+                                         im Falle eines Benutzerabbruchs
+                                         (&lt;Ctrl&gt;+&lt;c&gt;) während der Ausgabe
+                                         (auch bei Ausgabeumleitung).
+    MOVE        MS-DOS 6.2+           0  erfolgreich
+                                      1  nicht erfolgreich
+    NLSFUNC     Novell DOS 7,         0  ok
+                Caldera OpenDOS 7.01  3  Benutzerabbruch (&lt;Ctrl&gt;+&lt;c&gt; etc.)
+    OPENS       CCI Multiuser DOS 7.x 0  Keine Dateien offen
+                                      3  Es gibt offene Dateien im System
+    RECOVER     Novell DOS 7,         0  ok
+                Caldera OpenDOS 7.01, 1  OS/2 Warp 3: Es wurden keine zu
+                OS/2 2.0+                bearbeitenden Dateien gefunden
+                                      2  OS/2 Warp 3: Einige Dateien konnten
+                                         wegen eines Zugriffskonfliktes
+                                         nicht bearbeitet werden
+                                      3  Benutzerabbruch (&lt;Ctrl&gt;+&lt;c&gt; etc.)
+                                      4  OS/2 2.0+: Abbruch wegen eines
+                                         Fehlers
+                                      5  OS/2 2.0+: Lesen oder Schreiben
+                                         auf eine der FATs unmöglich
+                                      6  OS/2 2.0+: Ausführen einer RECOVER-
+                                         Version für das spezielle Datei-
+                                         system nicht möglich
+    REPLACE     MS-DOS 4.0+,          0  erfolgreich beendet
+                PC-DOS 7,             1  OS/2 2.0+: Keine Dateien zum
+                OS/2 2.0+                Ersetzen gefunden
+                                      2  (Quell-)Datei nicht gefunden
+                                         OS/2 2.0+: Einige Dateien oder
+                                         Verzeichnisse konnten wegen Datei-
+                                         fehler nicht bearbeitet werden
+                                      3  Pfad nicht gefunden (bei PC-DOS 7
+                                         auch Quelldatei nicht gefunden)
+                                      4  OS/2 2.0+: Abbruch wegen eines
+                                         Fehlers
+                                      5  Zugriff (auf Quelldatei) verweigert
+                                         OS/2 Warp 3: Abhilfe mit Parameter
+                                         /R
+                                      8  Zu wenig Speicherplatz (evtl. nicht
+                                         bei OS/2 2.x)
+                                     11  Kommandozeilenfehler (evtl. nicht
+                                         bei OS/2 2.x)
+                                     15  Laufwerk ungültig (angeblich nicht
+                                         bei MS-DOS 5.0, evtl. nicht bei
+                                         OS/2 2.x)
+    RESTORE     MS-DOS 4.0+,          0  Befehl erfolreich
+                DR DOS 6.0,           1  Keine Dateien zu restaurieren
+                CCI Multiuser DOS 7.x 2  Einige Dateien wegen Zugriffs-
+                Novell DOS 7,            konflikt nicht restauriert (evtl.
+                Caldera OpenDOS 7.01,    nicht bei PC-DOS 7)
+                PC-DOS 7,             3  Benutzerabbruch (&lt;Ctrl&gt;+&lt;c&gt; etc.)
+                OS/2 2.0+             4  wegen anderem Fehler beendet,
+                                         Quelle enthält keine Sicherungs-
+                                         daten, Syntax falsch
+    SCANDISK    MS-DOS 6.2+           0  ok
+                                      1  falsche Syntax
+                                      2  Speicherüberlauf, interner Fehler
+                                      3  Benutzerabbruch (&lt;Ctrl&gt;+&lt;c&gt; etc.)
+                                      4  Logischer Laufwerkstest erfolg-
+                                         reich, aber Oberflächeanalyse nicht
+                                         (für alle Laufwerke) vollständig
+                                         durchgeführt bzw. abgebrochen,
+                                         sonst aber ok. Nicht, wenn Ober-
+                                         flächenanalyse vollständig umgangen
+                                         wurde.
+                                    254  Datenträgerfehler gefunden und
+                                         vollständig korrigiert
+                                    255  Datenträgerfehler gefunden, aber
+                                         nicht (vollständig) korrigiert
+    SETVER      MS-DOS 4.0+,          0  Befehl erfolgreich
+                PC-DOS 7,             1  Befehlsoption ungültig
+                (Novell DOS 7,           Novell DOS 7 und PC-DOS 7: un-
+                Caldera OpenDOS 7.01)    gültige DOS-Version angegeben
+                                      2  Dateiname ungültig
+                                      3  Zu wenig Systemspeicher, um Befehl
+                                         auszuführen
+                                      4  Format der Versionsnummer ungültig
+                                      5  Eintrag in Versionstabelle nicht
+                                         gefunden
+                                      6  SETVER.EXE nicht gefunden
+                                      7  Laufwerk ungültig
+                                      8  Zu viele Kommandozeilenparameter
+                                      9  Fehlende Kommandozeilenparameter
+                                     10  Fehler beim Lesen von SETVER.EXE
+                                     11  SETVER.EXE beschädigt oder un-
+                                         brauchbar
+                                     12  SETVER.EXE nicht gefunden oder
+                                         (angeblich bei MS-DOS 6.2 und
+                                         PC-DOS 7) SETVER.EXE unterstützt
+                                         keine Versionstabelle
+                                     13  Zu wenig Platz in Versionstabelle
+                                         für neuen Eintrag
+                                     14  Fehler beim Schreiben von
+                                         SETVER.EXE
+    SORT        Novell DOS 7,         0  alles ok
+                Caldera OpenDOS 7.01  1  wahrscheinlich nicht benutzt, da
+                                         SORT auch mit Dateien größer
+                                         64 KByte zurecht kommt
+                                      2  Benutzerabbruch (&lt;Ctrl&gt;+&lt;c&gt; etc.)
+                                      4  falscher Parameter
+                MS-DOS/PC-DOS         0  alles ok
+                                      1  Datei zu groß (größer 64 KByte)???
+    SUBST       MS-DOS 5.0+,          0  ok
+                Novell DOS 7,         1  ungültiger Parameter
+                Caldera OpenDOS 7.01     Novell DOS 7: zuwenig Parameter
+                                  3..67  nur Novell DOS 7: Entspricht der
+                                         Länge des TRUENAMEs eines geänder-
+                                         ten SUBST-Laufwerks (bei diesen
+                                         Errorleveln könnte es sich um ein
+                                         äußerst praktisches Zufallsresultat
+                                         handeln).
+    SYS         Novell DOS 7,         0  ok
+                Caldera OpenDOS 7.01  3  Benutzerabbruch (&lt;Ctrl&gt;+&lt;c&gt; etc.),
+                                         kann Bootsektor nicht schreiben
+                                      4  Syntaxfehler
+    TOUCH       Novell DOS 7,         0  ok, Hilfe
+                Caldera OpenDOS 7.01 31  kein Dateiname, Syntaxfehler,
+                                         TOUCH für einige Dateien fehlge-
+                                         schlagen
+    TREE        Novell DOS 7,         0  ok
+                Caldera OpenDOS 7.01  1  Syntaxfehler, Laufwerks-(zugriffs-)
+                                         fehler
+                                      3  Benutzerabbruch (&lt;Ctrl&gt;+&lt;c&gt; etc.)
+                                      4  Lesefehler (Diskette fehlt)
+    UNDELETE    Novell DOS 7,         0  ok, keine Funktion???
+                Caldera OpenDOS 7.01  2  ???
+                                     31  Allgemeiner Fehler (Fehlercode xx),
+                                         z.B. Fehlercode 3 bei ungültigem
+                                         Zeitformat im /T: Parameter
+    UNFORMAT    Novell DOS 7,         0  ok
+                Caldera OpenDOS 7.01  1  unzulässiges Laufwerk
+                                      3  Benutzerabbruch (&lt;Ctrl&gt;+&lt;c&gt; etc.)
+                                      4  Kann Laufwerk nicht lesen
+                                         (keine Diskette)
+    UNPACK      OS/2 2.0+             0  alles ok
+                                      1  Keine Dateien zum Entpacken ge-
+                                         funden
+                                      2  Einige Dateien oder Verzeichnisse
+                                         konnten wegen eines Dateifehlers
+                                         nicht bearbeitet werden
+                                      3  Benutzerabbruch
+                                      4  Abbruch wegen eines Fehlers
+    XCOPY       MS-DOS 4.0+,          0  Befehl erfolgreich
+                Novell DOS 7,         1  Keine Dateien zu kopieren
+                Caldera OpenDOS 7.01, 2  Benutzerabbruch (&lt;Ctrl&gt;+&lt;c&gt; etc.)
+                PC-DOS 7,                (wohl nicht bei PC-DOS 7)
+                OS/2 2.0+                OS/2 2.0: Einige Dateien oder Ver-
+                                         zeichnisse konnten wegen Datei-
+                                         fehler nicht bearbeitet werden
+                                      3  OS/2 2.0 und PC-DOS 7: Benutzer-
+                                         abbruch
+                                      4  Initialisierungsfehler, zu wenig
+                                         Speicher, ungültige Optionen,
+                                         Diskette voll, Datei/Pfad nicht
+                                         gefunden
+                                      5  Fehler bei INT24 beim Lesen/
+                                         Schreiben der Daten
+
+    4DOS (5.52a) setzt (undokumentiert) Errorlevel 255, wenn man interne
+    Kommandos mit &lt;Ctrl&gt;+&lt;c&gt; abbricht (evtl. nur während des Hilfeschirms).
+
+    VLMs von Netware/PNW (Novell DOS 7) lassen sich normalerweise auf-
+    grund der Dateiendung .VLM nicht starten. Trotzdem besitzen sie ein
+    erweitertes .EXE-Format. Benennt man sie in .EXE um und ruft sie auf,
+    liefert der integrierte Stub sofort Errorlevel 6 zurück (dies gilt
+    zumindest für alle VLMs, die mir bisher in die Quere gekommen sind).
+
+<a name="8"></a>                                                                             
+  ---------------------------------------------------------------------------
+
+   8. Probleme mit Verzeichnisabfragen in Netzwerken:
+   ==================================================
+
+    Unter DOS kann man - wie wenig bekannt - die Existenz eines Ver-
+    zeichnisses mit
+
+     IF EXIST path\nul ECHO Das Verzeichnis path\ existiert!
+
+    abfragen. Dies liegt daran, daß das Gerät NUL in jedem Verzeichnis
+    vorkommt - zumindest wenn die AVAILDEV Funktion auf 'laxe' Auslegung
+    geschaltet ist, was mit allen aktuellen DOS-Versionen der Fall (Nur
+    bei DOS 2.xx gab es die Möglichkeit, die Unix-Konvention \dev\ zu
+    forcieren). Unter Novell DOS 7 und DR DOS 6.0 kann (und sollte) man
+    stattdessen auch
+
+     IF DIREXIST path\ ECHO Das Verzeichnis path\ existiert!
+
+    schreiben, unter 4DOS/NDOS sind sowohl DIREXIST als auch
+
+     IF ISDIR path\ ECHO Das Verzeichnis path\ existiert!
+
+    erlaubt.
+
+    Leider funktioniert die erste Form (path\NUL) nicht (immer) in
+    NetWare-Netzlaufwerken (unabhängig von SHOWDOTS=ON in NET.CFG) und
+    späte Versionen von DR DOS 6.0 unterstützen diese Schreibweise auch
+    nicht in allen Situationen: Hier meldet die Abfrage immer die Existenz
+    des Verzeichnisses zurück, egal ob dies der Fall ist oder nicht. Man
+    kann hier entweder auf die Spezialkommandos DIREXIST oder ISDIR aus-
+    weichen muß (die aber MS-DOS COMMAND selbst in Version 6.22 noch nicht
+    kennt). Als einziger Ausweg, der leider auch nicht immer anwendbar ist,
+    gibt es eine BruteForce-Methode mit
+
+     IF EXIST path\*.* ECHO Verzeichnis existiert, da Dateien vorhanden!
+
+    um auf die Existenz einer beliebigen Datei in dem fraglichen Ver-
+    zeichnis zu testen (wenn das der Fall ist, ist natürlich auch das
+    Verzeichnis selbst vorhanden). Dies funktioniert allerdings nicht
+    mit leeren Verzeichnissen.
+
+<a name="9"></a>                                                                             
+  ---------------------------------------------------------------------------
+
+   9. FOR und die %%x Variablen:
+   =============================
+
+    Wie bekannt, müssen die Schleifenvariablen bei FOR mit verdoppeltem %
+    Zeichen benutzt werden. Sicherlich haben Sie sich auch schon einmal
+    gefragt, warum das so ist. Ein paar Überlegungen zu folgendem Beispiel,
+    das den Parameter BINGO verschlucken soll, führen zum Ergebnis:
+
+     ...
+     FOR %%x IN (%1 %2 %3 %4 %5 %6 %7 %8 %9) DO IF "%%x"=="BINGO" SHIFT
+     ...
+
+    - Wie sieht nachher der Inhalt der Variablen %1 %2 %3 %4 %5 %6 %7 %8 %9
+      aus?
+
+    - Werden bestimmte Variablen aus %1..%9 übersprungen, wenn ein Parameter
+      BINGO enthält? Mit anderen Worten: Aktualisiert FOR evtl. veränderte
+      Variablen bei jedem neuen Durchlauf oder wird der Kopf der FOR-An-
+      weisung PASCAL-konform nur einmal am Anfang bearbeitet, wodurch die
+      möglichen Implikationen auflösen?
+
+    Die Erklärung findet sich in der Art und Weise, wie COMMAND.COM eine
+    FOR-Anweisung textuell behandelt. Vor der Ausführung werden Variablen-
+    namen expandiert, d.h. intern liegt etwas vor, das zum Beispiel beim
+    Aufruf mit
+
+     %1     %2     %3    %4     %5
+     DUMMY1 DUMMY2 BINGO DUMMY3 DUMMY4
+
+    so aussieht:
+
+     FOR %x IN (DUMMY1 DUMMY2 BINGO DUMMY3 DUMMY4) DO IF "%x"=="BINGO" SHIFT
+
+    Diese Anweisung ist nun wieder eindeutig. Natürlich kann man dieses Ver-
+    halten auch bewußt ausnutzen...
+
+<a name="10"></a>                                                                             
+  ---------------------------------------------------------------------------
+
+   10. SET und Umleitung:
+   ======================
+
+    MS-DOS 6.xx und 7.0 (Windows95) haben einen Bug bei der Belegung von
+    Variablen mit SET, wenn man diese Zeile umleitet. In diesem Fall werden
+    Leerfelder nicht ignoriert.
+
+     SET test=123456789
+     IF NOT "123456789"=="%test%" ECHO Umgebung ist voll!
+
+    Funktioniert wunderbar, nicht aber:
+
+     SET test=123456789 &gt; \dev\nul
+     IF NOT "123456789"=="%test%" ECHO Umgebung ist voll!
+
+    Wohl aber (Leerfelder vor '&gt;' entfernen):
+
+     SET test=123456789&gt; \dev\nul
+     IF NOT "123456789"=="%test%" ECHO Umgebung ist voll!
+
+    Novell DOS 7 COMMAND.COM und 4DOS/NDOS besitzen diesen Bug nicht.
+
+    In diesem Zusammenhang sei noch auf ein verwandtes Problem hingewiesen:
+
+     SET params=%1 %2 %3 %4 %5 %6 %7 %8 %9&gt; \dev\nul
+     IF NOT "%params%"=="%1 %2 %3 %4 %5 %6 %7 %8 %9" ECHO Fehler!
+
+    In vielen Fällen wird (bei MS-DOS/PC-DOS COMMAND.COM und 4DOS/NDOS) die
+    Ausgabe "Fehler!" erscheinen, weil die Anzahl der in dem Variablenwert
+    enthaltenen Leerfelder mit der Anzahl der Parameter variiert. Derartige
+    Fehler kann man durch Einzelabfragen vermeiden.
+
+
+</font></pre>
+<!--  Abspann -->
+<br>
+<hr>
+<br>
+<center><font face="Arial, Helvetica" size=-1><i>HTML-Redesign &copy; 2001 <a href="mailto:thomas@antonis.de">Thomas Antoni</a> &nbsp; --- &nbsp; Visit my 
+Homepage at &nbsp; <a href="http://www.antonis.de">http://www.antonis.de</a>
+<br><font color="red">---===  Hottest MS-DOS Stuff on Earth !! ===---</i></font></font>
+</center><br><br>
+</font>
+</body>
+</html>
+

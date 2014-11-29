@@ -1,0 +1,11 @@
+
+Datei nach Zeit benennen:
+=========================
+
+Funktion:
+%time:~0,2%_%time:~3,2%_%time:~6,2%_%time:~9,2%.txt
+
+Ergebnis:
+12_10_47_21.txt
+
+Stunde_Minute_Sekunde_Millisekunde.txt

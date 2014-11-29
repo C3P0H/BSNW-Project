@@ -1,0 +1,5788 @@
+<html>
+
+
+
+<head>
+
+<meta http-equiv="Content-Type"
+
+content="text/html; charset=iso-8859-1">
+
+<meta name="Template"
+
+content="D:\daten\Teko\Allgemeine Dokus\vorlagen\dokumentenvorlage_teko2.dot">
+
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+
+<title>Batchbefehle DOS</title>
+
+</head>
+
+
+
+<body bgcolor="white">
+
+
+
+<p><font size="3" face="Arial"></font>&nbsp;</p>
+
+
+
+<p align="center"><font size="6" face="Arial"><b>Batch-Befehle</b></font></p>
+
+
+
+<p><font size="3" face="Arial"></font>&nbsp;</p>
+
+
+
+<p><font size="4" face="Arial"><b>Inhaltsverzeichnis</b></font></p>
+
+
+
+<p><font face="Arial"><b>Allgemeines </b></font><a
+
+href="#_Toc467316452">*</a> </p>
+
+
+
+<p><font face="Arial"><b>CALL </b></font><a href="#_Toc467316453">*</a></p>
+
+
+
+<p><font size="2"><b>Syntax </b></font><a href="#_Toc467316454">*</a></p>
+
+
+
+<p><font size="2"><b>Parameter </b></font><a
+
+href="#_Toc467316455">*</a></p>
+
+
+
+<p><font size="3">[Laufwerk:][Pfad]Dateiname </font><a
+
+href="#_Toc467316456">*</a></p>
+
+
+
+<p><font size="3">Stapelverarbeitungsparameter </font><a
+
+href="#_Toc467316457">*</a></p>
+
+
+
+<p><font size="2"><b>CALL Anmerkungen </b></font><a
+
+href="#_Toc467316458">*</a></p>
+
+
+
+<p><font size="3">Verwenden von Stapelverarbeitungsparametern </font><a
+
+href="#_Toc467316459">*</a></p>
+
+
+
+<p><font size="3">Verwenden von Befehlsketten(Pipes)- und
+
+Umleitungssymbolen </font><a href="#_Toc467316460">*</a></p>
+
+
+
+<p><font size="3">Rekursive Aufrufe </font><a
+
+href="#_Toc467316461">*</a></p>
+
+
+
+<p><font size="2"><b>CALL Beispiele </b></font><a
+
+href="#_Toc467316462">*</a></p>
+
+
+
+<p><font face="Arial"><b>CHOICE </b></font><a
+
+href="#_Toc467316463">*</a></p>
+
+
+
+<p><font size="2"><b>Syntax </b></font><a href="#_Toc467316464">*</a></p>
+
+
+
+<p><font size="2"><b>Parameter </b></font><a
+
+href="#_Toc467316465">*</a></p>
+
+
+
+<p><font size="3">Text </font><a href="#_Toc467316466">*</a></p>
+
+
+
+<p><font size="3">Optionen </font><a href="#_Toc467316467">*</a></p>
+
+
+
+<p><font size="2"><b>CHOICE Anmerkung </b></font><a
+
+href="#_Toc467316468">*</a></p>
+
+
+
+<p><font size="3">ERRORLEVEL-Parameter </font><a
+
+href="#_Toc467316469">*</a></p>
+
+
+
+<p><font size="2"><b>CHOICE Beispiele </b></font><a
+
+href="#_Toc467316470">*</a></p>
+
+
+
+<p><font size="3">Verwenden von CHOICE in einem
+
+Stapelverarbeitungsprogramm </font><a href="#_Toc467316471">*</a></p>
+
+
+
+<p><font face="Arial"><b>ECHO </b></font><a href="#_Toc467316472">*</a></p>
+
+
+
+<p><font size="2"><b>Syntax </b></font><a href="#_Toc467316473">*</a></p>
+
+
+
+<p><font size="2"><b>Parameter </b></font><a
+
+href="#_Toc467316474">*</a></p>
+
+
+
+<p><font size="2"><b>Meldung </b></font><a href="#_Toc467316475">*</a></p>
+
+
+
+<p><font size="2"><b>Zugehöriger Befehl </b></font><a
+
+href="#_Toc467316476">*</a></p>
+
+
+
+<p><font size="2"><b>ECHO Anmerkungen </b></font><a
+
+href="#_Toc467316477">*</a></p>
+
+
+
+<p><font size="2"><b>ECHO Beispiele </b></font><a
+
+href="#_Toc467316478">*</a></p>
+
+
+
+<p><font face="Arial"><b>FOR </b></font><a href="#_Toc467316479">*</a></p>
+
+
+
+<p><font size="2"><b>Syntax </b></font><a href="#_Toc467316480">*</a></p>
+
+
+
+<p><font size="2"><b>Parameter </b></font><a
+
+href="#_Toc467316481">*</a></p>
+
+
+
+<p><font size="3">%%Variable oder %Variable </font><a
+
+href="#_Toc467316482">*</a></p>
+
+
+
+<p><font size="3">(Gruppe) </font><a href="#_Toc467316483">*</a></p>
+
+
+
+<p><font size="3">Befehl </font><a href="#_Toc467316484">*</a></p>
+
+
+
+<p><font size="3">Befehlsparameter </font><a
+
+href="#_Toc467316485">*</a></p>
+
+
+
+<p><font size="2"><b>FOR Anmerkungen </b></font><a
+
+href="#_Toc467316486">*</a></p>
+
+
+
+<p><font size="2"><b>FOR Beispiele </b></font><a
+
+href="#_Toc467316487">*</a></p>
+
+
+
+<p><font face="Arial"><b>GOTO </b></font><a href="#_Toc467316488">*</a></p>
+
+
+
+<p><font size="2"><b>Syntax </b></font><a href="#_Toc467316489">*</a></p>
+
+
+
+<p><font size="2"><b>Parameter </b></font><a
+
+href="#_Toc467316490">*</a></p>
+
+
+
+<p><font size="2"><b>GOTO Anmerkungen </b></font><a
+
+href="#_Toc467316491">*</a></p>
+
+
+
+<p><font size="2"><b>GOTO Beispiel </b></font><a
+
+href="#_Toc467316492">*</a></p>
+
+
+
+<p><font face="Arial"><b>IF </b></font><a href="#_Toc467316493">*</a></p>
+
+
+
+<p><font size="2"><b>Syntax </b></font><a href="#_Toc467316494">*</a></p>
+
+
+
+<p><font size="2"><b>Parameter </b></font><a
+
+href="#_Toc467316495">*</a></p>
+
+
+
+<p><font size="2"><b>IF Beispiele </b></font><a
+
+href="#_Toc467316496">*</a></p>
+
+
+
+<p><font face="Arial"><b>PAUSE </b></font><a
+
+href="#_Toc467316497">*</a></p>
+
+
+
+<p><font size="2"><b>Syntax </b></font><a href="#_Toc467316498">*</a></p>
+
+
+
+<p><font size="2"><b>PAUSE Anmerkungen </b></font><a
+
+href="#_Toc467316499">*</a></p>
+
+
+
+<p><font size="2"><b>PAUSE Beispiel </b></font><a
+
+href="#_Toc467316500">*</a></p>
+
+
+
+<p><font face="Arial"><b>REM </b></font><a href="#_Toc467316501">*</a></p>
+
+
+
+<p><font size="2"><b>Syntax </b></font><a href="#_Toc467316502">*</a></p>
+
+
+
+<p><font size="2"><b>Parameter </b></font><a
+
+href="#_Toc467316503">*</a></p>
+
+
+
+<p><font size="2"><b>Verwandter Befehl </b></font><a
+
+href="#_Toc467316504">*</a></p>
+
+
+
+<p><font size="2"><b>REM Anmerkungen </b></font><a
+
+href="#_Toc467316505">*</a></p>
+
+
+
+<p><font size="2"><b>REM Beispiele </b></font><a
+
+href="#_Toc467316506">*</a></p>
+
+
+
+<p><font face="Arial"><b>SHIFT </b></font><a
+
+href="#_Toc467316507">*</a></p>
+
+
+
+<p><font size="2"><b>Syntax </b></font><a href="#_Toc467316508">*</a></p>
+
+
+
+<p><font size="2"><b>SHIFT Anmerkungen </b></font><a
+
+href="#_Toc467316509">*</a></p>
+
+
+
+<p><font size="2"><b>SHIFT Beispiel </b></font><a
+
+href="#_Toc467316510">*</a></p>
+
+
+
+<p><font face="Arial"><b>COMMAND </b></font><a
+
+href="#_Toc467316511">*</a></p>
+
+
+
+<p><font size="2"><b>Syntax </b></font><a href="#_Toc467316512">*</a></p>
+
+
+
+<p><font size="2"><b>Parameter </b></font><a
+
+href="#_Toc467316513">*</a></p>
+
+
+
+<p><font size="2"><b>Optionen </b></font><a href="#_Toc467316514">*</a></p>
+
+
+
+<p><font size="2"><b>COMMAND Anmerkungen </b></font><a
+
+href="#_Toc467316515">*</a></p>
+
+
+
+<p><font size="2"><b>COMMAND Beispiele </b></font><a
+
+href="#_Toc467316516">*</a></p>
+
+
+
+<p><font face="Arial"><b>Befehle zur Definition mehrerer
+
+Konfigurationen </b></font><a href="#_Toc467316517">*</a></p>
+
+
+
+<p><font size="2"><b>Mehrere Konfigurationen Beispiele </b></font><a
+
+href="#_Toc467316518">*</a></p>
+
+
+
+<p><font face="Arial"><b>INCLUDE </b></font><a
+
+href="#_Toc467316519">*</a></p>
+
+
+
+<p><font size="2"><b>Syntax </b></font><a href="#_Toc467316520">*</a></p>
+
+
+
+<p><font size="2"><b>Parameter </b></font><a
+
+href="#_Toc467316521">*</a></p>
+
+
+
+<p><font size="2"><b>Zugehörige Befehle </b></font><a
+
+href="#_Toc467316522">*</a></p>
+
+
+
+<p><font size="2"><b>INCLUDE Beispiele </b></font><a
+
+href="#_Toc467316523">*</a></p>
+
+
+
+<p><font size="2"><b>MENUCOLOR </b></font><a
+
+href="#_Toc467316524">*</a></p>
+
+
+
+<p><font size="3">Syntax </font><a href="#_Toc467316525">*</a></p>
+
+
+
+<p><font size="3">Parameter </font><a href="#_Toc467316526">*</a></p>
+
+
+
+<p><font size="2"><b>MENUCOLOR Beispiel </b></font><a
+
+href="#_Toc467316527">*</a></p>
+
+
+
+<p><font face="Arial"><b>MENUDEFAULT </b></font><a
+
+href="#_Toc467316528">*</a></p>
+
+
+
+<p><font size="2"><b>Syntax </b></font><a href="#_Toc467316529">*</a></p>
+
+
+
+<p><font size="2"><b>Parameter </b></font><a
+
+href="#_Toc467316530">*</a></p>
+
+
+
+<p><font size="2"><b>MENUDEFAULT Beispiel </b></font><a
+
+href="#_Toc467316531">*</a></p>
+
+
+
+<p><font face="Arial"><b>MENUITEM </b></font><a
+
+href="#_Toc467316532">*</a></p>
+
+
+
+<p><font size="2"><b>Syntax </b></font><a href="#_Toc467316533">*</a></p>
+
+
+
+<p><font size="2"><b>Parameter </b></font><a
+
+href="#_Toc467316534">*</a></p>
+
+
+
+<p><font size="2"><b>Zugehörige Befehle </b></font><a
+
+href="#_Toc467316535">*</a></p>
+
+
+
+<p><font size="2"><b>MENUITEM Anmerkungen </b></font><a
+
+href="#_Toc467316536">*</a></p>
+
+
+
+<p><font size="2"><b>MENUITEM Beispiele </b></font><a
+
+href="#_Toc467316537">*</a></p>
+
+
+
+<p><font face="Arial"><b>SUBMENU </b></font><a
+
+href="#_Toc467316538">*</a></p>
+
+
+
+<p><font size="2"><b>Syntax </b></font><a href="#_Toc467316539">*</a></p>
+
+
+
+<p><font size="2"><b>Parameter </b></font><a
+
+href="#_Toc467316540">*</a></p>
+
+
+
+<p><font size="2"><b>Verwandte Befehle </b></font><a
+
+href="#_Toc467316541">*</a></p>
+
+
+
+<p><font size="2"><b>SUBMENU Beispiele </b></font><a
+
+href="#_Toc467316542">*</a></p>
+
+
+
+<p><font size="3" face="Arial"></font>&nbsp;</p>
+
+
+
+<p><font size="4" face="Arial"><b></b></font>&nbsp;</p>
+
+
+
+<p><a name="_Toc467316452"><font size="4" face="Arial"><b>Allgemeines</b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Eine Stapelverarbeitungsdatei oder
+
+ein Stapelverarbeitungsprogramm (Batch-Programm) ist eine
+
+unformatierte Textdatei, die einen oder mehrere MS-DOS-Befehle
+
+enthält und der eine .BAT-Erweiterung zugeordnet ist. Wenn Sie
+
+den Namen des Stapelverarbeitungsprogramms an der
+
+Eingabeaufforderung eingeben, werden die Befehle als eine Gruppe
+
+ausgeführt. Jeder MS-DOS-Befehl, den Sie an der
+
+Eingabeaufforderung ausführen, kann auch in einem
+
+Stapelverarbeitungsprogramm verwendet werden. Zusätzlich sind
+
+die folgenden MS-DOS-Befehle besonders für
+
+Stapelverarbeitungsprogramme entworfen. Diese Befehle dürfen nur
+
+in Stapelverarbeitungsprogrammen verwendet werden. </font></p>
+
+
+
+<p><font size="3" face="Arial">Mit dem Befehl COMMAND /Y können
+
+Sie ein Stapelverarbeitungsprogramm zeilenweise abarbeiten und
+
+dabei einzelne Befehle übergehen oder ausführen. Dies
+
+ermöglicht insbesondere die Fehlersuche in
+
+Stapelverarbeitungsdateien. Weitere Informationen finden Sie bei
+
+der Beschreibung des Befehls &lt;COMMAND&gt;.</font></p>
+
+
+
+<p><font size="3" face="Arial"></font>&nbsp;</p>
+
+
+
+<p><font size="4" face="Arial"><b></b></font>&nbsp;</p>
+
+
+
+<p><a name="_Toc467316453"><font size="4" face="Arial"><b>CALL</b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Ruft ein
+
+Stapelverarbeitungsprogramm aus einem anderen heraus auf, ohne
+
+das aufrufende Stapelverarbeitungsprogramm zu beenden. </font></p>
+
+
+
+<p><a name="_Toc467316454"><font face="Arial"><b><i>Syntax</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">CALL [Laufwerk:][Pfad]Dateiname
+
+[Stapelverarbeitungsparameter] </font></p>
+
+
+
+<p><a name="_Toc467316455"><font face="Arial"><b><i>Parameter</i></b></font></a></p>
+
+
+
+<p><a name="_Toc467316456"><font face="Arial"><u>[Laufwerk:][Pfad]Dateiname</u></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Bezeichnet Position und Name des
+
+Stapelverarbeitungsprogramms, das Sie aufrufen wollen. Dateiname
+
+muss die Erweiterung .BAT haben. </font></p>
+
+
+
+<p><a name="_Toc467316457"><font face="Arial"><u>Stapelverarbeitungsparameter</u></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Bezeichnet beliebige
+
+Befehlszeileninformationen, die das Stapelverarbeitungsprogramm
+
+benötigt.</font></p>
+
+
+
+<p><a name="_Toc467316458"><font face="Arial"><b><i>CALL
+
+Anmerkungen</i></b></font></a></p>
+
+
+
+<p><a name="_Toc467316459"><font face="Arial"><u>Verwenden von
+
+Stapelverarbeitungsparametern</u></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Stapelverarbeitungsparameter
+
+können beliebige Informationen enthalten, die Sie einem
+
+Stapelverarbeitungsprogramm übergeben können. Dazu zählen
+
+Optionen, Dateinamen, die ersetzbaren Parameter %1 bis %9 sowie
+
+Umgebungsvariablen, wie z.B. %baud%.</font></p>
+
+
+
+<p><a name="_Toc467316460"><font face="Arial"><u>Verwenden von
+
+Befehlsketten(Pipes)- und Umleitungssymbolen</u></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Verwenden Sie in Verbindung mit
+
+dem Befehl CALL keine Befehlsketten(Pipes)- (&quot;|&quot;) und
+
+Umleitungssymbole
+
+(&quot;&lt;&lt;&quot;,&quot;&lt;&quot;,&quot;&gt;&quot; und
+
+&quot;&gt;&gt;&quot;).</font></p>
+
+
+
+<p><a name="_Toc467316461"><font face="Arial"><u>Rekursive
+
+Aufrufe</u></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Sie können ein
+
+Stapelverarbeitungsprogramm erstellen, das sich selbst aufruft;
+
+Sie müssen jedoch einen Endebefehl einbauen, da sonst das
+
+aufrufende und das aufgerufene Stapelverarbeitungsprogramm in
+
+eine Endlosschleife geraten können. </font></p>
+
+
+
+<p><a name="_Toc467316462"><font face="Arial"><b><i>CALL
+
+Beispiele</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Um das Programm TESTNEU.BAT aus
+
+einem anderen Stapelverarbeitungsprogramm heraus aufzurufen,
+
+nehmen Sie in das aufrufende Stapelverarbeitungsprogramm</font></p>
+
+
+
+<p><font size="3" face="Arial">folgenden Befehl auf: </font></p>
+
+
+
+<p><font size="2" face="Courier New">call testneu</font></p>
+
+
+
+<p><font size="3" face="Arial">Wenn das aufrufende
+
+Stapelverarbeitungsprogramm zwei ersetzbare Parameter akzeptiert
+
+und Sie diese zwei Parameter TESTNEU.BAT übergeben möchten,
+
+können Sie im aufrufenden Stapelverarbeitungsprogramm folgenden
+
+Befehl verwenden: </font></p>
+
+
+
+<p><font size="2" face="Courier New">call testneu %1 %2</font></p>
+
+
+
+<p><font size="4" face="Arial"><b></b></font>&nbsp;</p>
+
+
+
+<p><a name="_Toc467316463"><font size="4" face="Arial"><b>CHOICE</b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Fordert den Benutzer auf, eine
+
+Wahl in einem Stapelverarbeitungsprogramm zu treffen. Zeigt eine
+
+bestimmte Aufforderung an und wartet auf den Benutzer, aus einem
+
+bestimmten Satz von Tasten zu wählen. Sie können diesen Befehl
+
+nur in Stapelverarbeitungsprogrammen verwenden. </font></p>
+
+
+
+<p><font size="3" face="Arial">Informationen über den Parameter
+
+ERRORLEVEL finden Sie unter &lt;CHOICE Anmerkung&gt; sowie bei
+
+der Beschreibung des Befehls &lt;IF&gt;.</font></p>
+
+
+
+<p><a name="_Toc467316464"><font face="Arial"><b><i>Syntax</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">CHOICE [/C[:]Tasten] [/N] [/S]
+
+[/T[:]c,nn] [Text] </font></p>
+
+
+
+<p><a name="_Toc467316465"><font face="Arial"><b><i>Parameter</i></b></font></a></p>
+
+
+
+<p><a name="_Toc467316466"><font face="Arial"><u>Text</u></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Bezeichnet Text, der vor der
+
+Eingabeaufforderung angezeigt werden soll. Anführungszeichen
+
+sind nur erforderlich, wenn Sie in den Text ein Optionszeichen
+
+(/) vor der Eingabeaufforderung aufnehmen. Wenn Sie keinen Text
+
+angeben, zeigt CHOICE nur eine Eingabeaufforderung an.</font></p>
+
+
+
+<p><a name="_Toc467316467"><font face="Arial"><u>Optionen</u></font></a></p>
+
+
+
+<p><font size="3" face="Arial"><b>/C[:]Tasten</b></font></p>
+
+
+
+<p><font size="3" face="Arial">Bezeichnet Tasten, die als Eingabe
+
+zulässig sind. In der Anzeige stehen diese Tasten in eckigen
+
+Klammern ([]) und sind durch Kommas voneinander getrennt. Zum
+
+Abschluss steht ein Fragezeichen. Wenn Sie die Option /C</font></p>
+
+
+
+<p><font size="3" face="Arial">nicht angeben, verwendet CHOICE
+
+&quot;JN&quot; als Standard. Der Doppelpunkt (:) ist wahlfrei. </font></p>
+
+
+
+<p><font size="3" face="Arial"><b>/N</b></font></p>
+
+
+
+<p><font size="3" face="Arial">Bewirkt, dass CHOICE die
+
+Eingabeaufforderung nicht anzeigt. Der Text davor wird jedoch
+
+angezeigt. Wenn Sie die Option /N verwenden, gelten die
+
+angegebenen Tasten trotzdem. </font></p>
+
+
+
+<p><font size="3" face="Arial"><b>/S</b></font></p>
+
+
+
+<p><font size="3" face="Arial">Bewirkt, dass CHOICE zwischen
+
+Gross- und Kleinschreibung unterscheidet. Ohne Angabe der Option
+
+/S akzeptiert CHOICE für die vom Benutzer festgelegten Tasten
+
+Gross- oder Kleinbuchstaben. </font></p>
+
+
+
+<p><font size="3" face="Arial"><b>/T[:]c,nn</b></font></p>
+
+
+
+<p><font size="3" face="Arial">Bewirkt, dass CHOICE eine
+
+bestimmte Anzahl von Sekunden wartet, bevor eine festgelegte
+
+Taste als Standard verwendet wird. Der Doppelpunkt (:) ist
+
+wahlfrei. Die Werte für die Option /T sind wie folgt: </font></p>
+
+
+
+<p><font size="3" face="Arial"><b>c</b></font></p>
+
+
+
+<p><font size="3" face="Arial">Bezeichnet das Zeichen, das nach
+
+nn Sekunden zum Standard wird. Das Zeichen muss zu denen
+
+gehören, die mit der Option /C festgelegt wurden. </font></p>
+
+
+
+<p><font size="3" face="Arial"><b>nn</b></font></p>
+
+
+
+<p><font size="3" face="Arial">Bezeichnet die Anzahl von
+
+Sekunden, die pausiert wird. Zulässige Werte liegen zwischen 0
+
+und 99. Bei Angabe von 0 ist vor dem Festlegen der Standardtaste
+
+keine Pause. </font></p>
+
+
+
+<p><a name="_Toc467316468"><font face="Arial"><b><i>CHOICE
+
+Anmerkung</i></b></font></a></p>
+
+
+
+<p><a name="_Toc467316469"><font face="Arial"><u>ERRORLEVEL-Parameter</u></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Die erste von Ihnen zugewiesene
+
+Taste gibt den Wert 1 zurück, die zweite den Wert 2, die dritte
+
+den Wert 3 usw. Drückt der Benutzer eine Taste, die nicht zu den
+
+von Ihnen zugewiesenen Tasten gehört, lässt CHOICE ein
+
+akustisches Signal ertönen (d.h. es wird das Zeichen BEL (07h)
+
+an die Konsole gesendet).</font></p>
+
+
+
+<p><font size="3" face="Arial">Wenn CHOICE eine Fehlerbedingung
+
+entdeckt, gibt es den ERRORLEVEL-Wert 255 zurück. Wenn der
+
+Benutzer STRG+UNTBR oder STRG+C drückt, gibt CHOICE den
+
+ERRORLEVEL-Wert 0 zurück. </font></p>
+
+
+
+<p><font size="3" face="Arial">Wenn Sie ERRORLEVEL-Parameter in
+
+einem Stapelverarbeitungsprogramm verwenden, listen Sie sie in
+
+absteigender Reihenfolge. </font></p>
+
+
+
+<p><a name="_Toc467316470"><font face="Arial"><b><i>CHOICE
+
+Beispiele</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Wenn Sie in einer
+
+Stapelverarbeitungsdatei die folgende Syntax verwenden</font></p>
+
+
+
+<p><font size="2" face="Courier New">choice</font></p>
+
+
+
+<p><font size="3" face="Arial">sieht der Benutzer</font></p>
+
+
+
+<p><font size="2" face="Courier New">[J,N]? </font></p>
+
+
+
+<p><font size="3" face="Arial">Wenn Sie in einer
+
+Stapelverarbeitungsdatei die folgende Syntax verwenden, </font></p>
+
+
+
+<p><font size="2" face="Courier New">choice /c:jnw</font></p>
+
+
+
+<p><font size="3" face="Arial">sieht der Benutzer beim Starten
+
+von CHOICE: </font></p>
+
+
+
+<p><font size="2" face="Courier New">[J,N,W]? </font></p>
+
+
+
+<p><font size="3" face="Arial">Wenn Sie der Syntax Text
+
+hinzufügen, </font></p>
+
+
+
+<p><font size="2" face="Courier New">choice /c:jnw Ja, Nein oder
+
+Weiter</font></p>
+
+
+
+<p><font size="3" face="Arial">sieht der Benutzer beim Starten
+
+von CHOICE: </font></p>
+
+
+
+<p><font size="2" face="Courier New">Ja, Nein oder Weiter[J,N,W]?
+
+</font></p>
+
+
+
+<p><font size="2" face="Courier New">choice /n</font></p>
+
+
+
+<p><font size="3" face="Arial"></font>&nbsp;</p>
+
+
+
+<p><font size="3" face="Arial">Das sieht der Benutzer, wenn Sie
+
+keine Eingabeaufforderung anzeigen</font></p>
+
+
+
+<p><font size="3" face="Arial">Wenn Sie wie im folgenden Beispiel
+
+die Option /N verwenden, um in einem Stapelverarbeitungsprogramm
+
+keine Eingabeaufforderung anzuzeigen, </font></p>
+
+
+
+<p><font size="2" face="Courier New">choice /n Ja, Nein oder
+
+Weiter? </font></p>
+
+
+
+<p><font size="3" face="Arial">sieht der Benutzer nur den Text,
+
+den Sie beim Aufruf von CHOICE angegeben haben: </font></p>
+
+
+
+<p><font size="2" face="Courier New">Ja, Nein oder Weiter? </font></p>
+
+
+
+<p><font size="3" face="Arial">Das sieht der Benutzer, wenn Sie
+
+die Option T verwenden</font></p>
+
+
+
+<p><font size="3" face="Arial">Wenn Sie in einem
+
+Stapelverarbeitungsprogramm die folgende Syntax verwenden, </font></p>
+
+
+
+<p><font size="2" face="Courier New">choice /c:jnw /t:n,5</font></p>
+
+
+
+<p><font size="3" face="Arial">sieht der Benutzer beim Starten
+
+von CHOICE: </font></p>
+
+
+
+<p><font size="2" face="Courier New">[J,N,W]? </font></p>
+
+
+
+<p><font size="3" face="Arial">Wenn der Benutzer nach 5 Sekunden
+
+keine Taste gedrückt hat, wählt CHOICE N und gibt den
+
+ERRORLEVEL-Wert 1 zurück. Drückt der Benutzer vor Ablauf der 5
+
+Sekunden eine Taste, gibt CHOICE den Wert zurück, der der
+
+Auswahl des Benutzers entspricht. </font></p>
+
+
+
+<p><font size="3" face="Arial">Um die Option Laufwerk C: zu
+
+defragmentieren, beim Start Ihres Computers zu haben, können Sie
+
+folgendes zu Ihrer AUTOEXEC.BAT-Datei hinzufügen. </font></p>
+
+
+
+<p><font size="2" face="Courier New">choice Defrag drive /ty,5</font></p>
+
+
+
+<p><font size="2" face="Courier New">if errorlevel 2 goto
+
+KeinDefrag</font></p>
+
+
+
+<p><font size="2" face="Courier New">defrag c: </font></p>
+
+
+
+<p><font size="2" face="Courier New">:KeinDefrag</font></p>
+
+
+
+<p><font size="3" face="Arial">Wenn Sie N innerhalb von 5
+
+Sekunden drücken, läuft DEFRAG nicht und CHOICE gibt den
+
+ERRORLEVEL-Wert 2 zurück. Wenn Sie N nicht innerhalb von 5
+
+Sekunden drücken, oder wenn Sie J wählen, läuft DEFRAG auf dem
+
+Laufwerk C:. </font></p>
+
+
+
+<p><a name="_Toc467316471"><font face="Arial"><u>Verwenden von
+
+CHOICE in einem Stapelverarbeitungsprogramm</u></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Das folgende
+
+Stapelverarbeitungsprogramm demonstriert den Befehl CHOICE zur
+
+Auswahl unter den drei Programmen MS-DOS-Editor, Micrososft
+
+Anti-Virus und Microsoft Backup.</font></p>
+
+
+
+<p><font size="3" face="Arial">Beachten Sie, dass wenn IF
+
+ERRORLEVEL-Aussagen in absteigender Reihenfolge aufgelistet sind
+
+und der von CHOICE zurückgegebene ERRORLEVEL-Parameter grösser
+
+oder gleich dem Parameter ist, der im IF-Befehl angegeben wurde,
+
+MS-DOS die IF-Aussage als wahr betrachtet. </font></p>
+
+
+
+<p><font size="2" face="Courier New">@echo off</font></p>
+
+
+
+<p><font size="2" face="Courier New">cls</font></p>
+
+
+
+<p><font size="2" face="Courier New">echo. </font></p>
+
+
+
+<p><font size="2" face="Courier New">echo A Microsoft Editor</font></p>
+
+
+
+<p><font size="2" face="Courier New">echo B Microsoft Anti-Virus</font></p>
+
+
+
+<p><font size="2" face="Courier New">echo C Microsoft Backup</font></p>
+
+
+
+<p><font size="2" face="Courier New">echo. </font></p>
+
+
+
+<p><font size="2" face="Courier New">choice /c:abc Option wählen</font></p>
+
+
+
+<p><font size="2" face="Courier New">if errorlevel 3 goto
+
+MSBackup</font></p>
+
+
+
+<p><font size="2" face="Courier New">if errorlevel 2 goto Msav</font></p>
+
+
+
+<p><font size="2" face="Courier New">if errorlevel 1 goto Edit</font></p>
+
+
+
+<p><font size="2" face="Courier New">:Edit</font></p>
+
+
+
+<p><font size="2" face="Courier New">edit</font></p>
+
+
+
+<p><font size="2" face="Courier New">goto Ende</font></p>
+
+
+
+<p><font size="2" face="Courier New">:Msav</font></p>
+
+
+
+<p><font size="2" face="Courier New">msav</font></p>
+
+
+
+<p><font size="2" face="Courier New">goto Ende</font></p>
+
+
+
+<p><font size="2" face="Courier New">:Msbackup</font></p>
+
+
+
+<p><font size="2" face="Courier New">msbackup</font></p>
+
+
+
+<p><font size="2" face="Courier New">goto Ende</font></p>
+
+
+
+<p><font size="2" face="Courier New">:Ende</font></p>
+
+
+
+<p><font size="4" face="Arial"><b></b></font>&nbsp;</p>
+
+
+
+<p><a name="_Toc467316472"><font size="4" face="Arial"><b>ECHO</b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Zeigt den Text der
+
+Stapelverarbeitungsdatei an oder versteckt ihn, wenn das Programm
+
+ausgeführt wird. Zeigt auch an, ob die befehlswiedergebende
+
+Funktion ein- oder ausgeschaltet ist. </font></p>
+
+
+
+<p><font size="3" face="Arial">Wenn Sie ein
+
+Stapelverarbeitungsprogramm ausführen, gibt MS-DOS normalerweise
+
+die Befehle des Stapelverarbeitungsprogramms auf dem Bildschirm
+
+wieder (wie ein Echo). Sie können diese Funktion mit Hilfe des
+
+Befehls ECHO ein- und ausschalten. </font></p>
+
+
+
+<p><font size="3" face="Arial"></font>&nbsp;</p>
+
+
+
+<p><a name="_Toc467316473"><font face="Arial"><b><i>Syntax</i></b></font></a></p>
+
+
+
+<p><font size="2" face="Courier New">ECHO [ON|OFF] </font></p>
+
+
+
+<p><font size="3" face="Arial">Um mit dem Befehl ECHO eine
+
+Meldung anzuzeigen, verwenden Sie folgende Syntax: </font></p>
+
+
+
+<p><font size="2" face="Courier New">echo [Meldung] </font></p>
+
+
+
+<p><a name="_Toc467316474"><font face="Arial"><b><i>Parameter</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">ON|OFF</font></p>
+
+
+
+<p><font size="3" face="Arial">Gibt an, ob die Befehlsanzeige
+
+ein- oder ausgeschaltet werden soll. Um die aktuelle Einstellung
+
+von ECHO anzuzeigen, verwenden Sie den Befehl ECHO ohne
+
+Parameter. </font></p>
+
+
+
+<p><a name="_Toc467316475"><font face="Arial"><b><i>Meldung</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Bezeichnet den Text, den MS-DOS
+
+auf dem Bildschirm anzeigen soll. </font></p>
+
+
+
+<p><a name="_Toc467316476"><font face="Arial"><b><i>Zugehöriger
+
+Befehl</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Informationen über die
+
+zeitweilige Unterbrechung eines Stapelverarbeitungsprogramms
+
+finden Sie bei der Beschreibung des Befehls &lt;PAUSE&gt;.</font></p>
+
+
+
+<p><a name="_Toc467316477"><font face="Arial"><b><i>ECHO
+
+Anmerkungen</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Verwenden einer Meldung mit dem
+
+Befehl ECHO</font></p>
+
+
+
+<p><font size="3" face="Arial">Der Befehl ECHO Meldung ist
+
+nützlich, wenn ECHO ausgeschaltet ist. Um eine Meldung
+
+anzuzeigen, die sich über mehrere Zeilen erstreckt, ohne andere
+
+Befehle anzuzeigen, können Sie in Ihr
+
+Stapelverarbeitungsprogramm nach dem Befehl ECHO OFF mehrere
+
+Befehlmeldungen ECHO einfügen. </font></p>
+
+
+
+<p><font size="3" face="Arial">Verstecken der Eingabeaufforderung</font></p>
+
+
+
+<p><font size="3" face="Arial">Wenn Sie den Befehl ECHO OFF an
+
+der Eingabeaufforderung verwenden, erscheint diese nicht auf dem
+
+Bildschirm. Um sie wieder anzuzeigen, geben Sie ECHO ON ein. </font></p>
+
+
+
+<p><font size="3" face="Arial">So verhindern Sie, dass MS-DOS
+
+eine einzelne Zeile wiedergibt</font></p>
+
+
+
+<p><font size="3" face="Arial">Sie können vor einen Befehl in
+
+einem Stapelverarbeitungsprogramm das Zeichen @ (ALT-64) setzen,
+
+um zu verhindern, dass MS-DOS diese Zeile wiedergibt. </font></p>
+
+
+
+<p><font size="3" face="Arial">Ausgabe einer Leerzeile</font></p>
+
+
+
+<p><font size="3" face="Arial">Um auf dem Bildschirm eine
+
+Leerzeile auszugeben, geben Sie ECHO und danach einen Punkt
+
+(ECHO.) ein. Dazwischen darf kein Leerraum sein. </font></p>
+
+
+
+<p><font size="3" face="Arial">Anzeigen von Befehlsketten und
+
+Umleitungszeichen</font></p>
+
+
+
+<p><font size="3" face="Arial">Mit dem Befehl ECHO können Sie
+
+keine Befehlskette (Pipe) (|) und kein Umleitungszeichen (&lt;
+
+oder &gt;) anzeigen. </font></p>
+
+
+
+<p><a name="_Toc467316478"><font face="Arial"><b><i>ECHO
+
+Beispiele</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Das folgende Beispiel zeigt ein
+
+Stapelverarbeitungsprogramm, das eine dreizeilige Meldung
+
+enthält, vor und hinter der eine Leerzeile erscheint: </font></p>
+
+
+
+<p><font size="2" face="Courier New">echo off</font></p>
+
+
+
+<p><font size="2" face="Courier New">echo. </font></p>
+
+
+
+<p><font size="2" face="Courier New">echo Dieses
+
+Stapelverarbeitungsprogramm</font></p>
+
+
+
+<p><font size="2" face="Courier New">echo formatiert und prüft</font></p>
+
+
+
+<p><font size="2" face="Courier New">echo neue Disketten. </font></p>
+
+
+
+<p><font size="2" face="Courier New">echo. </font></p>
+
+
+
+<p><font size="3" face="Arial">Wenn Sie ECHO ausschalten
+
+möchten, ohne dass der Befehl ECHO selbst angezeigt wird, setzen
+
+Sie das Zeichen @ vor den Befehl: </font></p>
+
+
+
+<p><font size="2" face="Courier New">@echo off</font></p>
+
+
+
+<p><font size="3" face="Arial">Sie können die Befehle IF und
+
+ECHO in derselben Zeile verwenden. Beispiel: </font></p>
+
+
+
+<p><font size="2" face="Courier New">if exist *.rpt echo Der
+
+Bereich ist eingetroffen. </font></p>
+
+
+
+<p><font size="4" face="Arial"><b></b></font>&nbsp;</p>
+
+
+
+<p><a name="_Toc467316479"><font size="4" face="Arial"><b>FOR</b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Führt den angegebenen Befehl für
+
+jede Datei in einer Gruppe von Dateien aus. Sie können den
+
+Befehl FOR innerhalb eines Stapelverarbeitungsprogramms oder
+
+direkt an der Eingabeaufforderung aufrufen. </font></p>
+
+
+
+<p><a name="_Toc467316480"><font face="Arial"><b><i>Syntax</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Um FOR in einem
+
+Stapelverarbeitungsprogramm zu benutzen, verwenden Sie folgende
+
+Syntax: </font></p>
+
+
+
+<p><font size="3" face="Arial">FOR %%Variable IN (Gruppe) DO
+
+Befehl [Befehlsparameter] </font></p>
+
+
+
+<p><font size="3" face="Arial">Um FOR an der Eingabeaufforderung
+
+zu benutzen, verwenden Sie folgende Syntax: </font></p>
+
+
+
+<p><font size="3" face="Arial">for %Variable IN (Gruppe) DO
+
+Befehl [Befehlsparameter] </font></p>
+
+
+
+<p><a name="_Toc467316481"><font face="Arial"><b><i>Parameter</i></b></font></a></p>
+
+
+
+<p><a name="_Toc467316482"><font face="Arial"><u>%%Variable oder
+
+%Variable</u></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Stellt eine ersetzbare Variable
+
+dar. Der Befehl FOR ersetzt %%Variable (oder %Variable)
+
+nacheinander durch jeden der Textzeichenfolgen in der angegebenen
+
+Gruppe, bis der mit dem Parameter Befehl angegebene Befehl für
+
+alle Dateien ausgeführt worden ist. Verwenden Sie %%Variable,
+
+wenn Sie den Befehl FOR aus einem Stapelverarbeitungsprogramm
+
+heraus ausführen. Verwenden Sie %Variable, wenn Sie FOR an der
+
+Eingabeaufforderung ausführen. </font></p>
+
+
+
+<p><font size="3" face="Arial"></font>&nbsp;</p>
+
+
+
+<p><a name="_Toc467316483"><font face="Arial"><u>(Gruppe)</u></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Bezeichnet eine oder mehrere
+
+Dateien oder Textzeichenfolgen, die mit dem angegebenen Befehl
+
+bearbeitet werden sollen. Die Klammern müssen angegeben werden. </font></p>
+
+
+
+<p><a name="_Toc467316484"><font face="Arial"><u>Befehl</u></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Bezeichnet den Befehl, der für
+
+jede in der angegebenen Gruppe enthaltene Datei ausgeführt
+
+werden soll. </font></p>
+
+
+
+<p><a name="_Toc467316485"><font face="Arial"><u>Befehlsparameter</u></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Bezeichnet die Parameter und
+
+Optionen, die Sie mit dem angegebenen Befehl verwenden möchten
+
+(vorausgesetzt, der angegebene Befehl verwendet Parameter oder
+
+Optionen). </font></p>
+
+
+
+<p><a name="_Toc467316486"><font face="Arial"><b><i>FOR
+
+Anmerkungen</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Verwenden der Schlüsselwörter IN
+
+und DO</font></p>
+
+
+
+<p><font size="3" face="Arial">IN und DO sind keine Parameter,
+
+müssen jedoch im Befehl FOR angegeben werden. MS-DOS zeigt eine
+
+Fehlermeldung an, wenn eines dieser Schlüsselwörter fehlt. </font></p>
+
+
+
+<p><font size="3" face="Arial">Verwenden der ersetzbaren
+
+Variablen</font></p>
+
+
+
+<p><font size="3" face="Arial">Um Verwechslungen mit den
+
+Stapelverarbeitungsparametern %0 bis %9 zu vermeiden, können Sie
+
+für Variable jedes beliebige Zeichen, ausgenommen jedoch die
+
+Ziffern 0 bis 9, verwenden. In einfachen
+
+Stapelverarbeitungsprogrammen ist meistens ein einzelnes Zeichen,
+
+wie beispielsweise %F, bereits ausreichend. </font></p>
+
+
+
+<p><font size="3" face="Arial">In komplexen
+
+Stapelverarbeitungsprogrammen können Sie auch verschiedene Werte
+
+für Variable verwenden, um mehrere ersetzbare Variablen
+
+voneinander unterscheiden zu können. Sie können jedoch nicht
+
+mehrere FOR-Befehle in derselben Befehlszeile verschachteln. </font></p>
+
+
+
+<p><font size="3" face="Arial">Angeben einer Gruppe von Dateien</font></p>
+
+
+
+<p><font size="3" face="Arial">Der Parameter Gruppe kann eine
+
+oder mehrere Gruppen von Dateien darstellen. Sie können
+
+Platzhalter (* und ?) verwenden, um eine Dateigruppe anzugeben.
+
+Die folgenden Beispiele zeigen gültige Dateigruppen: </font></p>
+
+
+
+<p><font size="3" face="Arial">(*.doc) </font></p>
+
+
+
+<p><font size="3" face="Arial">(*.doc *.txt *.me) </font></p>
+
+
+
+<p><font size="3" face="Arial">(jan*.doc jan*.rpt feb*.doc
+
+feb*.rpt) </font></p>
+
+
+
+<p><font size="3" face="Arial">(ar??1992.* ap??1992.*) </font></p>
+
+
+
+<p><font size="3" face="Arial">Wenn Sie den Befehl FOR
+
+ausführen, wird der erste Wert in Gruppe für %%Variable (oder
+
+%Variable) eingesetzt, und MS-DOS führt den angegebenen Befehl
+
+aus, um diesen Wert zu verarbeiten. Dieser Vorgang wird so oft
+
+wiederholt, bis MS-DOS alle Dateien (oder Dateigruppen)
+
+verarbeitet hat, die dem Wert (oder den Werten) in Gruppe
+
+entsprechen. </font></p>
+
+
+
+<p><a name="_Toc467316487"><font face="Arial"><b><i>FOR Beispiele</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Angenommen, Sie möchten mit dem
+
+Befehl TYPE den Inhalt aller im aktuellen</font></p>
+
+
+
+<p><font size="3" face="Arial">Verzeichnis enthaltenen Dateien
+
+anzeigen, die die Erweiterung .DOC oder .TXT</font></p>
+
+
+
+<p><font size="3" face="Arial">haben. Um dies unter Verwendung
+
+der ersetzbaren Variable %F durchzuführen, </font></p>
+
+
+
+<p><font size="3" face="Arial">geben Sie folgenden Befehl an der
+
+Eingabeaufforderung ein: </font></p>
+
+
+
+<p><font size="3" face="Arial">for %f in (*.doc *.txt) do type %f</font></p>
+
+
+
+<p><font size="3" face="Arial">In diesem Beispiel wird jede Datei
+
+im aktuellen Verzeichnis, die die</font></p>
+
+
+
+<p><font size="3" face="Arial">Erweiterung .DOC oder .TXT hat,
+
+für die Variable %F eingesetzt, bis der</font></p>
+
+
+
+<p><font size="3" face="Arial">Inhalt jeder Datei angezeigt
+
+worden ist. Wenn Sie diesen Befehl in einer</font></p>
+
+
+
+<p><font size="3" face="Arial">Stapelverarbeitungsdatei verwenden
+
+möchten, würden Sie jedes %F durch %%F</font></p>
+
+
+
+<p><font size="3" face="Arial">ersetzen, da MS-DOS die Variable
+
+sonst ignorieren und eine Fehlermeldung</font></p>
+
+
+
+<p><font size="3" face="Arial">anzeigen würde. </font></p>
+
+
+
+<p><font size="3" face="Arial">MS-DOS unterstützt
+
+Befehlsoptionen, Befehlsketten oder Umleitungen, die Sie</font></p>
+
+
+
+<p><font size="3" face="Arial">eventuell mit dem angegebenen
+
+Befehl verwenden möchten. Um beispielsweise</font></p>
+
+
+
+<p><font size="3" face="Arial">die Ausgabe des vorhergehenden
+
+Befehls auf PRN: (den</font></p>
+
+
+
+<p><font size="3" face="Arial">Standard-Druckeranschluss)
+
+umzuleiten, geben Sie folgenden Befehl ein: </font></p>
+
+
+
+<p><font size="3" face="Arial">for %f in (*.doc *.txt) do type %f
+
+&gt; prn: </font></p>
+
+
+
+<p><font si>
+<HR><H3>Übertragung unterbrochen</H3>
+</p>
+
+
+
+<p><a name="_Toc467316488"><font size="4" face="Arial"><b>GOTO</b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Leitet MS-DOS zu der durch eine
+
+Marke von Ihnen gekennzeichneten Zeile eines</font></p>
+
+
+
+<p><font size="3" face="Arial">Stapelverarbeitungsprogramms. Sie
+
+können diesen Befehl nur in</font></p>
+
+
+
+<p><font size="3" face="Arial">Stapelverarbeitungsprogrammen
+
+verwenden. </font></p>
+
+
+
+<p><font size="3" face="Arial">Der Befehl GOTO leitet MS-DOS
+
+innerhalb eines Stapelverarbeitungsprogramms</font></p>
+
+
+
+<p><font size="3" face="Arial">zu einer durch eine Marke
+
+gekennzeichneten Zeile. Wenn MS-DOS die Marke</font></p>
+
+
+
+<p><font size="3" face="Arial">gefunden hat, verarbeitet es die
+
+Befehle ab der nächsten Zeile. </font></p>
+
+
+
+<p><a name="_Toc467316489"><font face="Arial"><b><i>Syntax</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">GOTO Marke</font></p>
+
+
+
+<p><a name="_Toc467316490"><font face="Arial"><b><i>Parameter</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Marke</font></p>
+
+
+
+<p><font size="3" face="Arial">Bezeichnet die Zeile innerhalb
+
+eines Stapelverarbeitungsprogramms, an</font></p>
+
+
+
+<p><font size="3" face="Arial">der MS-DOS die Ausführung
+
+fortsetzen soll. </font></p>
+
+
+
+<p><a name="_Toc467316491"><font face="Arial"><b><i>GOTO
+
+Anmerkungen</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Gültige Werte für Marke</font></p>
+
+
+
+<p><font size="3" face="Arial">Der Parameter Marke kann
+
+Leerzeichen enthalten. Es dürfen jedoch keine anderen
+
+Trennzeichen, wie beispielsweise Semikola oder
+
+Gleichheitszeichen, verwendet werden. </font></p>
+
+
+
+<p><font size="3" face="Arial">GOTO verwendet die ersten acht
+
+Zeichen jeder Marke</font></p>
+
+
+
+<p><font size="3" face="Arial">Der Befehl GOTO verwendet nur die
+
+ersten acht Zeichen einer Marke. Daher sind die beiden Marken
+
+&quot;gutentag1&quot; und &quot;gutentag2&quot; gleichbedeutend
+
+mit der Marke &quot;gutentag&quot;.</font></p>
+
+
+
+<p><font size="3" face="Arial">Anpassen des Parameters Marke an
+
+die Marke im Stapelverarbeitungsprogramm</font></p>
+
+
+
+<p><font size="3" face="Arial">Der Wert der von Ihnen in der
+
+GOTO-Befehlszeile angegebenen Marke muss einer Marke im
+
+Stapelverarbeitungsprogramm entsprechen. Der Marke innerhalb des
+
+Stapelverarbeitungsprogramms muss ein Doppelpunkt vorangestellt
+
+sein. </font></p>
+
+
+
+<p><font size="3" face="Arial">Ist die von Ihnen angegebene Marke
+
+nicht in Ihrem Stapelverarbeitungsprogramm enthalten, wird das
+
+Stapelverarbeitungsprogramm abgebrochen, und MS-DOS zeigt die
+
+folgende Meldung an: </font></p>
+
+
+
+<p><font size="3" face="Arial">Sprungziel nicht gefunden</font></p>
+
+
+
+<p><font size="3" face="Arial">Wenn eine Zeile in einem
+
+Stapelverarbeitungsprogramm mit einem Doppelpunkt (:) beginnt,
+
+erkennt MS-DOS, dass es sich um eine Marke handelt, und führt
+
+die Zeile nicht als Befehl aus. MS-DOS ignoriert alle Befehle,
+
+die in einer mit einem Doppelpunkt beginnenden Zeile enthalten
+
+sind. </font></p>
+
+
+
+<p><font size="3" face="Arial">Verwenden von GOTO für bedingte
+
+Operationen</font></p>
+
+
+
+<p><font size="3" face="Arial">Der Befehl GOTO wird oft zusammen
+
+mit anderen Befehlen in derselben Befehlszeile zum Durchführen
+
+bedingter Operationen verwendet. Weitere Informationen über die
+
+Verwendung von GOTO für bedingte Operationen finden Sie bei der
+
+Beschreibung des Befehls &lt;IF&gt;.</font></p>
+
+
+
+<p><a name="_Toc467316492"><font face="Arial"><b><i>GOTO Beispiel</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Das folgende
+
+Stapelverarbeitungsprogramm formatiert eine Diskette im Laufwerk
+
+A: als Systemdiskette. Wenn der Formatiervorgang erfolgreich
+
+beendet wurde, leitet der Befehl GOTO MS-DOS zur Marke mit der
+
+Bezeichnung &quot;ende&quot;:</font></p>
+
+
+
+<p><font size="2" face="Courier New">echo off</font></p>
+
+
+
+<p><font size="2" face="Courier New">format a: /s</font></p>
+
+
+
+<p><font size="2" face="Courier New">if not errorlevel 1 goto
+
+ende</font></p>
+
+
+
+<p><font size="2" face="Courier New">echo Beim Formatieren ist
+
+ein Fehler aufgetreten. </font></p>
+
+
+
+<p><font size="2" face="Courier New">:ende</font></p>
+
+
+
+<p><font size="2" face="Courier New">echo Ende des
+
+Stapelverarbeitungsprogramms. </font></p>
+
+
+
+<p><font size="4" face="Arial"><b></b></font>&nbsp;</p>
+
+
+
+<p><a name="_Toc467316493"><font size="4" face="Arial"><b>IF</b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Ermöglicht die bedingte
+
+Verarbeitung von Befehlen in Stapelverarbeitungsprogrammen. Wenn
+
+die in einem IF-Befehl angegebene Bedingung wahr ist, führt
+
+MS-DOS den auf die Bedingung folgenden Befehl aus. Ist die
+
+Bedingung falsch, ignoriert MS-DOS den Befehl. Sie können diesen
+
+Befehl nur in Stapelverarbeitungsprogrammen verwenden. </font></p>
+
+
+
+<p><a name="_Toc467316494"><font face="Arial"><b><i>Syntax</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">IF [NOT] ERRORLEVEL Zahl Befehl</font></p>
+
+
+
+<p><font size="3" face="Arial">IF [NOT]
+
+Zeichenfolge1==Zeichenfolge2 Befehl</font></p>
+
+
+
+<p><font size="3" face="Arial">IF [NOT] EXIST Dateiname Befehl</font></p>
+
+
+
+<p><a name="_Toc467316495"><font face="Arial"><b><i>Parameter</i></b></font></a></p>
+
+
+
+<p><font size="2"><b>NOT</b></font></p>
+
+
+
+<p><font size="3" face="Arial">Legt fest, dass MS-DOS den Befehl
+
+nur dann ausführen soll, wenn die Bedingung falsch ist. </font></p>
+
+
+
+<p><font size="2"><b>ERRORLEVEL Zahl</b></font></p>
+
+
+
+<p><font size="3" face="Arial">Ist wahr, wenn das vorher von
+
+COMMAND.COM ausgeführte Programm einen Beendigungscode geliefert
+
+hat, der grösser oder gleich Zahl ist. </font></p>
+
+
+
+<p><font size="2"><b>Befehl</b></font></p>
+
+
+
+<p><font size="3" face="Arial">Bezeichnet den bei einer wahren
+
+Bedingung von MS-DOS auszuführenden Befehl. </font></p>
+
+
+
+<p><font size="2"><b>Zeichenfolge1==Zeichenfolge2</b></font></p>
+
+
+
+<p><font size="3" face="Arial">Ist nur wahr, wenn Zeichenfolge1
+
+und Zeichenfolge2 identisch sind. Diese Werte können konstante
+
+Zeichenfolgen oder auch Stapelverarbeitungsparameter
+
+(beispielsweise %1) sein. Konstante Zeichenfolgen benötigen
+
+keine Anführungszeichen. </font></p>
+
+
+
+<p><font size="2"><b>EXIST Dateiname</b></font></p>
+
+
+
+<p><font size="3" face="Arial">Ist wahr, wenn Dateiname
+
+existiert. </font></p>
+
+
+
+<p><a name="_Toc467316496"><font face="Arial"><b><i>IF Beispiele</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Im folgenden Beispiel wird
+
+geprüft, ob ein Verzeichnis vorhanden ist. Der Befehl IF kann
+
+nicht direkt zur Überprüfung eines Verzeichnisses verwendet
+
+werden; in jedem Verzeichnis ist jedoch der Null-Eintrag (NUL)
+
+vorhanden. Deshalb können Sie durch überprüfen des
+
+Null-Eintrags feststellen, ob ein</font></p>
+
+
+
+<p><font size="3" face="Arial">Verzeichnis existiert. </font></p>
+
+
+
+<p><font size="2" face="Courier New">if exist c:\meindir\nul goto
+
+prozedur</font></p>
+
+
+
+<p><font size="3" face="Arial">Das folgende Beispiel zeigt die
+
+Meldung: &quot;Kann Datendatei nicht finden&quot;, wenn MS-DOS
+
+nicht die Datei PRODUKT.DAT finden kann. </font></p>
+
+
+
+<p><font size="2" face="Courier New">if not exist produkt.dat
+
+echo Datendatei nicht auffindbar</font></p>
+
+
+
+<p><font size="3" face="Arial">Wenn ein Programm endet, übergibt
+
+es MS-DOS einen Beendigungscode. Beispielsweise wird der Wert 0
+
+in der Regel verwendet, um die erfolgreiche Ausführung des
+
+Programms anzuzeigen. Durch den Parameter ERRORLEVEL können Sie
+
+Beendigungscodes als Bedingungen verwenden. </font></p>
+
+
+
+<p><font size="3" face="Arial">Das folgende Beispiel zeigt eine
+
+Fehlermeldung an, wenn beim Formatieren der Diskette in Laufwerk
+
+A: ein Fehler auftritt. Tritt kein Fehler auf, wird die
+
+Fehlermeldung übergangen. </font></p>
+
+
+
+<p><font size="2" face="Courier New">:begin</font></p>
+
+
+
+<p><font size="2" face="Courier New">echo off</font></p>
+
+
+
+<p><font size="2" face="Courier New">format a: /s</font></p>
+
+
+
+<p><font size="2" face="Courier New">if not errorlevel 1 goto
+
+Ende</font></p>
+
+
+
+<p><font size="2" face="Courier New">echo echo Bei der
+
+Formatierung trat ein Fehler auf. </font></p>
+
+
+
+<p><font size="2" face="Courier New">:Ende</font></p>
+
+
+
+<p><font size="2" face="Courier New">echo Ende des
+
+Stapelverarbeitungsprogramms. </font></p>
+
+
+
+<p><font size="3" face="Arial">Ein weiteres Beispiel zur
+
+Verwendung des Parameters ERRORLEVEL finden Sie</font></p>
+
+
+
+<p><font size="3" face="Arial">bei der Beschreibung des Befehls
+
+&lt;CHOICE&gt;.</font></p>
+
+
+
+<p><font size="4" face="Arial"><b></b></font>&nbsp;</p>
+
+
+
+<p><a name="_Toc467316497"><font size="4" face="Arial"><b>PAUSE</b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Unterbricht die Ausführung eines
+
+Stapelverarbeitungsprogramms und zeigt eine Meldung an, die den
+
+Benutzer auffordert, zur Fortsetzung eine beliebige Taste zu
+
+drücken. Sie können diesen Befehl nur in
+
+Stapelverarbeitungsprogrammen verwenden. </font></p>
+
+
+
+<p><a name="_Toc467316498"><font face="Arial"><b><i>Syntax</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">PAUSE</font></p>
+
+
+
+<p><a name="_Toc467316499"><font face="Arial"><b><i>PAUSE
+
+Anmerkungen</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Aufforderung an den Benutzer, das
+
+Programm fortzusetzen</font></p>
+
+
+
+<p><font size="3" face="Arial">MS-DOS zeigt als Reaktion auf
+
+einen PAUSE-Befehl die folgende Meldung an: </font></p>
+
+
+
+<p><font size="2" face="Courier New">Drücken Sie eine beliebige
+
+Taste, um fortzusetzen... </font></p>
+
+
+
+<p><font size="3" face="Arial">Aufteilen einer
+
+Stapelverarbeitungsdatei in mehrere Abschnitte</font></p>
+
+
+
+<p><font size="3" face="Arial">Wenn Sie STRG+C drücken, um ein
+
+Stapelverarbeitungsprogramm zu unterbrechen, zeigt MS-DOS die
+
+folgende Meldung an: </font></p>
+
+
+
+<p><font size="2" face="Courier New">Stapelverarbeitung abbrechen
+
+(J/N)? </font></p>
+
+
+
+<p><font size="3" face="Arial">Wenn Sie J (für ja) drücken,
+
+wird das Stapelverarbeitungsprogramm beendet und die Steuerung an
+
+das Betriebssystem zurückgegeben. Daher kann der Befehl PAUSE
+
+vor einen Abschnitt einer Stapelverarbeitungsdatei gesetzt
+
+werden, der nicht ausgeführt werden soll. Während PAUSE die
+
+Verarbeitung des Stapelverarbeitungsprogramms unterbricht,
+
+können Sie STRG+C und anschliessend J drücken, um das
+
+Stapelverarbeitungsprogramm zu beenden. </font></p>
+
+
+
+<p><a name="_Toc467316500"><font face="Arial"><b><i>PAUSE
+
+Beispiel</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Angenommen, ein
+
+Stapelverarbeitungsprogramm soll den jeweiligen Benutzer mit</font></p>
+
+
+
+<p><font size="3" face="Arial">einer Meldung dazu auffordern, in
+
+eines der Laufwerke jeweils eine neue</font></p>
+
+
+
+<p><font size="3" face="Arial">Diskette einzulegen. Dazu könnten
+
+Sie die folgende Datei erstellen: </font></p>
+
+
+
+<p><font size="2" face="Courier New">@echo off</font></p>
+
+
+
+<p><font size="2" face="Courier New">:Anfang</font></p>
+
+
+
+<p><font size="2" face="Courier New">copy a:*.* </font></p>
+
+
+
+<p><font size="2" face="Courier New">echo Bitte eine neue
+
+Diskette in das Laufwerk A: einlegen. </font></p>
+
+
+
+<p><font size="2" face="Courier New">pause</font></p>
+
+
+
+<p><font size="2" face="Courier New">goto Anfang</font></p>
+
+
+
+<p><font size="3" face="Arial">In diesem Beispiel werden alle
+
+Dateien, die sich auf der in das Laufwerk A: eingelegten Diskette
+
+befinden, in das aktuelle Verzeichnis kopiert. Im Anschluss an
+
+einen Kopiervorgang wird die Meldung ausgegeben, die Sie
+
+auffordert, eine andere Diskette in das Laufwerk A: einzulegen.
+
+Danach unterbricht der PAUSE-Befehl die Verarbeitung, damit Sie
+
+die jeweilige Diskette wechseln und eine beliebige Taste drücken
+
+können, um die Stapelverarbeitung fortzusetzen. Das hier
+
+gezeigte Stapelverarbeitungsprogramm läuft in einer
+
+Endlosschleife, denn die Befehlszeile GOTO ANFANG veranlasst den
+
+Befehlsinterpreter, innerhalb der Stapelverarbeitungsdatei zu der
+
+Marke ANFANG zu springen. Dieses Stapelverarbeitungsprogramm
+
+können Sie nur beenden, indem Sie STRG+C und dann J drücken. </font></p>
+
+
+
+<p><font size="4" face="Arial"><b></b></font>&nbsp;</p>
+
+
+
+<p><a name="_Toc467316501"><font size="4" face="Arial"><b>REM</b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Ermöglicht es Ihnen, Kommentare
+
+in eine Stapelverarbeitungsdatei einzufügen, </font></p>
+
+
+
+<p><font size="3" face="Arial">oder verhindert, dass Befehle in
+
+einer Stapelverarbeitungsdatei ausgeführt</font></p>
+
+
+
+<p><font size="3" face="Arial">werden. (Sie können auch ein
+
+Semikolon (;) verwenden, um Befehle zu</font></p>
+
+
+
+<p><font size="3" face="Arial">deaktivieren.) MS-DOS ignoriert
+
+alle Zeilen einer Stapelverarbeitungs- oder</font></p>
+
+
+
+<p><font size="3" face="Arial">CONFIG.SYS-Datei, die mit REM oder
+
+einem Semikolon beginnen.</font></p>
+
+
+
+<p><a name="_Toc467316502"><font face="Arial"><b><i>Syntax</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">REM [Kommentar] </font></p>
+
+
+
+<p><font size="3" face="Arial">oder</font></p>
+
+
+
+<p><font size="3" face="Arial">;[Kommentar] </font></p>
+
+
+
+<p><a name="_Toc467316503"><font face="Arial"><b><i>Parameter</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Kommentar</font></p>
+
+
+
+<p><font size="3" face="Arial">Gibt die Zeichenkette an, die Sie
+
+als Kommentar einfügen möchten. </font></p>
+
+
+
+<p><a name="_Toc467316504"><font face="Arial"><b><i>Verwandter
+
+Befehl</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Informationen darüber, wie
+
+Meldungen angezeigt werden, finden Sie bei dem Befehl
+
+&lt;ECHO&gt;.</font></p>
+
+
+
+<p><a name="_Toc467316505"><font face="Arial"><b><i>REM
+
+Anmerkungen</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Einsetzen des Befehls ECHO, um
+
+Kommentare anzuzeigen</font></p>
+
+
+
+<p><font size="3" face="Arial">Der Befehl REM zeigt auf dem
+
+Bildschirm keine Kommentare an. Damit Kommentare auf dem
+
+Bildschirm angezeigt werden, müssen Sie innerhalb Ihrer
+
+Stapelverarbeitungs- oder CONFIG.SYS-Datei den Befehl ECHO ON
+
+einsetzen. </font></p>
+
+
+
+<p><font size="3" face="Arial">Einschränkungen für Zeichen in
+
+Kommentaren in Stapelverarbeitungsdateien</font></p>
+
+
+
+<p><font size="3" face="Arial">Für Kommentare in
+
+Stapelverarbeitungsdateien dürfen keine Umleitungssymbole (&lt;
+
+oder &gt;) oder Verkettungszeichen (|) verwendet werden. </font></p>
+
+
+
+<p><font size="3" face="Arial">Einsetzen von REM, um vertikale
+
+Abstände einzufügen</font></p>
+
+
+
+<p><font size="3" face="Arial">Vertikale Abstände können Sie
+
+sowohl einfügen, indem Sie REM-Befehle ohne Kommentare angeben,
+
+als auch, indem Sie Leerzeilen angeben. MS-DOS ignoriert
+
+Leerzeilen bei der Ausführung eines
+
+Stapelverarbeitungsprogrammes. </font></p>
+
+
+
+<p><a name="_Toc467316506"><font face="Arial"><b><i>REM Beispiele</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Das folgende Beispiel zeigt eine
+
+Stapelverarbeitungsdatei, in der Kommentare sowohl für
+
+Erläuterungen als auch für vertikale Abstände eingesetzt
+
+werden: </font></p>
+
+
+
+<p><font size="2" face="Courier New">@echo off</font></p>
+
+
+
+<p><font size="2" face="Courier New">rem Dieses
+
+Stapelverarbeitungsprogramm formatiert und prüft</font></p>
+
+
+
+<p><font size="2" face="Courier New">rem Disketten. Es heisst
+
+PRUEFNEU.BAT. </font></p>
+
+
+
+<p><font size="2" face="Courier New">rem</font></p>
+
+
+
+<p><font size="2" face="Courier New">echo Legen Sie eine neue
+
+Diskette in das Laufwerk B: ein. </font></p>
+
+
+
+<p><font size="2" face="Courier New">pause</font></p>
+
+
+
+<p><font size="2" face="Courier New">format b: /v</font></p>
+
+
+
+<p><font size="2" face="Courier New">chkdsk b: </font></p>
+
+
+
+<p><font size="3" face="Arial">Angenommen, Sie möchten in Ihre
+
+CONFIG.SYS-Datei eine Erläuterung einfügen, die vor dem
+
+COUNTRY-Befehl stehen soll. Fügen Sie dazu die folgende Zeile in
+
+Ihre CONFIG.SYS- Datei ein: </font></p>
+
+
+
+<p><font size="2" face="Courier New">rem Ländercode auf
+
+Frankreich einstellen</font></p>
+
+
+
+<p><font size="2" face="Courier New">country=033</font></p>
+
+
+
+<p><font size="3" face="Arial">Das folgende Beispiel zeigt einen
+
+Befehl DEVICE, der durch die Verwendung eines Semikolons (;)
+
+statt eines Befehls REM deaktiviert wurde: </font></p>
+
+
+
+<p><font size="2" face="Courier New">;device=c:\ramdrive.sys</font></p>
+
+
+
+<p><font size="4" face="Arial"><b></b></font>&nbsp;</p>
+
+
+
+<p><a name="_Toc467316507"><font size="4" face="Arial"><b>SHIFT</b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Ändert innerhalb einer
+
+Stapelverarbeitungsdatei die Positionen der ersetzbaren
+
+Parameter. </font></p>
+
+
+
+<p><a name="_Toc467316508"><font face="Arial"><b><i>Syntax</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">SHIFT</font></p>
+
+
+
+<p><a name="_Toc467316509"><font face="Arial"><b><i>SHIFT
+
+Anmerkungen</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Wie der Befehl SHIFT funktioniert</font></p>
+
+
+
+<p><font size="3" face="Arial">Der Befehl SHIFT ändert die Werte
+
+der Parameter %0 bis %9 dadurch, dass er jeden Parameter in den
+
+jeweils vorhergehenden kopiert. Anders ausgedrückt: Der Wert von
+
+%1 wird in %0 kopiert, der Wert von %2 wird in %1 kopiert und so
+
+weiter. Dies ist speziell hilfreich, um
+
+Stapelverarbeitungsprogramme zu schreiben, in denen für eine
+
+beliebige Anzahl von Parametern derselbe Vorgang ausgeführt
+
+werden soll. </font></p>
+
+
+
+<p><font size="3" face="Arial">Verwenden von mehr als 10
+
+Befehlszeilenparametern</font></p>
+
+
+
+<p><font size="3" face="Arial">Sie können den Befehl SHIFT auch
+
+dazu einsetzen, Stapelverarbeitungsprogramme zu schreiben, die
+
+mehr als 10 Parameter akzeptieren. Wenn Sie in der Befehlszeile
+
+mehr als 10 Parameter angeben, werden die Parameter, die hinter
+
+dem zehnten Parameter (%9) stehen, nacheinander in %9 kopiert. </font></p>
+
+
+
+<p><font size="3" face="Arial">Zurückkopieren von Parametern</font></p>
+
+
+
+<p><font size="3" face="Arial">Es gibt keinen SHIFT-Befehl, mit
+
+dem Parameter zurückkopiert werden können. Sobald Sie einen
+
+SHIFT-Befehl ausgeführt haben, können Sie den ersten Parameter
+
+(%0), der vor dem Kopiervorgang noch existierte, nicht mehr</font></p>
+
+
+
+<p><font size="3" face="Arial">wiederherstellen. </font></p>
+
+
+
+<p><a name="_Toc467316510"><font face="Arial"><b><i>SHIFT
+
+Beispiel</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Das folgende
+
+Stapelverarbeitungsprogramm namens KOPIER.BAT verdeutlicht, wie
+
+der Befehl SHIFT eingesetzt werden kann, wenn beliebig viele
+
+Parameter angegeben sind. Aufgabe des Programms ist es, alle in
+
+der Befehlszeile angegebenen Dateien in ein bestimmtes
+
+Verzeichnis zu kopieren. Die Parameter sind der Name des
+
+Verzeichnisses gefolgt von beliebig vielen Dateinamen: </font></p>
+
+
+
+<p><font size="2" face="Courier New">@echo off</font></p>
+
+
+
+<p><font size="2" face="Courier New">rem KOPIER.BAT kopiert
+
+beliebig viele Dateien</font></p>
+
+
+
+<p><font size="2" face="Courier New">rem in ein anderes
+
+Verzeichnis. </font></p>
+
+
+
+<p><font size="2" face="Courier New">rem Der Befehl hat die
+
+folgende Syntax: </font></p>
+
+
+
+<p><font size="2" face="Courier New">rem kopier zielverz datei1
+
+datei2 ... </font></p>
+
+
+
+<p><font size="2" face="Courier New">set zielverz=%1</font></p>
+
+
+
+<p><font size="2" face="Courier New">:liesdat</font></p>
+
+
+
+<p><font size="2" face="Courier New">if
+
+&quot;%1&quot;==&quot;&quot; goto ende</font></p>
+
+
+
+<p><font size="2" face="Courier New">copy %1 %zielverz%</font></p>
+
+
+
+<p><font size="2" face="Courier New">shift</font></p>
+
+
+
+<p><font size="2" face="Courier New">goto liesdat</font></p>
+
+
+
+<p><font size="2" face="Courier New">:ende</font></p>
+
+
+
+<p><font size="2" face="Courier New">set zielverz=</font></p>
+
+
+
+<p><font size="2" face="Courier New">echo Alle Dateien kopiert. </font></p>
+
+
+
+<p><font size="4" face="Arial"><b></b></font>&nbsp;</p>
+
+
+
+<p><a name="_Toc467316511"><font size="4" face="Arial"><b>COMMAND</b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Startet eine neue Kopie des
+
+MS-DOS-Befehlsinterpreters. </font></p>
+
+
+
+<p><font size="3" face="Arial">Ein Befehlsinterpreter ist ein
+
+Programm, das die Eingabeaufforderung anzeigt, hinter der Sie
+
+Befehle eingeben. Verwenden Sie den Befehl EXIT, um den neuen
+
+Befehlsinterpreter zu beenden und die Kontrolle dem alten</font></p>
+
+
+
+<p><font size="3" face="Arial">zurückzugeben. </font></p>
+
+
+
+<p><a name="_Toc467316512"><font face="Arial"><b><i>Syntax</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">COMMAND [[Laufwerk:]Pfad] [Gerät]
+
+[/E:nnnnn] [/Y [/C Befehl|/K Befehl]] </font></p>
+
+
+
+<p><font size="3" face="Arial">Verwenden Sie in Ihrer Datei
+
+CONFIG.SYS die folgende Syntax: </font></p>
+
+
+
+<p><font size="2" face="Courier New">SHELL=[[dos-Laufwerk:]dos-Pfad]COMMAND.COM
+
+[[Laufwerk:]Pfad][Gerät] </font></p>
+
+
+
+<p><font size="2" face="Courier New">[/E:nnnn] [/P [/MSG]] </font></p>
+
+
+
+<p><a name="_Toc467316513"><font face="Arial"><b><i>Parameter</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">[Laufwerk:]Pfad</font></p>
+
+
+
+<p><font size="3" face="Arial">Gibt an, wo der Befehlsinterpreter
+
+nach der Datei COMMAND.COM suchen soll, wenn der nicht residente
+
+Teil des Programms neu geladen werden muss. Dieser Parameter muss
+
+beim ersten Laden von COMMAND.COM angegeben werden, wenn sich die
+
+Datei COMMAND.COM nicht im Stammverzeichnis befindet. Dieser
+
+Parameter dient zum Setzen der Umgebungsvariablen COMSPEC.
+
+Weitere Informationen finden Sie unter &quot;Nichtresidenter und
+
+residenter Speicher&quot; unter &lt;COMMANDÄÄAnmerkungen&gt;.</font></p>
+
+
+
+<p><font size="3" face="Arial">Gerät</font></p>
+
+
+
+<p><font size="3" face="Arial">Bezeichnet ein anderes Gerät zur
+
+Befehlseingabe und - ausgabe. Weitere Informationen über diesen
+
+Parameter finden Sie bei der Beschreibung des Befehls
+
+&lt;CTTY&gt;.</font></p>
+
+
+
+<p><font size="3" face="Arial">[dos-Laufwerk:]dos-Pfad</font></p>
+
+
+
+<p><font size="3" face="Arial">Bezeichnet die Position von
+
+COMMAND.COM. </font></p>
+
+
+
+<p><a name="_Toc467316514"><font face="Arial"><b><i>Optionen</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">/C Befehl</font></p>
+
+
+
+<p><font size="3" face="Arial">Gibt an, dass der
+
+Befehlsinterpreter den von &quot;Befehl&quot; festgelegten Befehl
+
+ausführen und danach enden soll. Diese Option muss an der
+
+Befehlszeile zuletzt eingegeben werden. </font></p>
+
+
+
+<p><font size="3" face="Arial">/E:nnnnn</font></p>
+
+
+
+<p><font size="3" face="Arial">Gibt die Umgebungsgrösse an,
+
+wobei nnnnn die Grösse in Byte ist. Der Wert von nnnnn muss im
+
+Bereich 160 bis 32768 liegen. MS-DOS rundet diese Zahl auf ein
+
+Vielfaches von 16. Der Standardwert ist 256. </font></p>
+
+
+
+<p><font size="3" face="Arial">/K Befehl</font></p>
+
+
+
+<p><font size="3" face="Arial">Führt das angegebene Programm,
+
+den Befehl oder die Stapelverarbeitungsdatei aus und zeigt dann
+
+die MS-DOS-Eingabeaufforderung an. Diese Option muss an der
+
+Befehlszeile zuletzt eingegeben werden. </font></p>
+
+
+
+<p><font size="3" face="Arial">Diese Option ist besonders
+
+nützlich, wenn Sie für die MS-DOS-Eingabeaufforderung in
+
+Windows eine andere Startdatei als C:\AUTOEXEC.BAT festlegen
+
+möchten. Öffnen Sie dazu die Datei DOSPRMPT.PIF mit Hilfe des
+
+PIF- Editors, und geben Sie die Option /K in das Feld
+
+&quot;Programmparameter&quot; ein.) Sie sollten die Option /K
+
+nicht in der SHELL-Befehlszeile Ihrer Datei CONFIG.SYS verwenden;
+
+dies kann zu Problemen mit Anwendungen und
+
+Installationsprogrammmen führen, die Änderungen an Ihrer Datei
+
+AUTOEXEC.BAT vornehmen. </font></p>
+
+
+
+<p><font size="3" face="Arial">/P</font></p>
+
+
+
+<p><font size="3" face="Arial">Darf nur verwendet werden, wenn in
+
+der Datei CONFIG.SYS COMMAND in</font></p>
+
+
+
+<p><font size="3" face="Arial">Verbindung mit dem Befehl SHELL
+
+verwendet wird. Die Option /P macht die</font></p>
+
+
+
+<p><font size="3" face="Arial">neue Kopie des Befehlsinterpreters
+
+permanent. In diesem Fall läßt sich</font></p>
+
+
+
+<p><font size="3" face="Arial">der Befehl EXIT nicht verwenden,
+
+um den Befehlsinterpreter zu beenden. </font></p>
+
+
+
+<p><font size="3" face="Arial">Wenn Sie /P angeben, führt MS-DOS
+
+Ihre Datei AUTOEXEC.BAT aus, bevor es</font></p>
+
+
+
+<p><font size="3" face="Arial">die Eingabeaufforderung anzeigt.
+
+Befindet sich im Stammverzeichnis des</font></p>
+
+
+
+<p><font size="3" face="Arial">Startlaufwerks keine Datei
+
+AUTOEXEC.BAT, führt MS-DOS statt dessen die</font></p>
+
+
+
+<p><font size="3" face="Arial">Befehle DATE und TIME aus. Steht
+
+in Ihrer Datei CONFIG.SYS kein Befehl</font></p>
+
+
+
+<p><font size="3" face="Arial">SHELL, wird mit der Option /P
+
+automatisch COMMAND.COM aus dem</font></p>
+
+
+
+<p><font size="3" face="Arial">Stammverzeichnis geladen. </font></p>
+
+
+
+<p><font size="3" face="Arial">/MSG</font></p>
+
+
+
+<p><font size="3" face="Arial">Gibt an, daß alle Fehlermeldungen
+
+im Arbeitsspeicher zu speichern sind. </font></p>
+
+
+
+<p><font size="3" face="Arial">Normalerweise werden alle
+
+Fehlermeldungen auf einem Datenträger</font></p>
+
+
+
+<p><font size="3" face="Arial">gespeichert. Diese Option ist nur
+
+nützlich, wenn Sie MS-DOS von Diskette</font></p>
+
+
+
+<p><font size="3" face="Arial">ausführen. Wenn Sie die Option
+
+/MSG verwenden, müssen Sie auch die</font></p>
+
+
+
+<p><font size="3" face="Arial">Option /P angeben. Weitere
+
+Informationen über die Verwendung der Option</font></p>
+
+
+
+<p><font size="3" face="Arial">/MSG finden Sie unter
+
+&lt;COMMANDÄÄAnmerkungen&gt;</font></p>
+
+
+
+<p><font size="3" face="Arial">/Y</font></p>
+
+
+
+<p><font size="3" face="Arial">Weist COMMAND.COM an, die mit der
+
+Option /C oder /K angegebene</font></p>
+
+
+
+<p><font size="3" face="Arial">Stapelverarbeitungsdatei
+
+schrittweise abzuarbeiten. Diese Option</font></p>
+
+
+
+<p><font size="3" face="Arial">ermöglicht die Fehlersuche in
+
+Stapelverarbeitungsdateien. Um</font></p>
+
+
+
+<p><font size="3" face="Arial">beispielsweise die Datei TEST.BAT
+
+schrittweise abzuarbeiten, geben Sie</font></p>
+
+
+
+<p><font size="3" face="Arial">ein: COMMAND /Y /C TEST. Die
+
+Option /Y erfordert die Option /C oder /K. </font></p>
+
+
+
+<p><font size="3" face="Arial">Zugehöriger Befehl</font></p>
+
+
+
+<p><font size="3" face="Arial">Der Befehl &lt;SHELL&gt; ist die
+
+beste Methode, um mit COMMAND permanent mehr</font></p>
+
+
+
+<p><font size="3" face="Arial">Platz für die Umgebungstabelle zu
+
+schaffen. </font></p>
+
+
+
+<p><a name="_Toc467316515"><font face="Arial"><b><i>COMMAND
+
+Anmerkungen</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Grenzen der Umgebungsgrösse</font></p>
+
+
+
+<p><font size="3" face="Arial">Wenn nnnnn kleiner als 160 oder
+
+grösser als 32768 ist, verwendet MS-DOS den</font></p>
+
+
+
+<p><font size="3" face="Arial">Standardwert von 256 Byte und
+
+zeigt folgende Meldung an: </font></p>
+
+
+
+<p><font size="3" face="Arial">Parameterwert nicht im zulässigen
+
+Bereich. </font></p>
+
+
+
+<p><font size="3" face="Arial">Wechseln Ihres Ein-/Ausgabegeräts</font></p>
+
+
+
+<p><font size="3" face="Arial">Sie können mit Hilfe des
+
+Parameters &quot;Gerät&quot; ein anderes Gerät (z.B. AUX) zur</font></p>
+
+
+
+<p><font size="3" face="Arial">Ein- und Ausgabe angeben.
+
+Informationen über Geräte finden Sie bei der</font></p>
+
+
+
+<p><font size="3" face="Arial">Beschreibung des Befehls
+
+&lt;CTTY&gt;.</font></p>
+
+
+
+<p><font size="3" face="Arial">Ausführen mehrerer
+
+Befehlsinterpreter</font></p>
+
+
+
+<p><font size="3" face="Arial">Wenn Sie einen neuen
+
+Befehlsinterpreter starten, richtet MS-DOS eine neue</font></p>
+
+
+
+<p><font size="3" face="Arial">Befehlsumgebung ein. Diese neue
+
+Umgebung ist eine Kopie der aufrufenden</font></p>
+
+
+
+<p><font size="3" face="Arial">Umgebung. Sie können die neue
+
+Umgebung ändern, ohne die alte zu</font></p>
+
+
+
+<p><font size="3" face="Arial">beeinflussen. Die Standardgrösse
+
+der neuen Umgebung beträgt 256 Byte, oder</font></p>
+
+
+
+<p><font size="3" face="Arial">die Grösse der aktuellen
+
+Umgebung, gerundet auf die nächsten 16 Byte, je</font></p>
+
+
+
+<p><font size="3" face="Arial">nachdem, was grösser ist.
+
+Verwenden Sie die Option /E, um die Standardgrösse</font></p>
+
+
+
+<p><font size="3" face="Arial">zu überschreiben. (Beachten Sie,
+
+dass sich die aktuelle Umgebung auf den</font></p>
+
+
+
+<p><font size="3" face="Arial">tatsächlich benutzten Speicher
+
+bezieht und nicht auf die</font></p>
+
+
+
+<p><font size="3" face="Arial">Umgebungsgrösse, die mit der
+
+vorausgehenden Option /E angegeben wurde.) </font></p>
+
+
+
+<p><font size="3" face="Arial">Nicht residenter und residenter
+
+Speicher</font></p>
+
+
+
+<p><font size="3" face="Arial">MS-DOS lädt den
+
+Befehlsinterpreter in zwei Teilen: den residenten Teil</font></p>
+
+
+
+<p><font size="3" face="Arial">(steht immer im Speicher) und den
+
+nicht residenten Teil (am Ende des</font></p>
+
+
+
+<p><font size="3" face="Arial">konventionellen Speichers). Einige
+
+Programme überschreiben beim Ablaufen den</font></p>
+
+
+
+<p><font size="3" face="Arial">nicht residenten Teil von
+
+COMMAND.COM. Wenn dies eintritt, muss der residente</font></p>
+
+
+
+<p><font size="3" face="Arial">Teil die Datei COMMAND.COM auf dem
+
+Datenträger finden, um den nicht</font></p>
+
+
+
+<p><font size="3" face="Arial">residenten Teil erneut zu laden.
+
+Die Umgebungsvariable COMSPEC gibt an, wo</font></p>
+
+
+
+<p><font size="3" face="Arial">sich COMMAND.COM auf dem
+
+Datenträger befindet. Weist COMSPEC auf eine</font></p>
+
+
+
+<p><font size="3" face="Arial">Diskette, bittet Sie MS-DOS
+
+gegebenenfalls darum, eine Diskette mit</font></p>
+
+
+
+<p><font size="3" face="Arial">COMMAND.COM einzulegen. </font></p>
+
+
+
+<p><font size="3" face="Arial">Wenn MS-DOS in den HMA geladen
+
+ist, wird auch ein Teil des residenten</font></p>
+
+
+
+<p><font size="3" face="Arial">COMMAND.COM in den HMA geladen, so
+
+daß für Programme mehr konventioneller</font></p>
+
+
+
+<p><font size="3" face="Arial">Speicher zur Verfügung steht. </font></p>
+
+
+
+<p><font size="3" face="Arial">Verwenden der Option /MSG</font></p>
+
+
+
+<p><font size="3" face="Arial">Normalerweise hinterlässt MS-DOS
+
+viele Fehlermeldungen in der Datei</font></p>
+
+
+
+<p><font size="3" face="Arial">COMMAND.COM auf dem Datenträger,
+
+anstatt Arbeitsspeicher zu ihrer</font></p>
+
+
+
+<p><font size="3" face="Arial">Speicherung zu verwenden. Wenn
+
+MS-DOS eine dieser Meldungen anzeigen muss, </font></p>
+
+
+
+<p><font size="3" face="Arial">liest MS-DOS die Meldung von dem
+
+Datenträger, der COMMAND.COM enthält. </font></p>
+
+
+
+<p><font size="3" face="Arial">Wenn Sie MS-DOS von Disketten
+
+anstatt von einer Festplatte ausführen, kann</font></p>
+
+
+
+<p><font size="3" face="Arial">MS-DOS solche Fehlermeldungen nur
+
+finden, wenn sich die Diskette mit</font></p>
+
+
+
+<p><font size="3" face="Arial">COMMAND.COM in Laufwerk A:
+
+befindet. Wenn diese Diskette nicht vorhanden</font></p>
+
+
+
+<p><font size="3" face="Arial">ist, zeigt MS-DOS eine der
+
+folgenden Kurzmeldungen statt der vollen Meldung</font></p>
+
+
+
+<p><font size="3" face="Arial">an: </font></p>
+
+
+
+<p><font size="3" face="Arial">Analysefehler</font></p>
+
+
+
+<p><font size="3" face="Arial">Erweiterter Fehler</font></p>
+
+
+
+<p><font size="3" face="Arial">Sie können sicherstellen, dass
+
+MS-DOS vollständige Fehlermeldungen anzeigt, </font></p>
+
+
+
+<p><font size="3" face="Arial">indem Sie COMMAND mit der Option
+
+/MSG verwenden. Diese Option zwingt MS-DOS, </font></p>
+
+
+
+<p><font size="3" face="Arial">diese Fehlermeldungen im Speicher
+
+zu halten, so dass sie bei Bedarf immer</font></p>
+
+
+
+<p><font size="3" face="Arial">verfügbar sind. Verwenden Sie
+
+COMMAND mit der Option /MSG, wenn Sie ein</font></p>
+
+
+
+<p><font size="3" face="Arial">System ohne Festplattenlaufwerk
+
+besitzen, es sei denn, Sie können auf den</font></p>
+
+
+
+<p><font size="3" face="Arial">Speicher, den Sie durch das
+
+Speichern der Fehlermeldungen verlieren, nicht</font></p>
+
+
+
+<p><font size="3" face="Arial">verzichten. </font></p>
+
+
+
+<p><font size="3" face="Arial">Sie müssen bei Verwendung der
+
+Option /MSG auch die Option /P angeben. </font></p>
+
+
+
+<p><font size="3" face="Arial">Interne Befehle</font></p>
+
+
+
+<p><font size="3" face="Arial">COMMAND wird Befehlsprozessor
+
+genannt, da er alle Befehle, die Sie eingeben, </font></p>
+
+
+
+<p><font size="3" face="Arial">liest und verarbeitet. </font></p>
+
+
+
+<p><font size="3" face="Arial">Bestimmte Befehle werden von
+
+COMMAND selbst ausgeführt. Diese Befehle werden</font></p>
+
+
+
+<p><font size="3" face="Arial">als COMMAND-intern bezeichnet.
+
+Andere MS-DOS-Befehle sind separate, auf</font></p>
+
+
+
+<p><font size="3" face="Arial">Ihrer Festplatte gespeicherte
+
+Programme, die MS-DOS wie jedes andere</font></p>
+
+
+
+<p><font size="3" face="Arial">Programm lädt. </font></p>
+
+
+
+<p><font size="3" face="Arial">Die folgenden MS-DOS-Befehle sind
+
+in COMMAND integriert: </font></p>
+
+
+
+<p><font size="2" face="Courier New">&lt;BREAK&gt; &lt;ECHO&gt;
+
+&lt;REM&gt;</font></p>
+
+
+
+<p><font size="2" face="Courier New">&lt;CALL&gt; &lt;EXIT&gt;
+
+&lt;RENAME (REN)&gt; </font></p>
+
+
+
+<p><font size="2" face="Courier New">&lt;CHCP&gt; &lt;FOR&gt;
+
+&lt;RMDIR (RD)&gt; </font></p>
+
+
+
+<p><font size="2" face="Courier New">&lt;CHDIR (CD)&gt;
+
+&lt;GOTO&gt; &lt;SET&gt;</font></p>
+
+
+
+<p><font size="2" face="Courier New">&lt;CLS&gt; &lt;IF&gt;
+
+&lt;SHIFT&gt;</font></p>
+
+
+
+<p><font size="2" face="Courier New">&lt;COPY&gt;
+
+&lt;LOADHIGH(LH)&gt; &lt;TIME&gt;</font></p>
+
+
+
+<p><font size="2" face="Courier New">&lt;CTTY&gt;
+
+&lt;MKDIR(MD)&gt; &lt;TYPE&gt;</font></p>
+
+
+
+<p><font size="2" face="Courier New">&lt;DATE&gt; &lt;PATH&gt;
+
+&lt;VER&gt;</font></p>
+
+
+
+<p><font size="2" face="Courier New">&lt;DEL (ERASE)&gt;
+
+&lt;PAUSE&gt; &lt;VERIFY&gt;</font></p>
+
+
+
+<p><font size="2" face="Courier New">&lt;DIR&gt; &lt;PROMPT&gt;
+
+&lt;VOL&gt;</font></p>
+
+
+
+<p><a name="_Toc467316516"><font face="Arial"><b><i>COMMAND
+
+Beispiele</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Der folgende Befehl gibt an, dass
+
+der MS-DOS-Befehlsinterpreter vom aktuellen Programm aus einen
+
+neuen Befehlsinterpreter starten, ein Stapelverarbeitungsprogramm
+
+namens MEINBAT.BAT ausführen und anschliessend zum ersten
+
+Befehlsinterpreter zurückkehren soll. </font></p>
+
+
+
+<p><font size="3" face="Arial">command /c meinbat.bat</font></p>
+
+
+
+<p><font size="3" face="Arial">Der folgende CONFIG.SYS-Befehl
+
+gibt an, dass sich COMMAND.COM im Verzeichnis</font></p>
+
+
+
+<p><font size="3" face="Arial">DOS auf Laufwerk C: befindet: </font></p>
+
+
+
+<p><font size="3" face="Arial">shell=c:\dos\command.com c:\dos\
+
+/e:1024</font></p>
+
+
+
+<p><font size="3" face="Arial">Dieser Befehl weist MS-DOS an, die
+
+Umgebungsvariable COMSPEC auf</font></p>
+
+
+
+<p><font size="3" face="Arial">C:\DOS\COMMAND.COM zu setzen.
+
+Dieser Befehl richtet ausserdem für diesen</font></p>
+
+
+
+<p><font size="3" face="Arial">Befehlsinterpreter eine Umgebung
+
+von 1024 Byte ein. </font></p>
+
+
+
+<p><font size="3" face="Arial">Mit dem folgenden Befehl wird eine
+
+Ausführung von COMMAND.COM gestartet, </font></p>
+
+
+
+<p><font size="3" face="Arial">dann die Datei MEINBAT.BAT
+
+ausgeführt und Befehl für Befehl abgearbeitet: </font></p>
+
+
+
+<p><font size="3" face="Arial">command /y /c meinbat.bat</font></p>
+
+
+
+<p><font size="3" face="Arial"></font>&nbsp;</p>
+
+
+
+<p><font size="4" face="Arial"><b></b></font>&nbsp;</p>
+
+
+
+<p><a name="_Toc467316517"><font size="4" face="Arial"><b>Befehle
+
+zur Definition mehrerer Konfigurationen</b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">In einer CONFIG.SYS-Datei können
+
+mehrere verschiedene Systemkonfigurationen definiert werden. Um
+
+mehrere Konfigurationen zu definieren, verwenden Sie die
+
+folgenden besonderen CONFIG.SYS-Befehle: </font></p>
+
+
+
+<p><font size="3" face="Arial">&lt;Include&gt;</font></p>
+
+
+
+<p><font size="3" face="Arial">&lt;Menucolor&gt;</font></p>
+
+
+
+<p><font size="3" face="Arial">&lt;Menudefault&gt;</font></p>
+
+
+
+<p><font size="3" face="Arial">&lt;Menuitem&gt;</font></p>
+
+
+
+<p><font size="3" face="Arial">&lt;Submenu&gt;</font></p>
+
+
+
+<p><font size="3" face="Arial">Um mehrere Konfigurationen zu
+
+definieren, folgen Sie diesen allgemeinen Schritten: </font></p>
+
+
+
+<p><font size="3" face="Arial">1 Definieren Sie ein Startmenü in
+
+der CONFIG.SYS-Datei, indem mit einem</font></p>
+
+
+
+<p><font size="3" face="Arial">[menu] Dateikopf, gefolgt von
+
+einem oder mehreren Befehlen &lt;MENUITEM&gt;.</font></p>
+
+
+
+<p><font size="3" face="Arial">Die Befehle &lt;MENUDEFAULT&gt;,
+
+&lt;MENUCOLOR&gt; und &lt;SUBMENU&gt; können zur</font></p>
+
+
+
+<p><font size="3" face="Arial">Definition besonderer
+
+Eigenschaften des Startmenüs verwendet werden. </font></p>
+
+
+
+<p><font size="3" face="Arial">2 Erstellen Sie einen
+
+Konfigurationsblock in der Datei CONFIG.SYS für jede</font></p>
+
+
+
+<p><font size="3" face="Arial">von Ihnen gewünschte
+
+Konfiguration. Ein Konfigurationsblock beginnt mit</font></p>
+
+
+
+<p><font size="3" face="Arial">einem Dateikopf - einem von
+
+eckigen Klammern umschlossenen Namen. Fügen</font></p>
+
+
+
+<p><font size="3" face="Arial">Sie zu jedem Block die
+
+&lt;CONFIG.SYS-Befehle&gt;, die MS-DOS für Sie ausführen</font></p>
+
+
+
+<p><font size="3" face="Arial">soll, wenn diese Konfiguration aus
+
+dem Startmenü gewählt wird. </font></p>
+
+
+
+<p><font size="3" face="Arial">3 (Optional) In der
+
+AUTOEXEC.BAT-Datei können Sie &lt;Batch-Befehle&gt; wie</font></p>
+
+
+
+<p><font size="3" face="Arial">&lt;GOTO&gt; und &lt;IF&gt;
+
+verwenden, um MS-DOS dazu zu veranlassen, verschiedene</font></p>
+
+
+
+<p><font size="3" face="Arial">AUTOEXEC.BAT-Befehle abhänging
+
+von der Startkonfiguration auszuführen. </font></p>
+
+
+
+<p><font size="3" face="Arial">Wenn eine Konfiguration aus dem
+
+Startmenü ausgewählt ist, definiert</font></p>
+
+
+
+<p><font size="3" face="Arial">MS-DOS eine Umgebungsvariable
+
+namens CONFIG und stellt sie auf den Namen</font></p>
+
+
+
+<p><font size="3" face="Arial">des ausgewählten
+
+Konfigurationsblocks ein. Um MS-DOS die verschiedenen</font></p>
+
+
+
+<p><font size="3" face="Arial">Befehlseinstellungen für
+
+verschiedene CONFIG-Werte ausführen zu lassen, </font></p>
+
+
+
+<p><font size="3" face="Arial">fügen Sie einen Befehl GOTO
+
+%CONFIG% zu Ihrer AUTOEXEC.BAT-Datei hinzu. </font></p>
+
+
+
+<p><font size="3" face="Arial">Weitere Informationen über die
+
+Definition mehrerer Konfigurationen finden</font></p>
+
+
+
+<p><font size="3" face="Arial">Sie in Kapitel &quot;Konfigurieren
+
+Ihres Systems&quot; im MS-DOS-6-Benutzerhandbuch. </font></p>
+
+
+
+<p><font size="3" face="Arial">&#04;</font></p>
+
+
+
+<p><a name="_Toc467316518"><font face="Arial"><b><i>Mehrere
+
+Konfigurationen Beispiele</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Definieren mehrerer
+
+Konfigurationen in Ihrer CONFIG.SYS-Datei</font></p>
+
+
+
+<p><font size="3" face="Arial">Die folgende CONFIG.SYS-Datei
+
+definiert zwei Konfigurationen: </font></p>
+
+
+
+<p><font size="2" face="Courier New">[Menu] </font></p>
+
+
+
+<p><font size="2" face="Courier New">menuitem=Stefan</font></p>
+
+
+
+<p><font size="2" face="Courier New">menuitem=Lisa</font></p>
+
+
+
+<p><font size="2" face="Courier New">[Common] </font></p>
+
+
+
+<p><font size="2" face="Courier New">dos=high</font></p>
+
+
+
+<p><font size="2" face="Courier New">buffers=15</font></p>
+
+
+
+<p><font size="2" face="Courier New">device=c:\dos\himem.sys</font></p>
+
+
+
+<p><font size="2" face="Courier New">[Stefan] </font></p>
+
+
+
+<p><font size="2" face="Courier New">files=20</font></p>
+
+
+
+<p><font size="2" face="Courier New">device=c:dos\emm386 2048 ram</font></p>
+
+
+
+<p><font size="2" face="Courier New">[Lisa] </font></p>
+
+
+
+<p><font size="2" face="Courier New">files=40</font></p>
+
+
+
+<p><font size="2" face="Courier New">device=c:\net\network.sys</font></p>
+
+
+
+<p><font size="3" face="Arial">Diese CONFIG.SYS-Datei
+
+konfiguriert den Computer für entweder Stefan oder</font></p>
+
+
+
+<p><font size="3" face="Arial">Lisa. Für beide Konfigurationen
+
+führt MS-DOS die drei Befehle im ersten</font></p>
+
+
+
+<p><font size="3" face="Arial">[common] Abschnitt aus: DOS=HIGH,
+
+BUFFERS=15 und DEVICE=C:\DOS\HIMEN.SYS. </font></p>
+
+
+
+<p><font size="3" face="Arial">Stefan verwendet ein
+
+Desktop-Publishing-Programm, das einen</font></p>
+
+
+
+<p><font size="3" face="Arial">Erweiterungsspeicher erfordert;
+
+deshalb enthält seine Konfiguration einen</font></p>
+
+
+
+<p><font size="3" face="Arial">Befehl für EMM386. Stefan
+
+verwendet das Netzwerk nicht. Lisa verwendet das</font></p>
+
+
+
+<p><font size="3" face="Arial">Netzwerk, aber nicht das
+
+Desktop-Publishing-Programm. Ihre Konfiguration</font></p>
+
+
+
+<p><font size="3" face="Arial">startet den
+
+Netzwerkgerätetreiber. </font></p>
+
+
+
+<p><font size="3" face="Arial">Definieren mehrerer
+
+Konfigurationen in Ihrer AUTOEXEC.BAT-Datei</font></p>
+
+
+
+<p><font size="3" face="Arial">Wenn eine Konfiguration aus dem
+
+Startmenü gewählt ist, definiert MS-DOS eine</font></p>
+
+
+
+<p><font size="3" face="Arial">Umgebungsvariable namens CONFIG
+
+und stellt sie auf den Namen des</font></p>
+
+
+
+<p><font size="3" face="Arial">ausgewählten Konfigurationsblock
+
+ein. In der AUTOEXEC.BAT-Datei können Sie</font></p>
+
+
+
+<p><font size="3" face="Arial">den Befehl &lt;GOTO&gt; verwenden,
+
+um MS-DOS dazu zu veranlassen, verschiedene</font></p>
+
+
+
+<p><font size="3" face="Arial">Befehlssätze für verschiedene
+
+CONFIG-Werte auszuführen. </font></p>
+
+
+
+<p><font size="3" face="Arial">Die folgende AUTOEXEC.BAT-Datei
+
+verwendet den Befehl GOTO mit der</font></p>
+
+
+
+<p><font size="3" face="Arial">CONFIG-Variable, um verschiedene
+
+Befehlssätze auszuführen. Diese</font></p>
+
+
+
+<p><font size="3" face="Arial">AUTOEXEC.BAT-Datei ist entworfen,
+
+um mit der Beispielsdatei CONFIG.SYS im</font></p>
+
+
+
+<p><font size="3" face="Arial">vorherigen Abschnitt zu
+
+funktionieren. </font></p>
+
+
+
+<p><font size="2" face="Courier New">c:\dos\smartdrv.exe</font></p>
+
+
+
+<p><font size="2" face="Courier New">set temp=c:\temp</font></p>
+
+
+
+<p><font size="2" face="Courier New">c:\dos\msav</font></p>
+
+
+
+<p><font size="2" face="Courier New">; Gehe zu dem Abschnitt, der
+
+dem aktuellen</font></p>
+
+
+
+<p><font size="2" face="Courier New">; Wert der CONFIG-Variablen
+
+entspricht</font></p>
+
+
+
+<p><font size="2" face="Courier New">goto %config%</font></p>
+
+
+
+<p><font size="2" face="Courier New">:Stefan</font></p>
+
+
+
+<p><font size="2" face="Courier New">path=c:\dos;c:\deskpub;c:\typeset</font></p>
+
+
+
+<p><font size="2" face="Courier New">c:\mouse\mouse.com</font></p>
+
+
+
+<p><font size="2" face="Courier New">deskpub</font></p>
+
+
+
+<p><font size="2" face="Courier New">; sberspringe nun Lisas
+
+Abschnitt, </font></p>
+
+
+
+<p><font size="2" face="Courier New">; und gehe zum Ende. </font></p>
+
+
+
+<p><font size="2" face="Courier New">goto end</font></p>
+
+
+
+<p><font size="2" face="Courier New">:Lisa</font></p>
+
+
+
+<p><font size="2" face="Courier New">path=c:\dos;c:\network;c:\utility</font></p>
+
+
+
+<p><font size="2" face="Courier New">doskey</font></p>
+
+
+
+<p><font size="2" face="Courier New">net logon lisa</font></p>
+
+
+
+<p><font size="2" face="Courier New">goto end</font></p>
+
+
+
+<p><font size="2" face="Courier New">:end</font></p>
+
+
+
+<p><font size="3" face="Arial">Wenn MS-DOS diese
+
+AUTOEXEC.BAT-Datei ausführt, startet es SMARTDrive, stellt</font></p>
+
+
+
+<p><font size="3" face="Arial">die TEMP-Umgebungsvariable ein und
+
+startet das MS-DOS-Anti-Virus-Programm. </font></p>
+
+
+
+<p><font size="3" face="Arial">MS-DOS geht dann zu dem Abschnitt,
+
+der dem Wert der CONFIG-Variable</font></p>
+
+
+
+<p><font size="3" face="Arial">entspricht. </font></p>
+
+
+
+<p><font size="3" face="Arial">Wenn der Name der ausgewählten
+
+Konfiguration &quot;Stefan&quot; ist, geht MS-DOS zum</font></p>
+
+
+
+<p><font size="3" face="Arial">Abschnitt Stefan. Es stellt dann
+
+den Suchpfad auf Stefan ein, lädt das</font></p>
+
+
+
+<p><font size="3" face="Arial">MOUSE.COM-Programm aus dem
+
+Verzeichnis C:\MOUSE und führt das</font></p>
+
+
+
+<p><font size="3" face="Arial">Desktop-Publishing-Programm aus.
+
+Der Befehl GOTO END weist MS-DOS an, den</font></p>
+
+
+
+<p><font size="3" face="Arial">Abschnitt END zu überspringen.
+
+Dies verhindert die Befehle, im Abschnitt</font></p>
+
+
+
+<p><font size="3" face="Arial">Lisa für Stefans Konfiguration
+
+ausgeführt zu werden. </font></p>
+
+
+
+<p><font size="3" face="Arial">Wenn die aktuelle Konfiguration
+
+&quot;Lisa&quot; ist und der Suchpfad anders</font></p>
+
+
+
+<p><font size="3" face="Arial">eingestellt ist, führt MS-DOS das
+
+Doskey-Programm aus, und ein Befehl LOGON</font></p>
+
+
+
+<p><font size="3" face="Arial">weist den Netzwerktreiber an (in
+
+der CONFIG.SYS-Datei geladen), den Computer</font></p>
+
+
+
+<p><font size="3" face="Arial">an das Netzwerk anzuschliessen. </font></p>
+
+
+
+<p><font size="3" face="Arial"></font>&nbsp;</p>
+
+
+
+<p><font size="4" face="Arial"><b></b></font>&nbsp;</p>
+
+
+
+<p><a name="_Toc467316519"><font size="4" face="Arial"><b>INCLUDE</b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Übernimmt den Inhalt eines
+
+Konfigurationsblocks innerhalb eines anderen. Sie können diesen
+
+Befehl nur in Ihrer Datei CONFIG.SYS verwenden. </font></p>
+
+
+
+<p><font size="3" face="Arial">Der Befehl INCLUDE ist einer von
+
+fünf speziellen CONFIG.SYS-Befehlen, die</font></p>
+
+
+
+<p><font size="3" face="Arial">zum Definieren mehrerer
+
+Konfigurationen innerhalb einer einzigen Datei</font></p>
+
+
+
+<p><font size="3" face="Arial">CONFIG.SYS dienen. Für mehrere
+
+Konfigurationen definieren Sie ein Menü, das</font></p>
+
+
+
+<p><font size="3" face="Arial">beim Starten Ihres Computers
+
+erscheint. Jeder Menüpunkt entspricht einem</font></p>
+
+
+
+<p><font size="3" face="Arial">Block mit Befehlen in Ihrer Datei
+
+CONFIG.SYS, dem sogenannten</font></p>
+
+
+
+<p><font size="3" face="Arial">&quot;Konfigurationsblock&quot;.
+
+Weitere Informationen über mehrere Konfigurationen</font></p>
+
+
+
+<p><font size="3" face="Arial">und Konfigurationsbl&quot;cke
+
+finden Sie in Kapitel &quot;Konfigurieren Ihres Systems&quot;</font></p>
+
+
+
+<p><font size="3" face="Arial">im MS-DOS-6-Benutzerhandbuch. </font></p>
+
+
+
+<p><a name="_Toc467316520"><font face="Arial"><b><i>Syntax</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">INCLUDE=Blockname</font></p>
+
+
+
+<p><a name="_Toc467316521"><font face="Arial"><b><i>Parameter</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Blockname</font></p>
+
+
+
+<p><font size="3" face="Arial">Bezeichnet den Namen des zu
+
+übernehmenden Konfigurationsblocks. </font></p>
+
+
+
+<p><a name="_Toc467316522"><font face="Arial"><b><i>Zugehörige
+
+Befehle</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Der Befehl INCLUDE ist einer von
+
+fünf speziellen CONFIG.SYS- Befehlen, die</font></p>
+
+
+
+<p><font size="3" face="Arial">zum Definieren mehrerer
+
+Konfigurationen dienen. Die restlichen Befehle</font></p>
+
+
+
+<p><font size="3" face="Arial">definieren das Startmenü:</font></p>
+
+
+
+<p><font size="3" face="Arial">Der Befehl &lt;MENUITEM&gt;
+
+definiert einen Menüeintrag. </font></p>
+
+
+
+<p><font size="3" face="Arial">Der Befehl &lt;MENUDEFAULT&gt;
+
+bezeichnet den Standardmenüeintrag. </font></p>
+
+
+
+<p><font size="3" face="Arial">Der Befehl &lt;MENUCOLOR&gt;
+
+definiert die Farbe des Menütextes sowie des</font></p>
+
+
+
+<p><font size="3" face="Arial">Bildschirmhintergrunds. </font></p>
+
+
+
+<p><font size="3" face="Arial">Der Befehl &lt;SUBMENU&gt;
+
+definiert ein Untermenü.</font></p>
+
+
+
+<p><font size="3" face="Arial">Zusätzlich ist der Befehl
+
+&lt;NUMLOCK&gt; besonders hilfreich, wenn Sie Startmenüs
+
+definieren. </font></p>
+
+
+
+<p><font size="3" face="Arial">Einen Überblick der Prozeduren
+
+zur Definition mehrerer Konfigurationen finden Sie unter dem
+
+Thema &lt;Befehle zur Definition mehrerer Konfigurationen&gt;.</font></p>
+
+
+
+<p><a name="_Toc467316523"><font face="Arial"><b><i>INCLUDE
+
+Beispiele</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Die folgende Datei CONFIG.SYS
+
+definiert drei Konfigurationen: </font></p>
+
+
+
+<p><font size="2" face="Courier New">[menu] </font></p>
+
+
+
+<p><font size="2" face="Courier New">menuitem=Basis_Konfig, Nur
+
+Grundkonfiguration</font></p>
+
+
+
+<p><font size="2" face="Courier New">menuitem=Volle_Konfig,
+
+Normale Konfiguration</font></p>
+
+
+
+<p><font size="2" face="Courier New">menuitem=Netz_Konfig,
+
+Normale Konfiguration mit Netzwerk</font></p>
+
+
+
+<p><font size="2" face="Courier New">[Basis_Konfig] </font></p>
+
+
+
+<p><font size="2" face="Courier New">dos=high</font></p>
+
+
+
+<p><font size="2" face="Courier New">device=c:\dos\himem.sys</font></p>
+
+
+
+<p><font size="2" face="Courier New">[Volle_Konfig] </font></p>
+
+
+
+<p><font size="2" face="Courier New">include=Basis_konfig</font></p>
+
+
+
+<p><font size="2" face="Courier New">dos=umb</font></p>
+
+
+
+<p><font size="2" face="Courier New">device=c:\dos\emm386.exe ram</font></p>
+
+
+
+<p><font size="2" face="Courier New">devicehigh=c:\dos\ramdrive.sys
+
+512</font></p>
+
+
+
+<p><font size="2" face="Courier New">[Netz_Konfig] </font></p>
+
+
+
+<p><font size="2" face="Courier New">include=Volle_Konfig</font></p>
+
+
+
+<p><font size="2" face="Courier New">devicehigh=c:\netz\network.sys</font></p>
+
+
+
+<p><font size="2" face="Courier New">[common] </font></p>
+
+
+
+<p><font size="3" face="Arial">Diese CONFIG.SYS-Datei enthält
+
+vier Konfigurationsbl&quot;cke. Der Block Basis_konfig enthält
+
+zwei typische CONFIG.SYS-Befehle. Der Block Volle_Konfig enthält
+
+die Befehle in Basis_konfig plus den Befehl DOS=UMB, einen
+
+DEVICE-Befehl und einen DEVICEHIGH-Befehl. Die dritte
+
+Konfiguration, Netz_konfig, enthält alle Befehle in
+
+Volle_Konfig, zu dem wiederum die in Basis_konfig gehören. Der
+
+Block [common] erscheint am Ende der Datei CONFIG.SYS. CONFIG.SYS
+
+sollte m&quot;glichst immer mit einem[common]-Block enden, damit
+
+Installationsprogramme Ihrer Datei CONFIG.SYS Befehle problemlos
+
+hinzufügen können. </font></p>
+
+
+
+<p><a name="_Toc467316524"><font face="Arial"><b><i>MENUCOLOR</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Stellt die Text- und
+
+Hintergrundfarben des Startmenüs ein. Sie können diesen Befehl
+
+nur innerhalb eines Menüblocks in Ihrer Datei CONFIG.SYS
+
+verwenden. </font></p>
+
+
+
+<p><font size="3" face="Arial">Das Startmenü ist eine
+
+Auswahlliste, die beim Starten Ihres Computers erscheint. Sie
+
+definieren es mit Hilfe spezieller CONFIG.SYS-Befehle. Jeder
+
+Eintrag im Menü entspricht einer Gruppe von CONFIG.SYS-Befehlen,
+
+&quot;Konfigurationsblock&quot; genannt. Mit dem Startmenü haben
+
+Sie die Möglichkeit, eine von mehreren Konfigurationen zu
+
+wählen, mit denen Ihr Computer startet. Weitere Informationen
+
+über die Definition mehrerer Konfigurationen finden Sie in
+
+Kapitel &quot;Konfigurieren Ihres Systems&quot; im
+
+MS-DOS-6-Benutzerhandbuch. </font></p>
+
+
+
+<p><a name="_Toc467316525"><font face="Arial"><u>Syntax</u></font></a></p>
+
+
+
+<p><font size="3" face="Arial">MENUCOLOR=x[,y] </font></p>
+
+
+
+<p><a name="_Toc467316526"><font face="Arial"><u>Parameter</u></font></a></p>
+
+
+
+<p><font size="3" face="Arial">x</font></p>
+
+
+
+<p><font size="3" face="Arial">Bezeichnet die Farbe des
+
+Menütextes. Sie können einen Wert von 0 bis 15</font></p>
+
+
+
+<p><font size="3" face="Arial">angeben. Eine Liste mit Werten und
+
+Farben finden Sie unter &quot;Farbwerte&quot;</font></p>
+
+
+
+<p><font size="3" face="Arial">weiter unten in diesem Thema. </font></p>
+
+
+
+<p><font size="3" face="Arial">y</font></p>
+
+
+
+<p><font size="3" face="Arial">Bezeichnet die Farbe des
+
+Bildschirmhintergrunds. Sie können einen Wert</font></p>
+
+
+
+<p><font size="3" face="Arial">von 0 bis 15 angeben. Eine Liste
+
+mit Werten und Farben finden Sie unter</font></p>
+
+
+
+<p><font size="3" face="Arial">&quot;Farbwerte&quot; weiter unten
+
+in diesem Thema. Der Wert y ist wahlfrei; wenn</font></p>
+
+
+
+<p><font size="3" face="Arial">Sie keinen Wert angeben, zeigt
+
+MS-DOS die angegebene Textfarbe vor einem</font></p>
+
+
+
+<p><font size="3" face="Arial">schwarzen Hintergrund an. </font></p>
+
+
+
+<p><font size="3" face="Arial">Achten Sie darauf, für x und y
+
+unterschiedliche Werte anzugeben, da sonst</font></p>
+
+
+
+<p><font size="3" face="Arial">der Text unleserlich ist. </font></p>
+
+
+
+<p><font size="3" face="Arial">Farbwerte</font></p>
+
+
+
+<p><font size="3" face="Arial">Gültige Farbwerte liegen im
+
+Bereich 0 bis 15, wie aus folgender Auflistung</font></p>
+
+
+
+<p><font size="3" face="Arial">hervorgeht: </font></p>
+
+
+
+<p><font size="2" face="Courier New">0 Schwarz 8 Grau</font></p>
+
+
+
+<p><font size="2" face="Courier New">1 Blau 9 Leuchtend blau</font></p>
+
+
+
+<p><font size="2" face="Courier New">2 Grün 10 Leuchtend grün</font></p>
+
+
+
+<p><font size="2" face="Courier New">3 Cyanblau 11 Leuchtend
+
+Cyanblau</font></p>
+
+
+
+<p><font size="2" face="Courier New">4 Rot 12 Leuchtend rot</font></p>
+
+
+
+<p><font size="2" face="Courier New">5 Karmesinrot 13 Leuchtend
+
+Karmesinrot</font></p>
+
+
+
+<p><font size="2" face="Courier New">6 Braun 14 Gelb</font></p>
+
+
+
+<p><font size="2" face="Courier New">7 Weiss 15 Strahlend weiá</font></p>
+
+
+
+<p><font size="3" face="Arial">Zugehörige Befehle</font></p>
+
+
+
+<p><font size="3" face="Arial">Der Befehl MENUCOLOR ist einer von
+
+sechs speziellen CONFIG.SYS-Befehlen zur</font></p>
+
+
+
+<p><font size="3" face="Arial">Definition von Startmenüs. Die
+
+anderen Befehle sind: </font></p>
+
+
+
+<p><font size="3" face="Arial">Der Befehl &lt;INCLUDE&gt;, der
+
+den Inhalt eines Konfigurationsblocks in einem</font></p>
+
+
+
+<p><font size="3" face="Arial">anderen enthält. Dieser Befehl
+
+kann nicht in einem Menüblock</font></p>
+
+
+
+<p><font size="3" face="Arial">eingeschlossen sein. </font></p>
+
+
+
+<p><font size="3" face="Arial">der Befehl &lt;MENUITEM&gt; zur
+
+Definition eines Menüeintrags. </font></p>
+
+
+
+<p><font size="3" face="Arial">der Befehl &lt;MENUDEFAULT&gt; zur
+
+Angabe des Standardmenüpunkts. </font></p>
+
+
+
+<p><font size="3" face="Arial">der Befehl &lt;NUMLOCK&gt;, der
+
+den Status der NUMLOCK-Taste bestimmt, wenn das</font></p>
+
+
+
+<p><font size="3" face="Arial">Startmenü erscheint. (Obgleich
+
+NUMLOCK überall in der Datei CONFIG.SYS</font></p>
+
+
+
+<p><font size="3" face="Arial">verwendet werden kann, ist sie
+
+besonders nützlich, wenn Sie ein Startmenü</font></p>
+
+
+
+<p><font size="3" face="Arial">definieren.) </font></p>
+
+
+
+<p><font size="3" face="Arial">der Befehl &lt;SUBMENU&gt; zur
+
+Definition eines Untermenüs. </font></p>
+
+
+
+<p><font size="3" face="Arial">Einen Überblick des Verfahrens,
+
+mehrere Konfigurationen zu definieren, </font></p>
+
+
+
+<p><font size="3" face="Arial">finden Sie unter dem Thema</font></p>
+
+
+
+<p><font size="3" face="Arial">&lt;Befehle zum Definieren
+
+mehrerer Konfigurationen&gt;.</font></p>
+
+
+
+<p><a name="_Toc467316527"><font face="Arial"><b><i>MENUCOLOR
+
+Beispiel</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Der folgende MENUCOLOR-Befehl
+
+stellt den Menütext auf strahlendweiss und den</font></p>
+
+
+
+<p><font size="3" face="Arial">Bildschirmhintergrund auf blau
+
+ein: </font></p>
+
+
+
+<p><font size="3" face="Arial">menucolor 15, 1</font></p>
+
+
+
+<p><font size="3" face="Arial">&#04;</font></p>
+
+
+
+<p><font size="4" face="Arial"><b></b></font>&nbsp;</p>
+
+
+
+<p><a name="_Toc467316528"><font size="4" face="Arial"><b>MENUDEFAULT</b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Bezeichnet den
+
+Standardmenüeintrag im Startmenü und legt nach Wunsch eine</font></p>
+
+
+
+<p><font size="3" face="Arial">Wartezeit fest. Sie können diesen
+
+Befehl nur in einem Menüblock in Ihrer</font></p>
+
+
+
+<p><font size="3" face="Arial">Datei CONFIG.SYS verwenden. Wenn
+
+Sie diesen Befehl nicht verwenden, setzt</font></p>
+
+
+
+<p><font size="3" face="Arial">MS-DOS den Standard auf Eintrag 1.
+
+</font></p>
+
+
+
+<p><font size="3" face="Arial">Das Startmenü ist eine
+
+Auswahlliste, die beim Starten Ihres Computers</font></p>
+
+
+
+<p><font size="3" face="Arial">erscheint. Sie definieren es mit
+
+Hilfe spezieller CONFIG.SYS-Befehle. Jeder</font></p>
+
+
+
+<p><font size="3" face="Arial">Eintrag im Menü entspricht einer
+
+Gruppe von CONFIG.SYS-Befehlen, </font></p>
+
+
+
+<p><font size="3" face="Arial">&quot;Konfigurationsblock&quot;
+
+genannt. Mit dem Startmenü haben Sie die Möglichkeit, </font></p>
+
+
+
+<p><font size="3" face="Arial">eine von mehreren Konfigurationen
+
+zu wählen, mit denen Ihr Computer startet. </font></p>
+
+
+
+<p><font size="3" face="Arial">Weitere Informationen über die
+
+Definition mehrerer Konfigurationen finden</font></p>
+
+
+
+<p><font size="3" face="Arial">Sie in Kapitel &quot;Konfigurieren
+
+Ihres Systems&quot; im MS-DOS-6-Benutzerhandbuch. </font></p>
+
+
+
+<p><a name="_Toc467316529"><font face="Arial"><b><i>Syntax</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">MENUDEFAULT=Blockname[,Wartezeit] </font></p>
+
+
+
+<p><a name="_Toc467316530"><font face="Arial"><b><i>Parameter</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Blockname</font></p>
+
+
+
+<p><font size="3" face="Arial">Bezeichnet den
+
+Standardmenüeintrag über seinen zugehörigen</font></p>
+
+
+
+<p><font size="3" face="Arial">Konfigurationsblock. Der Block
+
+muss an anderer Stelle in der Datei</font></p>
+
+
+
+<p><font size="3" face="Arial">CONFIG.SYS definiert werden. Wenn
+
+MS-DOS das Startmenü anzeigt, wird der</font></p>
+
+
+
+<p><font size="3" face="Arial">Standardmenüeintrag hervorgehoben
+
+und seine Nummer erscheint hinter der</font></p>
+
+
+
+<p><font size="3" face="Arial">Eingabeaufforderung &quot;Wählen
+
+Sie einen Eintrag aus&quot;.</font></p>
+
+
+
+<p><font size="3" face="Arial">Wartezeit</font></p>
+
+
+
+<p><font size="3" face="Arial">Legt fest, wieviele Sekunden
+
+MS-DOS wartet, bevor es den Computer mit</font></p>
+
+
+
+<p><font size="3" face="Arial">der Standardkonfiguration startet.
+
+Wenn Sie keine Wartezeit angeben, </font></p>
+
+
+
+<p><font size="3" face="Arial">führt MS-DOS erst fort, wenn Sie
+
+die EINGABETASTE gedrückt haben. Sie</font></p>
+
+
+
+<p><font size="3" face="Arial">können eine Wartezeit zwischen 0
+
+und 90 Sekunden angeben. Die Wartezeit</font></p>
+
+
+
+<p><font size="3" face="Arial">0 erzwingt die automatische
+
+Auswahl des Standardeintrags und übergeht</font></p>
+
+
+
+<p><font size="3" face="Arial">die Anzeige des Menüs. </font></p>
+
+
+
+<p><font size="3" face="Arial">Zugehörige Befehle</font></p>
+
+
+
+<p><font size="3" face="Arial">Der Befehl MENUDEFAULT ist einer
+
+von sechs speziellen CONFIG.SYS-Befehlen</font></p>
+
+
+
+<p><font size="3" face="Arial">zur Definition von Startmenüs und
+
+mehreren Konfigurationen. Die anderen</font></p>
+
+
+
+<p><font size="3" face="Arial">Befehle sind: </font></p>
+
+
+
+<p><font size="3" face="Arial">der Befehl &lt;MENUITEM&gt; zur
+
+Definition eines Menüeintrags. </font></p>
+
+
+
+<p><font size="3" face="Arial">der Befehl &lt;MENUCOLOR&gt; zur
+
+Definition der Farbe des Menütextes sowie des</font></p>
+
+
+
+<p><font size="3" face="Arial">Bildschirmhintergrunds. </font></p>
+
+
+
+<p><font size="3" face="Arial">der Befehl &lt;SUBMENU&gt; zur
+
+Definition eines Untermenüs, </font></p>
+
+
+
+<p><font size="3" face="Arial">der Befehl &lt;NUMLOCK&gt;, der
+
+den Status der NUMLOCK-Taste bestimmt, wenn ein</font></p>
+
+
+
+<p><font size="3" face="Arial">Startmenü erscheint. (Obgleich
+
+NUMLOCK überall in der Datei CONFIG.SYS</font></p>
+
+
+
+<p><font size="3" face="Arial">verwendet werden kann, ist sie
+
+besonders nützlich, wenn Sie ein Startmenü</font></p>
+
+
+
+<p><font size="3" face="Arial">definieren.) </font></p>
+
+
+
+<p><font size="3" face="Arial">der Befehl &lt;INCLUDE&gt; der den
+
+Inhalt eines Konfigurationsblocks in einen</font></p>
+
+
+
+<p><font size="3" face="Arial">anderen aufnimmt. Dieser Befehl
+
+lässt sich nicht in einen Menüblock</font></p>
+
+
+
+<p><font size="3" face="Arial">einbauen. </font></p>
+
+
+
+<p><font size="3" face="Arial">Einen Überblick des Verfahrens,
+
+mehrere Konfigurationen zu definieren, </font></p>
+
+
+
+<p><font size="3" face="Arial">finden Sie unter dem Thema</font></p>
+
+
+
+<p><font size="3" face="Arial">&lt;Befehle zur Definition
+
+mehrerer Konfigurationen&gt;.</font></p>
+
+
+
+<p><a name="_Toc467316531"><font face="Arial"><b><i>MENUDEFAULT
+
+Beispiel</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Der folgende Menüblock definiert
+
+drei Menüeinträge, setzt den</font></p>
+
+
+
+<p><font size="3" face="Arial">Standardeintrag auf
+
+&quot;Volle&quot; und stellt die Wartezeit auf 30 Sekunden ein: </font></p>
+
+
+
+<p><font size="2" face="Courier New">[menu] </font></p>
+
+
+
+<p><font size="2" face="Courier New">menuitem=Basis_konfig,Nur
+
+Grundkonfiguration</font></p>
+
+
+
+<p><font size="2" face="Courier New">menuitem=Volle_Konfig,Normale
+
+Konfiguration</font></p>
+
+
+
+<p><font size="2" face="Courier New">menuitem=Netz_konfig,
+
+Normale Konfiguration mit Netzwerk</font></p>
+
+
+
+<p><font size="2" face="Courier New">menudefault=Volle_Konfig,30</font></p>
+
+
+
+<p><font size="3" face="Arial">Wenn MS-DOS startet und diesen
+
+Menüblock liest, wird folgendes Menü</font></p>
+
+
+
+<p><font size="3" face="Arial">angezeigt: </font></p>
+
+
+
+<p><font size="2" face="Courier New">Startmenü für MS-DOS 6.2</font></p>
+
+
+
+<p><font size="2" face="Courier New">========================</font></p>
+
+
+
+<p><font size="2" face="Courier New">1. Nur Grundkonfiguration</font></p>
+
+
+
+<p><font size="2" face="Courier New">2. Normale Konfiguration</font></p>
+
+
+
+<p><font size="2" face="Courier New">3. Normale Konfiguration mit
+
+Netzwerk</font></p>
+
+
+
+<p><font size="2" face="Courier New">Wählen Sie die gewünschte
+
+Option: 2 Verbleibende Zeit: 30</font></p>
+
+
+
+<p><font size="3" face="Arial">Nach der Anzeige dieses Menüs
+
+wartet MS-DOS 30 Sekunden; wird kein anderer</font></p>
+
+
+
+<p><font size="3" face="Arial">Eintrag ausgewählt, startet
+
+MS-DOS den Computer unter Verwendung der Befehle</font></p>
+
+
+
+<p><font size="3" face="Arial">im Konfigurationsblock
+
+&quot;Volle_Konfig&quot;.</font></p>
+
+
+
+<p><font size="4" face="Arial"><b></b></font>&nbsp;</p>
+
+
+
+<p><a name="_Toc467316532"><font size="4" face="Arial"><b>MENUITEM</b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Definiert einen Eintrag im
+
+Startmenü. Sie können diesen Befehl nur innerhalb eines
+
+Menüblocks in der Datei CONFIG.SYS verwenden. Pro Menü können
+
+bis zu neun Menüeinträge vorkommen. Das Startmenü ist eine
+
+Auswahlliste, die beim Starten Ihres Computers erscheint. Sie
+
+definieren es mit Hilfe spezieller CONFIG.SYS-Befehle. Jeder
+
+Eintrag im Menü entspricht einer Gruppe von CONFIG.SYS-Befehlen,
+
+&quot;Konfigurationsblock&quot; genannt. Mit dem Startmenü haben
+
+Sie die Möglichkeit, eine von mehreren Konfigurationen zu
+
+wählen, mit denen Ihr Computer startet. Weitere Informationen
+
+über die Definition mehrerer Konfigurationen finden Sie in
+
+Kapitel &quot;Konfigurieren Ihres Systems&quot; im
+
+MS-DOS-6-Benutzerhandbuch. </font></p>
+
+
+
+<p><a name="_Toc467316533"><font face="Arial"><b><i>Syntax</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">MENUITEM=Blockname[,Menütext] </font></p>
+
+
+
+<p><a name="_Toc467316534"><font face="Arial"><b><i>Parameter</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Blockname</font></p>
+
+
+
+<p><font size="3" face="Arial">Bezeichnet den Namen des
+
+zugehörigen Konfigurationsblocks. Der Block muss</font></p>
+
+
+
+<p><font size="3" face="Arial">an anderer Stelle in der Datei
+
+CONFIG.SYS definiert werden. Wird der</font></p>
+
+
+
+<p><font size="3" face="Arial">Menüeintrag aus dem Startmenü
+
+ausgewählt, führt MS-DOS die Befehle im</font></p>
+
+
+
+<p><font size="3" face="Arial">zugehörigen Konfigurationsblock,
+
+alle Befehle am Anfang der Datei</font></p>
+
+
+
+<p><font size="3" face="Arial">CONFIG.SYS sowie etwaige Befehle
+
+in Konfigurationsblöcken mit dem Namen</font></p>
+
+
+
+<p><font size="3" face="Arial">[common] aus. </font></p>
+
+
+
+<p><font size="3" face="Arial">Wenn MS-DOS einen Block des
+
+angegebenen Namens nicht finden kann, </font></p>
+
+
+
+<p><font size="3" face="Arial">erscheint der Eintrag nicht im
+
+Startmenü. Der Blockname kann bis zu 70</font></p>
+
+
+
+<p><font size="3" face="Arial">Zeichen lang sein und darf nahezu
+
+alle druckbaren Zeichen enthalten. </font></p>
+
+
+
+<p><font size="3" face="Arial">Leerzeichen, Schrägstriche (\ und
+
+/), Kommas, Semikola (;),</font></p>
+
+
+
+<p><font size="3" face="Arial">Gleichheitszeichen (=), eckige
+
+Klammern ([ und ]), sowie Umlaute (üs, </font></p>
+
+
+
+<p><font size="3" face="Arial">&quot;_, &quot;(tm)) und ss sind
+
+nicht zulässig. </font></p>
+
+
+
+<p><font size="3" face="Arial">Menütext</font></p>
+
+
+
+<p><font size="3" face="Arial">Bezeichnet den Text, den MS-DOS
+
+für diesen Menüeintrag anzeigen soll. </font></p>
+
+
+
+<p><font size="3" face="Arial">Wenn Sie keinen Menütext angeben,
+
+zeigt MS-DOS den Blocknamen als</font></p>
+
+
+
+<p><font size="3" face="Arial">Menüeintrag an. Der Menütext
+
+kann bis zu 70 Zeichen lang sein und darf</font></p>
+
+
+
+<p><font size="3" face="Arial">beliebige Zeichen enthalten. </font></p>
+
+
+
+<p><a name="_Toc467316535"><font face="Arial"><b><i>Zugehörige
+
+Befehle</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Der Befehl MENUITEM ist einer von
+
+sechs speziellen CONFIG.SYS-Befehlen zur</font></p>
+
+
+
+<p><font size="3" face="Arial">Definition von Startmenüs und
+
+mehrerer Konfigurationen. Die anderen Befehle</font></p>
+
+
+
+<p><font size="3" face="Arial">zur Menüdefinition sind: </font></p>
+
+
+
+<p><font size="3" face="Arial">der Befehl &lt;MENUDEFAULT&gt; zur
+
+Angabe des Standardmenüeintrags, </font></p>
+
+
+
+<p><font size="3" face="Arial">der Befehl &lt;MENUCOLOR&gt; zur
+
+Definition der Farbe des Menütextes sowie des</font></p>
+
+
+
+<p><font size="3" face="Arial">Bildschirmhintergrunds. </font></p>
+
+
+
+<p><font size="3" face="Arial">der Befehl &lt;SUBMENU&gt; zur
+
+Definition eines Untermenüs, </font></p>
+
+
+
+<p><font size="3" face="Arial">der Befehl &lt;NUMLOCK&gt;, der
+
+den Status der NUMLOCK-Taste bestimmt, wenn das</font></p>
+
+
+
+<p><font size="3" face="Arial">Startmenü erscheint. (Obgleich
+
+NUMLOCK überall in der Datei CONFIG.SYS</font></p>
+
+
+
+<p><font size="3" face="Arial">verwendet werden kann, ist sie
+
+besonders nützlich, wenn Sie ein</font></p>
+
+
+
+<p><font size="3" face="Arial">Startmenü definieren.) </font></p>
+
+
+
+<p><font size="3" face="Arial">der Befehl &lt;INCLUDE&gt; der den
+
+Inhalt eines Konfigurationsblocks in einen</font></p>
+
+
+
+<p><font size="3" face="Arial">anderen aufnimmt. Dieser Befehl
+
+lässt sich nicht in einen Menüblock</font></p>
+
+
+
+<p><font size="3" face="Arial">einbauen. </font></p>
+
+
+
+<p><font size="3" face="Arial">Überblick des Verfahrens, mehrere
+
+Konfigurationen zu definieren, finden</font></p>
+
+
+
+<p><font size="3" face="Arial">Sie unter dem Thema &lt;Befehle
+
+zur Definition mehrerer Konfigurationen&gt;.</font></p>
+
+
+
+<p><a name="_Toc467316536"><font face="Arial"><b><i>MENUITEM
+
+Anmerkungen</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Definieren von Menüblöcken</font></p>
+
+
+
+<p><font size="3" face="Arial">Ein Menüblock ist eine Gruppe von
+
+Befehlen zur Menüdefinition, die mit einem Blockkopf - dem Namen
+
+des Blocks in eckigen Klammern - beginnt. Damit ein Startmenü
+
+erscheint, muss Ihre Datei CONFIG.SYS einen Menüblock mit dem
+
+Kopf [menu] enthalten. </font></p>
+
+
+
+<p><font size="3" face="Arial">Sie können mit dem Befehl
+
+&lt;SUBMENU&gt; auch Untermenüs definieren. Jedes Untermenü hat
+
+seinen eigenen Menüblock, der beliebig heissen kann. </font></p>
+
+
+
+<p><font size="3" face="Arial">Ein Menüblock muss mindestens
+
+einen MENUITEM- oder SUBMENU-Befehl enthalten. </font></p>
+
+
+
+<p><font size="3" face="Arial">Anzahl und Numerierung der
+
+Einträge im Startmenü</font></p>
+
+
+
+<p><font size="3" face="Arial">MS-DOS zeigt die Menüeinträge in
+
+der Reihenfolge an, wie sie im Menüblock stehen, und numeriert
+
+sie automatisch durch. Der erste Menüeintrag ist immer die
+
+Nummer 1 im Menü; bis zu neun Einträge sind möglich. Wenn Sie
+
+mehr als neun Menüeinträge definieren müssen, verwenden Sie
+
+den Befehl SUBMENU. </font></p>
+
+
+
+<p><a name="_Toc467316537"><font face="Arial"><b><i>MENUITEM
+
+Beispiele</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Der folgende Block [MENU]
+
+definiert ein Startmenü mit den zwei Einträgen</font></p>
+
+
+
+<p><font size="3" face="Arial">Birnen und Orangen: </font></p>
+
+
+
+<p><font size="2" face="Courier New">[menu] </font></p>
+
+
+
+<p><font size="2" face="Courier New">menuitem=Birnen</font></p>
+
+
+
+<p><font size="2" face="Courier New">menuitem=Orangen</font></p>
+
+
+
+<p><font size="3" face="Arial">Wenn MS-DOS startet, erscheint
+
+folgendes Menü:</font></p>
+
+
+
+<p><font size="2" face="Courier New">Startmenü für MS-DOS 6.2</font></p>
+
+
+
+<p><font size="2" face="Courier New">========================</font></p>
+
+
+
+<p><font size="2" face="Courier New">1. Birnen</font></p>
+
+
+
+<p><font size="2" face="Courier New">2. Orangen</font></p>
+
+
+
+<p><font size="2" face="Courier New">Wählen Sie die gewünschte
+
+Option: 1</font></p>
+
+
+
+<p><font size="3" face="Arial">Der folgende Block [MENU]
+
+definiert ein Startmenü mit drei Einträgen und Menütext für
+
+jeden Eintrag: </font></p>
+
+
+
+<p><font size="2" face="Courier New">[menu] </font></p>
+
+
+
+<p><font size="2" face="Courier New">menuitem=Basis_Konfig, Nur
+
+Grundkonfiguration</font></p>
+
+
+
+<p><font size="2" face="Courier New">menuitem=Volle_Konfig,
+
+Normale Konfiguration</font></p>
+
+
+
+<p><font size="2" face="Courier New">menuitem=Netz_Konfig,
+
+Normale Konfiguration mit Netzwerk</font></p>
+
+
+
+<p><font size="3" face="Arial">In diesem Beispiel entspricht der
+
+erste Eintrag dem Konfigurationsblock [Basis_Konfig], der zweite
+
+Eintrag dem Block [Volle_Konfig] und der dritte Eintrag dem Block
+
+[Netz_Konfig]. Wenn MS-DOS startet, zeigt es folgendes Menü an: </font></p>
+
+
+
+<p><font size="2" face="Courier New">Startmenü für MS-DOS 6.2</font></p>
+
+
+
+<p><font size="2" face="Courier New">========================</font></p>
+
+
+
+<p><font size="2" face="Courier New">1. Nur Grundkonfiguration</font></p>
+
+
+
+<p><font size="2" face="Courier New">2. Normale Konfiguration</font></p>
+
+
+
+<p><font size="2" face="Courier New">3. Normale Konfiguration mit
+
+Netzwerk</font></p>
+
+
+
+<p><font size="2" face="Courier New">Wählen Sie die gewünschte
+
+Option: 1</font></p>
+
+
+
+<p><font size="4" face="Arial"><b></b></font>&nbsp;</p>
+
+
+
+<p><a name="_Toc467316538"><font size="4" face="Arial"><b>SUBMENU</b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Definiert ein Element des
+
+Startmenüs. Wird dieses Element gewählt, wird ein weiteres
+
+Auswahlmenü angezeigt. Sie können diesen Befehl nur innerhalb
+
+eines Menüblocks in Ihrer CONFIG.SYS-Datei einsetzen. </font></p>
+
+
+
+<p><font size="3" face="Arial">Das Startmenü ist eine Liste von
+
+Auswahlmöglichkeiten, die eingeblendet wird, wenn Sie Ihren
+
+Computer starten. Ein Startmenü wird mit speziellen
+
+CONFIG.SYS-Befehlen definiert. Jedes Element eines solchen Menüs
+
+entspricht einer Zusammenstellung von CONFIG.SYS-Befehlen, die
+
+als &quot;Konfigurationsblock&quot; bezeichnet wird. Ein
+
+Startmenü ermöglicht es, einen Computer mit einer Vielzahl von
+
+Konfigurationen zu starten. Weitere Informationen darüber, wie
+
+Sie mehrere Konfigurationen definieren, finden Sie in Kapitel
+
+&quot;Konfigurieren Ihres Systems&quot; im
+
+MS-DOS-6-Benutzerhandbuch. </font></p>
+
+
+
+<p><a name="_Toc467316539"><font face="Arial"><b><i>Syntax</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">SUBMENU=Blockname[,Menüeintrag] </font></p>
+
+
+
+<p><a name="_Toc467316540"><font face="Arial"><b><i>Parameter</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Blockname</font></p>
+
+
+
+<p><font size="3" face="Arial">Gibt den Namen des zugehörigen
+
+Menüblocks an. Dieser Menüblock muss an anderer Stelle der
+
+CONFIG.SYS-Datei definiert sein und kann Befehle enthalten, die
+
+das Menü definieren. Anders als der
+
+&quot;Haupt&quot;-Menüblock, der den Blocknamen [MENU] haben
+
+muss, können Sie dem Menüblock eines Untermenüs jeden
+
+beliebigen Namen geben. Kann MS-DOS keinen Block finden, der den
+
+angegebenen Namen hat, wird das Element nicht in das Startmenü
+
+aufgenommen. Ein Blockname kann bis zu 70 Zeichen lang sein und
+
+darf fast alle druckbaren Zeichen enthalten. Die folgenden
+
+Zeichen dürfen nicht in einem Blocknamen stehen: Leerzeichen,
+
+umgekehrte Schrägstriche (\) und Schrägstriche (/), Kommas,
+
+Semikolons (;), Gleichheitszeichen (=), eckige Klammern ([ und
+
+]), sowie Umlaute (&quot;_, üs, &quot;(tm)) und ss. </font></p>
+
+
+
+<p><font size="3" face="Arial">Menüeintrag Gibt den Text an, den
+
+MS-DOS für dieses Menüelement anzeigen soll. Wenn Sie keinen
+
+Menütext angeben, zeigt MS-DOS den Blocknamen als Menüelement
+
+an. Ein Menüelement kann bis zu 70 Zeichen lang sein und darf
+
+alle verfügbaren Zeichen enthalten. </font></p>
+
+
+
+<p><a name="_Toc467316541"><font face="Arial"><b><i>Verwandte
+
+Befehle</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">Der Befehl SUBMENU ist einer von
+
+sechs speziellen CONFIG.SYS- Befehlen, mit</font></p>
+
+
+
+<p><font size="3" face="Arial">denen Startmenüs definiert werden
+
+können. Die anderen Befehle sind: </font></p>
+
+
+
+<p><font size="3" face="Arial">der Befehl &lt;MENUITEM&gt;, der
+
+ein Menüelement definiert; </font></p>
+
+
+
+<p><font size="3" face="Arial">der Befehl &lt;MENUDEFAULT&gt;,
+
+der das voreingestellte Menüelement angibt; </font></p>
+
+
+
+<p><font size="3" face="Arial">der Befehl &lt;MENUCOLOR&gt;, der
+
+die Farben des Menütextes und des</font></p>
+
+
+
+<p><font size="3" face="Arial">Bildschirmhintergrunds definiert; </font></p>
+
+
+
+<p><font size="3" face="Arial">der Befehl &lt;NUMLOCK&gt;, der
+
+den Status der NUM-FESTSTELLTASTE angibt, wenn</font></p>
+
+
+
+<p><font size="3" face="Arial">das Startmenü erscheint.
+
+(Obgleich NUMLOCK überall in der</font></p>
+
+
+
+<p><font size="3" face="Arial">CONFIG.SYS-Datei verwendet werden
+
+kann, ist er besonders nützlich bei der</font></p>
+
+
+
+<p><font size="3" face="Arial">Definition eines Startmenüs.) </font></p>
+
+
+
+<p><font size="3" face="Arial">der Befehl &lt;INCLUDE&gt;, der
+
+den Inhalt eines Konfigurationsblocks in einen</font></p>
+
+
+
+<p><font size="3" face="Arial">anderen einfügt; dieser Befehl
+
+darf nicht in einem Menüblock stehen. </font></p>
+
+
+
+<p><font size="3" face="Arial">Einen Überblick der Schritte ,
+
+die zur Definition mehrerer Konfigurationen erfordert sind,
+
+finden Sie unter &lt;Befehle zur Definition mehrerer
+
+Konfigurationen&gt;.</font></p>
+
+
+
+<p><a name="_Toc467316542"><font face="Arial"><b><i>SUBMENU
+
+Beispiele</i></b></font></a></p>
+
+
+
+<p><font size="3" face="Arial">In der folgenden CONFIG.SYS-Datei
+
+werden ein Hauptstartmenü und ein Untermenü definiert: </font></p>
+
+
+
+<p><font size="2" face="Courier New">[menu] </font></p>
+
+
+
+<p><font size="2" face="Courier New">menuitem Basiskonfiguration,
+
+nur die Basiskonfiguration</font></p>
+
+
+
+<p><font size="2" face="Courier New">menuitem
+
+Kompl_Konfiguration,normale Konfiguration</font></p>
+
+
+
+<p><font size="2" face="Courier New">submenu Netzmenü, normale
+
+Konfiguration mit Netzwerk</font></p>
+
+
+
+<p><font size="2" face="Courier New">[Netzmenü]</font></p>
+
+
+
+<p><font size="2" face="Courier New">menuitem lanman, Microsoft
+
+LAN Manager starten</font></p>
+
+
+
+<p><font size="2" face="Courier New">menuitem vines, Banyan VINES
+
+starten</font></p>
+
+
+
+<p><font size="2" face="Courier New">[Basiskonfiguration] </font></p>
+
+
+
+<p><font size="2" face="Courier New">dos=high</font></p>
+
+
+
+<p><font size="2" face="Courier New">device=c:\dos\himem</font></p>
+
+
+
+<p><font size="2" face="Courier New">[Kompl_Konfiguration] </font></p>
+
+
+
+<p><font size="2" face="Courier New">include=Basiskonfiguration</font></p>
+
+
+
+<p><font size="2" face="Courier New">dos=umb</font></p>
+
+
+
+<p><font size="2" face="Courier New">device=c:\dos\emm386 ram</font></p>
+
+
+
+<p><font size="2" face="Courier New">device=c:\dosramdrive.sys
+
+512</font></p>
+
+
+
+<p><font size="2" face="Courier New">[lanman] </font></p>
+
+
+
+<p><font size="2" face="Courier New">include=Kompl_Konfiguration</font></p>
+
+
+
+<p><font size="2" face="Courier New">rem Befehle für den
+
+Microsoft LAN Manager müssten hier stehen. </font></p>
+
+
+
+<p><font size="2" face="Courier New">[vines] </font></p>
+
+
+
+<p><font size="2" face="Courier New">include=Kompl_Konfiguration</font></p>
+
+
+
+<p><font size="2" face="Courier New">rem Befehle für Banyan
+
+VINES müssten hier stehen. </font></p>
+
+
+
+<p><font size="3" face="Arial">Diese CONFIG.SYS-Datei bietet eine
+
+aus vier Konfigurationen bestehende Auswahl: eine
+
+Basiskonfiguration (Basiskonfiguration), eine komplette
+
+Konfiguration (Kompl_Konfiguration) und zwei
+
+Netzwerkkonfigurationen. Die beiden Netzwerkkonfigurationen
+
+umfassen alle Befehle der kompletten Konfiguration; die
+
+Konfiguration lanman startet den Microsoft LAN Manager, und die
+
+Konfiguration vines startet das Netzwerkprogramm Banyan VINES.
+
+Möchte der Benutzer eine Netzwerkkonfiguration wählen, muss er
+
+aus dem Hauptmenü zunächst das 3. Element (&quot;Normale
+
+Konfiguration mit Netzwerk&quot;) wählen. MS-DOS zeigt danach
+
+das für die Wahl des gewünschten Netzwerks vorgesehene
+
+Untermenü an. </font></p>
+
+
+
+<p><font size="3" face="Arial">Wenn MS-DOS startet, zeigt es das
+
+folgende Menü an: </font></p>
+
+
+
+<p><font size="2" face="Courier New">MS-DOS 6 Startmenü</font></p>
+
+
+
+<p><font size="2" face="Courier New">=====================</font></p>
+
+
+
+<p><font size="2" face="Courier New">1. Nur die
+
+Basiskonfiguration</font></p>
+
+
+
+<p><font size="2" face="Courier New">2. Normale Konfiguration</font></p>
+
+
+
+<p><font size="2" face="Courier New">3. Normale Konfiguration mit
+
+Netzwerk</font></p>
+
+
+
+<p><font size="2" face="Courier New">Geben Sie Ihre Auswahl ein:
+
+1</font></p>
+
+
+
+<p><font size="3" face="Arial">Wird der dritte Eintrag gewählt,
+
+zeigt MS-DOS statt des obigen das folgende Menü an: </font></p>
+
+
+
+<p><font size="2" face="Courier New">MS-DOS 6 Startmenü</font></p>
+
+
+
+<p><font size="2" face="Courier New">=====================</font></p>
+
+
+
+<p><font size="2" face="Courier New">1. Microsoft LAN Manager
+
+starten</font></p>
+
+
+
+<p><font size="2" face="Courier New">2. Banyan VINES starten</font></p>
+
+
+
+<p><font size="2" face="Courier New">Geben Sie Ihre Auswahl ein:
+
+1</font></p>
+
+<!--  Abspann -->
+<br>
+<hr>
+<br>
+<center><font face="Arial, Helvetica" size=-1><i>HTML-Redesign &copy; 2000 <a href="mailto:thomas@antonis.de">Thomas Antoni</a> &nbsp; --- &nbsp; Visit my 
+Homepage at &nbsp; <a href="http://www.antonis.de">http://www.antonis.de</a>
+<br><font color="red">---===  Hottest MS-DOS Stuff on Earth !! ===---</i></font></font>
+</center><br><br>
+</font>
+</body>
+</html>
+
