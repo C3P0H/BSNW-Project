@@ -1,4 +1,4 @@
-#-- Version History --
+﻿#-- Version History --
 #Version:         01.000           
 #Creation:        30.11.2014 
 #Author:          Marvin Ecker
@@ -8,5 +8,7 @@
 #30.11.2014:      Inital commit.
 
 #-- Code Section --
+
+#shutdown.exe -s -t 0
 
 #-- End of application --
