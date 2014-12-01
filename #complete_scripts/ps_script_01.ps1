@@ -9,6 +9,14 @@
 
 #-- Code Section --
 
-shutdown.exe -s -t 0
+$shutdown_request = Read-Host "Do you want to shutdown the PC? y/n";
 
+if(($shutdown_request) -eq "y")
+{
+    shutdown.exe -s -t 0;
+}
+else
+{
+    exit;
+}
 #-- End of application --

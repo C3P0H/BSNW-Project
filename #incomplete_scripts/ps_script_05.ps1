@@ -13,10 +13,17 @@
 #Script should be able to interact in a network.
 
 $tempfolders = @( "C:\Windows\Temp\*", "C:\Windows\Prefetch\*", "C:\Users\*\Appdata\Local\Temp\*");
+$clear_request = Read-Host "Do you want to clear the temp folders? y/n";
 
-foreach($item in $tempfolders)
+if(($clear_request) -eq "y")
 {
-        Remove-Item $item -force -recurse;
+    foreach($item in $tempfolders)
+    {
+            Remove-Item $item -force -recurse;
+    }
 }
-
+else
+{
+    exit;
+}
 #-- End of application --
