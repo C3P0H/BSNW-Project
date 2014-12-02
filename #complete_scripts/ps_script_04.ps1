@@ -9,7 +9,8 @@
 
 #-- Code Section --
 
-$Global:destinationFile = "C:\Users\Marvin\Desktop\dienste.txt";
+$Global:destination_file = "C:\Users\Marvin\Desktop\dienste.txt";
+$Private:save_request ="Do you want to save all proccesses into a text file? (y/n)"
 
 Function CheckFile ()
 {
@@ -25,7 +26,14 @@ Function SaveProcess ()
     Write-Host "Processes have been saved!"
 }
 
-CheckFile;
-SaveProcess;
+if(($Private:save_request) -eq "y")
+{
+    CheckFile;
+    SaveProcess;
+}
+else
+{
+    exit;
+}
 
 #-- End of application --
