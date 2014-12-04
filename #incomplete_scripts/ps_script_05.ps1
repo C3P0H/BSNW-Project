@@ -13,7 +13,7 @@
 #Script should be able to interact in a network.
 
 $tempfolders = @( "C:\Windows\Temp\*", "C:\Windows\Prefetch\*", "C:\Users\*\Appdata\Local\Temp\*");
-$clear_request = Read-Host "Do you want to clear the temp folders? y/n";
+$clear_request = Read-Host "Do you want to clear the temp folders? (y/n)";
 
 if(($clear_request) -eq "y")
 {
