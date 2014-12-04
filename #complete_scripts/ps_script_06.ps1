@@ -8,12 +8,12 @@
 #2.12.2014:      Inital commit.
 
 #-- Code Section --
+ 
+$Global:document_1 = "";
+$docoment_2 = "";
+$rand = Get-Random;
 
-$doc1 = "";
-$doc2 = "";
-$rand =Get-Random;
-
-Function GetFilesname () 
+Function get_filename () 
 {
     
     $doc1 = Read-Host "document one";
@@ -38,7 +38,7 @@ Function GetFilesname ()
 Function ChangeName()
 {
 
-    $change = Read-Host "Would you really switch the names? [y/n]";
+    $change = Read-Host "Would you like to swap the names? [y/n]";
     
     if($change -eq "y")
     {

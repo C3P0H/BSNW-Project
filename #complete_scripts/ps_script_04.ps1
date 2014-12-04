@@ -9,30 +9,37 @@
 
 #-- Code Section --
 
-$Global:destination_file = "C:\Users\Marvin\Desktop\dienste.txt";
-$Private:save_request ="Do you want to save all proccesses into a text file? (y/n)"
+$env:username;
 
-Function CheckFile ()
+$Global:destination_file = "C:\Users\" + $env:username + "\Desktop\Dienste.txt";
+$Global:save_request = Read-Host "Do you want to save all services into a text file? (y/n)";
+
+#The following function checks the existence of an old file and deletes it
+Function delete_file ()
 {
-    if((Test-Path $Global:destinationFile) -eq 1){
-        Remove-Item $Global:destinationFile -Force;
-        Write-Host "File has been deleted!"
+    if((Test-Path $Global:destination_file) -eq 0){
+       echo "No old file has been found!";
+    }
+    
+    if((Test-Path $Global:destination_file) -eq 1){
+        Remove-Item $Global:destination_file -Force;
+        echo "Old file has been deleted!";
     }
 }
 
-Function SaveProcess ()
+#The following function saves all currently running services and saves them into a .txt file
+Function save_services ()
 {
-    Get-Process | Out-File $Global:destinationFile;
-    Write-Host "Processes have been saved!"
+    Get-Service | Out-File $Global:destination_file;
+    echo "Services have been saved!";
 }
 
-if(($Private:save_request) -eq "y")
-{
-    CheckFile;
-    SaveProcess;
+#Standard user query
+if(($Global:save_request) -eq "y"){
+    delete_file;
+    save_process;
 }
-else
-{
+else{
     exit;
 }
 
