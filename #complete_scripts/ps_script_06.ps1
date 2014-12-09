@@ -8,28 +8,33 @@
 #2.12.2014:      Inital commit.
 
 #-- Code Section --
- 
-$Global:document_1 = "";
-$docoment_2 = "";
-$rand = Get-Random;
 
-Function get_filename () 
+$document_1_path = "";
+$document_2_path = "";
+$document1 = "";
+$document2 = "";
+$random = Get-Random;
+
+
+Function GetFilesname () 
 {
     
-    $doc1 = Read-Host "document one";
-    $doc2 = Read-Host "document two";
+    $document_1_path = Read-Host "document one";
+    $document_2_path = Read-Host "document two";
+    $document_1 = Split-Path $document_1_path -Leaf
+    $document_2 = Split-Path $document_2_path -Leaf
 
-    if((Test-Path $doc1) -eq 0)
+    if((Test-Path $document_1) -eq 0)
     {
-        echo "$doc1 does not exist";
+        echo "$document_1 does not exist";
         pause;
-        exit
+        GetFilesname;
     }
-    if((Test-Path $doc2) -eq 0)
+    if((Test-Path $document_2) -eq 0)
     {
-        echo "$doc2 does not exist";
+        echo "$document_2 does not exist";
         pause;
-        exit
+        GetFilesname;
     }
 
      Changename;
@@ -38,18 +43,18 @@ Function get_filename ()
 Function ChangeName()
 {
 
-    $change = Read-Host "Would you like to swap the names? [y/n]";
+    $change = Read-Host "Would you really swap the names? [y/n]";
     
     if($change -eq "y")
     {
-        Rename-Item $doc1 $rand;
-        Rename-Item $doc2 $doc1;
-        Rename-Item $rand $doc2;
-        echo "Names switched";
+        Rename-Item $document_1 $random;
+        Rename-Item $document_2 $document_1;
+        Rename-Item $random $document_2;
+        echo "Names Swaped";
     }
     else
     {
-       echo "Names not switched"; 
+       echo "Names not swaped"; 
        pause;
        exit;
     } 
