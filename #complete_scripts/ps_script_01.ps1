@@ -11,6 +11,7 @@
 
 $shutdown_request = Read-Host "Do you want to shutdown the PC? y/n";
 
+#Standard user query
 if(($shutdown_request) -eq "y")
 {
     shutdown.exe -s -t 0;
