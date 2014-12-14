@@ -15,7 +15,7 @@ $Global:document1 = "";
 $Global:document2 = "";
 $Global:random = Get-Random;
 
-
+# Getting the Filenames
 Function GetFilesname () 
 {
     
@@ -40,6 +40,7 @@ Function GetFilesname ()
      Changename;
 }
 
+# Swap the Filenames
 Function ChangeName()
 {
 
