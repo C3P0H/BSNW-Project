@@ -1,4 +1,4 @@
 BSNW-Project
 ==========
 
-bsnw school project in Powershell. 
+BSNW school project in Powershell. 
