@@ -1,4 +1,4 @@
-BSNW-batch
+BSNW-Project
 ==========
 
-bsnw school project in batch. 
+bsnw school project in Powershell. 
