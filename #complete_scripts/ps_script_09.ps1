@@ -17,9 +17,9 @@ $Global:Pc_number = Read-Host "PC-Number"
 $Global:Type = Read-Host "Type"
 $Global:Room_number = Read-Host "room_number"
 
-$Global:Drive = Join-Path $Global:Drive "$Global:Pc_number$Global:Type$Global:Room_number\"
+$Global:Drive = Join-Path $Global:Drive "$Global:Pc_number$Global:Type$Global:Room_number\*"
 echo $Global:Drive
-Remove-Item  $Global:Drive -Force -Recurse -WhatIf
+Remove-Item  $Global:Drive -Force -Recurse
 }
 DeleteFiles;
 
