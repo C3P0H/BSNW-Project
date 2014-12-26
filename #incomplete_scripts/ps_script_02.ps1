@@ -12,6 +12,7 @@
 #-- ToDo --
 #Check ArchiveBit
 
+$Global:username = [Environment]::UserName;
 $Global:backup_dir = "C:\Users\Marvin\Backup";
 $Global:source_dir = "C:\Users\Marvin\Documents";
 $Global:backup_request = Read-Host "Do you want to create a backup? (y/n)"

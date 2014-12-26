@@ -21,4 +21,5 @@ Param
     [String[]]$ComputerName
 )
 
+#entry point
 Stop-Computer -ComputerName $ComputerName -Confirm

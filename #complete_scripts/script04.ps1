@@ -24,4 +24,5 @@ Param
     [String]$FilePath
 )
 
+#entry point
 Get-Service -ComputerName $ComputerName | Out-File -FilePath $FilePath 
