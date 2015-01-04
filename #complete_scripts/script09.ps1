@@ -30,9 +30,6 @@ Param
 
 Function DeleteFiles ()
 {
-$Pc_number = Read-Host "PC-Number"
-$Type = Read-Host "Type"
-$Room_number = Read-Host "room_number"
 $Drive = Join-Path $Drive "$Pc_Number$Type$Room_Number\*"
 echo $Drive
 Remove-Item  $Drive -Force -Recurse
