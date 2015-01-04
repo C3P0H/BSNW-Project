@@ -29,8 +29,6 @@ $Random = Get-Random;
 
 Function GetFilesname () 
 {
-    $Document_1 = Read-Host "document one";
-    $Document_2 = Read-Host "document two";
     cd $Path
 
     if((Test-Path $Document_1) -eq 0)
