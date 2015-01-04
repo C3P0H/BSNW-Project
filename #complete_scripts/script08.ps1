@@ -31,7 +31,6 @@ Function CheckParameters
 {
         if(!(Test-Path -Path $UsbDriveletter)){
             Write-Host "UsbDriveletter does not exists"
-            New-Item -Itemtype directory -Path BackupPath -Confirm
         }
         if(!(Test-Path -Path $BackupPath)){
             Write-Host "BackupDirectory does not exists"
