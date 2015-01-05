@@ -18,14 +18,14 @@ Author: Jevgeni Ziebart
 [CmdletBinding()]
 Param
 (
-    [String]$UsbDriveletter,       
     [Parameter(Mandatory=$true)]
     [String]$BackupPath,
     [Boolean]$DeleteFiles
 )
+ 
 Function SelectUsbFlashDrive
 {
-    $UsbDriveletter = gwmi win32_diskdrive | ?{$_.interfacetype -eq "USB"} | %{gwmi -Query "ASSOCIATORS OF {Win32_DiskDrive.DeviceID=`"$($_.DeviceID.replace('\','\\'))`"} WHERE AssocClass = Win32_DiskDriveToDiskPartition"} |  %{gwmi -Query "ASSOCIATORS OF {Win32_DiskPartition.DeviceID=`"$($_.DeviceID)`"} WHERE AssocClass = Win32_LogicalDiskToPartition"} | %{$_.deviceid}
+    gwmi win32_diskdrive | ?{$_.interfacetype -eq "USB"} | %{gwmi -Query "ASSOCIATORS OF {Win32_DiskDrive.DeviceID=`"$($_.DeviceID.replace('\','\\'))`"} WHERE AssocClass = Win32_DiskDriveToDiskPartition"} |  %{gwmi -Query "ASSOCIATORS OF {Win32_DiskPartition.DeviceID=`"$($_.DeviceID)`"} WHERE AssocClass = Win32_LogicalDiskToPartition"} | %{$_.deviceid} -OutVariable Global:UsbDriveletter
 }
 
 Function CheckParameters
@@ -48,7 +48,7 @@ Function CopyFiles
 
 Function DeleteFiles
 {
-    if(!($DeleteFiles=$false)){
+    if(($DeleteFiles)-eq $true){
         Remove-Item -Recurse -path $UsbDriveletter\*
     }
 }
