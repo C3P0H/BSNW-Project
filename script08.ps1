@@ -22,8 +22,7 @@ Param
 (
     [Parameter(Mandatory=$true)]
     [String]$UsbDriveletter,
-    [String]$BackupPath,
-    [Boolean]$DeleteFiles
+    [String]$BackupPath
 )
 
 
@@ -31,6 +30,7 @@ Function CheckParameters
 {
         if(!(Test-Path -Path $UsbDriveletter)){
             Write-Host "UsbDriveletter does not exists"
+            Exit
         }
         if(!(Test-Path -Path $BackupPath)){
             Write-Host "BackupDirectory does not exists"
@@ -46,9 +46,7 @@ Function CopyFiles
 
 Function DeleteFiles
 {
-        if(($DeleteFiles)-eq 1){
-            Remove-Item -Recurse -path $UsbDriveletter*
-        }
+        Remove-Item -Recurse -path $UsbDriveletter* -Confirm
 }
 
 #entry point
