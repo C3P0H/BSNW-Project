@@ -4,9 +4,7 @@
 .DESCRIPTION
    the following script creates a backup of an automatically selected USB-Flashdrive
 .PARAMETER BackupPath
-   Enter the path of your flashdrive you want to backup your USB-Flashdrive to
-.PARAMETER DeleteFiles
-   
+   Enter the path of your flashdrive you want to backup your USB-Flashdrive to  
 .EXAMPLE
    script12.ps1 -BackupPath C:\Backup -DeleteFiles -false
 #>
@@ -19,8 +17,7 @@ Author: Jevgeni Ziebart
 Param
 (
     [Parameter(Mandatory=$true)]
-    [String]$BackupPath,
-    [Boolean]$DeleteFiles
+    [String]$BackupPath
 )
  
 Function SelectUsbFlashDrive
@@ -48,7 +45,7 @@ Function CopyFiles
 Function DeleteFiles
 {
     if(($DeleteFiles)-eq $true){
-        Remove-Item -Recurse -path $UsbDriveletter\*
+        Remove-Item -Recurse -path $UsbDriveletter\* -Confirm
     }
 }
 
