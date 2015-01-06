@@ -19,53 +19,60 @@ Author: Lars Wrzeziono
 Param
 (
     [Parameter(Mandatory=$true)]
-    [String]$Path,
-    [String]$Document_1,
-    [String]$Document_2
+    [String]$PathDocument1,
+    [String]$PathDocument2
 )
 
-$Random = Get-Random;
-
-
-Function GetFilesname () 
+Function TestPaths 
 {
-    cd $Path
-
-    if((Test-Path $Document_1) -eq 0)
+    if((Test-Path $PathDocument1) -eq 0)
     {
-        echo "$Document_1 does not exist";
-        pause;
-        GetFilesname;
+        Write-Host "$PathDocument1 does not exist"
+        Exit;
     }
-    if((Test-Path $Document_2) -eq 0)
+    if((Test-Path $PathDocument2) -eq 0)
     {
-        echo "$Document_2 does not exist";
-        pause;
-        GetFilesname;
+        echo "$PathDocument2 does not exist"
+        Exit;
     }
-    Changename;
 }
 
-Function ChangeName()
+Function SwapNames
 {
+    $SourcePath = Split-Path -Path $PathDocument1 -Parent
+    $Rand = Get-Random 
+    $PathDummyName = $SourcePath + "/" + $Rand
 
-    $Change = Read-Host "Would you really swap the names? [y/n]";
-    
-    if($Change -eq "y")
-    {
-        Rename-Item $Document_1 $Random;
-        Rename-Item $Document_2 $Document_1;
-        Rename-Item $Random $Document_2;
-        echo "Names Swaped";
-    }
-    else
-    {
-       echo "Names not swaped"; 
-       pause;
-       exit;
-    } 
+    Rename-Item $PathDocument1 $PathDummyName
+    Rename-Item $PathDocument2 $PathDocument1
+    Rename-Item $PathDummyName $PathDocument2
+
+    Write-Host "Filenames has been swapped!"
 }
 
 #entry point
-GetFilesname;
-pause;
+$title = "Swapping filenames"
+$message = "Do you want to swap the specified filenames?"
+
+$yes = New-Object System.Management.Automation.Host.ChoiceDescription "&Yes", `
+    "Filenames will be swapped."
+
+$no = New-Object System.Management.Automation.Host.ChoiceDescription "&No", `
+    "Filenames will not be swapped"
+
+$options = [System.Management.Automation.Host.ChoiceDescription[]]($yes, $no)
+
+$result = $host.ui.PromptForChoice($title, $message, $options, 0) 
+
+switch ($result)
+    {
+        0 
+        {
+            TestPaths
+            SwapNames
+        }
+        1 
+        {
+            Exit
+        }
+    }
