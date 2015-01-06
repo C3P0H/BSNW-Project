@@ -20,9 +20,8 @@ Author: Marvin Ecker
 Param
 (
     [Parameter(Mandatory=$true)]
-    [String[]]$ComputerName,
     [String]$FilePath
 )
 
 #entry point
-Get-Service -ComputerName $ComputerName | Out-File -FilePath $FilePath 
+Get-Service | Out-File -FilePath $FilePath 
