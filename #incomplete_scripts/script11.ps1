@@ -15,7 +15,7 @@ Author: Jevgeni Ziebart
 Function CreatePartition
 {
 	for ($i=0; $i -le 2; $i++){
-		Get-Disk | Where partitionstyle -eq 'raw' | Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter -Size 10GB |Format-Volume -FileSystem NTFS
+		Get-Disk | Where partitionstyle -eq 'raw' | Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter -Size 2GB |Format-Volume -FileSystem NTFS
 	}
 }
 #entry point
