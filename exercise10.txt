@@ -1,0 +1,18 @@
+Windows 2000 und XP
+1. Legen Sie die Windows-CD ins Laufwerk und starten Sie Ihren PC
+2. Booten Sie von CD
+3. Navigieren Sie durch Drücken der Taste [R] zum "Reparaturmenü" und öffnen Sie dort mittels [K] die "Wiederherstellungskonsole"
+4. In der Konsole geben Sie zunächst "fixboot c:" ein (ist Ihr Betriebssystem auf einer anderen Partition als "c" installiert, ersetzen Sie das "c" durch den korrekten Laufwerkbuchstaben)
+5. Geben Sie anschließend "fixmbr c:" ein (Laufwerk-Buchstaben gegebenenfalls wieder ersetzen)
+6. Das Ersetzen der Sektoren kann bis zu 15 Minuten dauern. Im Anschluss können Sie Ihren PC neu starten und wieder wie gewohnt von der Festplatte booten
+
+Windows Vista, 7 und 
+1. Legen Sie die Windows-CD oder die Wiederherstellungs-CD ins Laufwerk und starten Sie Ihren PC
+2. Booten Sie von CD
+3. Drücken Sie eine beliebige Taste, um von CD zu starten. Navigieren Sie zur "Problembehandlung" und öffnen Sie dort in den "erweiterten Optionen" die "Eingabeaufforderung"
+4. Es öffnet sich die Konsole, in der Sie zunächst "bootrec.exe /fixboot" eingeben
+5. Geben Sie anschließend "bootrec.exe /fixmbr" ein
+6. Das Ersetzen der Sektoren kann bis zu 15 Minuten dauern. Im Anschluss können Sie Ihren PC neu starten und wieder von der Festplatte booten.
+
+Anmerkung:
+Neben dem oben aufgeführten Weg, gibt es auch die Möglichkeit diverse Tools zu verwenden.
