@@ -1,0 +1,12 @@
+script01.ps1 ~works
+script02.ps1 ~works
+script03.ps1 ~works
+script04.ps1 ~incomplete
+script05.ps1 ~works
+script06.ps1 ~not working
+script07.ps1 ~cant test it
+script08.ps1 ~works
+script09.ps1 ~cant test it
+exercise_10.txt ~seems to be okay
+script11.ps1 ~incomplete
+script12.ps1 ~works
