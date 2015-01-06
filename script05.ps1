@@ -1,8 +1,8 @@
 ﻿<#
 .Synopsis
-	The following script clears the temp folders.
+	The following script clears all temp folders.
 .DESCRIPTION
-	The following script clears the temp folders.   
+	The following script clears all temp folders.   
 .EXAMPLE
    .\script05.ps1
 #>

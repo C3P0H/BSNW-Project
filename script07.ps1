@@ -1,8 +1,8 @@
 ﻿<#
 .Synopsis
-    the following script creatss Networkdrives
+    the following script creats multiple Networkdrives
 .DESCRIPTION
-    the following script creatss Networkdrives
+    the following script creats multiple Networkdrives
 .PARAMETER ServerPath
     Enter the Path of the Server
 .EXAMPLE

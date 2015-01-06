@@ -1,14 +1,16 @@
 <#
 .Synopsis
-    The following script switch the name of two Files.
+    The following script swappes the names of two Files.
 .DESCRIPTION
-    The following script switch the name of two Files.
+    The following script swappes the names of two Files.
 .PARAMETER Path
     The Path of the folder
-.PARAMETER Document_1
-    The Name of the first Document
+.PARAMETER PathDocument1
+    The path of the first document
 .PARAMETER Document_2
-    The Name of the second Document
+    The path of the second document
+.EXAMPLE
+    ./script06 -PathDocument1 C:/Dokumente/Bewerbung1.doc -PathDocument2 C:/Dokumente/Lebenslauf3.doc
 #>
 
 <#
