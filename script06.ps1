@@ -7,7 +7,7 @@
     The Path of the folder
 .PARAMETER PathDocument1
     The path of the first document
-.PARAMETER Document_2
+.PARAMETER PathDocument2
     The path of the second document
 .EXAMPLE
     ./script06 -PathDocument1 C:/Dokumente/Bewerbung1.doc -PathDocument2 C:/Dokumente/Lebenslauf3.doc
