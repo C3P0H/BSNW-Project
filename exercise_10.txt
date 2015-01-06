@@ -1,0 +1,16 @@
+Eine mögliche Methode zur Wiederherstellung des Bootsektors ist, das Booten von der
+Installations-CD und wählt der Sprache, danach den Punkt Computerreparaturoption.
+Im Folge Fenster sollte eine Windows Version eingetragen sein, wenn nicht öffnet man über
+die Wiederherstellungstool die Konsole, in der Konsole führt man die Befehle bootrec.exe /fixboot,
+dieser Überschreibt den alten Bootsektor und Bootrec.exe /fixmbr, dabei wird das Alte MBR
+überschrieben. Infolge führt man den Befehl bootrec /rebuildbcd aus. Dabei werden alle Datenträger
+nach einer Windows Version (Windows 7 und Vista) abgesucht. Alles nächstes Start man über die Konsole DISKPART.
+Dann lässt man sich mit list Disk alle Festplatten anzeigen. Danach wählt man mit select disk [Nummer der Festplatte]
+die Festplatte mit der Windows Partition. Mit list partition werden alle Pratition auf der
+Gewählten Festplatte ausgegeben. Mit select partition [Nummer der Partition] wählt man die
+Windows Partition. Anschließend setzt man die Partition mit active aktiv damit die Boot-Partition
+aktiviert wird (Windows-Partition). Dann schleißt man mit exit Diskpart und die Konsole.
+Anschließend startet man neu. Man bootet aber wieder von der Installations-CD dort wählt man wieder die
+Computerreparaturoption. Jetzt sollte eine Windows Version angezeigt werden, wenn ja
+wählt man über die Wiederherstellungstools Systemreparatur. Danach sollte Windows wie
+gewohnt starten.
