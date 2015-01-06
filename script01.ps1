@@ -13,13 +13,5 @@
 Author: Marvin Ecker
 #>
 
-
-[CmdletBinding()]
-Param
-(
-    [Parameter(Mandatory=$true)]
-    [String[]]$ComputerName
-)
-
 #entry point
-Stop-Computer -ComputerName $ComputerName -Confirm
+Stop-Computer

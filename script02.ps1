@@ -32,7 +32,7 @@ Function CopyArchiveFiles
     foreach($file in $files)
     {
         If((Get-ItemProperty -Path $file.FullName).Attributes -band $attribute){
-               Copy-Item $file.FullName -Destination $BackupPath -Confirm
+               Copy-Item $file.FullName -Destination $BackupPath
         }
     }
 }
@@ -51,6 +51,7 @@ Function CheckParameters
 {
     if (! (Test-Path -Path $SourcePath)){
         Write-Host "SourceDirectory does not exists"
+        Exit
     }
 
     if (! (Test-Path -Path $BackupPath)){
