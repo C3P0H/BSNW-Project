@@ -1,9 +1,9 @@
 script01.ps1 ~works
 script02.ps1 ~works
 script03.ps1 ~works
-script04.ps1 ~incomplete
+script04.ps1 ~works
 script05.ps1 ~works
-script06.ps1 ~not working
+script06.ps1 ~works
 script07.ps1 ~cant test it
 script08.ps1 ~works
 script09.ps1 ~cant test it

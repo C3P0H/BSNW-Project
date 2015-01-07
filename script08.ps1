@@ -8,7 +8,7 @@
 .PARAMETER BackupPath
    Enter the path of your flashdrive you want to backup your USB-Flashdrive to
 .EXAMPLE
-   script08.ps1 -UsbDriverletter D:\ -BackupPath C:\Backup -DeleteFiles $false
+   script08.ps1 -UsbDriverletter D:\ -BackupPath C:\Backup 
 #>
 
 <#

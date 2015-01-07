@@ -6,7 +6,7 @@
 .PARAMETER BackupPath
    Enter the path of your flashdrive you want to backup your USB-Flashdrive to  
 .EXAMPLE
-   script12.ps1 -BackupPath C:\Backup -DeleteFiles -false
+   script12.ps1 -BackupPath C:\Backup
 #>
 
 <#
