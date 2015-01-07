@@ -19,58 +19,57 @@ Param
     [String]$ServerPath = ""
 )
 
-$User = $env:USERNAME;
-$UserDrivePath = "";
-$PublicDrivePath = "";
-$SecretDrivePath = "";
-$CopyPath = "";
-$Password = "1234567890";
-$GroupMembers = "";
+$User = $env:USERNAME
+$UserDrivePath = ""
+$PublicDrivePath = ""
+$SecretDrivePath = ""
+$CopyPath = ""
+$GroupMembers = ""
 
-$ServerPath = "//$Serverpath";
+$ServerPath = "//$Serverpath"
 
-Function UserDrive
+Function UserDrive()
 {
-    $UserDrivePath = Join-Path $ServerPath $User;
-    net use H: $UserDrivePath /user:$User $Password;
+    $UserDrivePath = Join-Path $ServerPath $User
+    New-PSDrive -Persist -Name H -PSProvider FileSystem -Root $UserDrivePath -Scope Global
 }
 
-Function PublicDrive
+Function PublicDrive()
 {
-    $PublicDrivePath = Join-Path $ServerPath "public";
-    net use P: $PublicDrivePath /user:$User $Password;
+    $PublicDrivePath = Join-Path $ServerPath "Public"
+    New-PSDrive -Persist -Name P -PSProvider FileSystem -Root $PublicDrivePath -Scope Global
 }
 
-Function SecretDrive 
+Function SecretDrive()
 {
-    $GroupMembers = net localgroup administratoren;
+    $GroupMembers = net localgroup administratoren
     for($i=0;$i -lt $GroupMembers.Length;$i++)
     {
-        $SecretDrivePath = Join-Path $ServerPath "Geheim";
+        $SecretDrivePath = Join-Path $ServerPath "Geheim"
         if($GroupMembers.Item($i) -eq $User)
         {
-            net use G: $SecretDrivePath /user:$User $Password;
+            New-PSDrive -Persist -Name G -PSProvider FileSystem -Root $SecretDrivePath -Scope Global
         }
     }
 }
 
-Function CopyFile
+Function CopyFile()
 {
-    $CopyPath = Join-Path $ServerPath "Geheim\aufgaben.txt";
-    Copy $CopyPath C:\Users\$User\Desktop;
+    $CopyPath = Join-Path $ServerPath "Geheim\aufgaben.txt"
+    Copy $CopyPath C:\Users\$User\Desktop
 }
 
-Function UserWelcome
+Function UserWelcome()
 {
-    cls;
-    echo "Hallo,$User";
-    date;
-    pause;
+    Clear-Host
+    Write-Host "Hallo,$User"
+    Get-date -Format F
+    pause
 }
 
 #entry point
-UserDrive;
-PublicDrive;
-SecretDrive;
-UserWelcome;
-CopyFile;
+UserDrive
+PublicDrive
+SecretDrive
+CopyFile
+UserWelcome
