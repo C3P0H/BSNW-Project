@@ -31,7 +31,7 @@ Param
 Function DeleteFiles ()
 {
 $Drive = Join-Path $Drive "$Pc_Number$Type$Room_Number\*"
-echo $Drive
+Write-Host $Drive
 Remove-Item  $Drive -Force -Recurse
 }
 
